@@ -13,5 +13,12 @@ public class Principal {
         System.out.println("el saldo es: "+cuentaBanc.mostrarSaldo());
 
 
+        System.out.println(cuentaBanc.saldoDisponible(100));
+        System.out.println(cuentaBanc.saldoDisponible(3000));
+        cuentaBanc.retira(200);
+        System.out.println("el saldo es: "+cuentaBanc.mostrarSaldo());
+
+
+
     }
 }

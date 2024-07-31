@@ -21,4 +21,14 @@ public class CuentaBancaria {
             System.out.println("Error");
         }
     }
+    public boolean saldoDisponible(double valor){
+        return saldo >= valor;
+    }
+    public void retira(double valor){
+        if (saldoDisponible(valor)){
+            saldo -= valor;
+        }else{
+            System.out.println("Error");
+        }
+    }
 }
