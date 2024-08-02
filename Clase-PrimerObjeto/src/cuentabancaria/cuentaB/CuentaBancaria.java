@@ -9,12 +9,25 @@ public class CuentaBancaria {
     private String tipo;
 
     // constructor
-    public CuentaBancaria(String alias, double saldo) {
+    public CuentaBancaria(String alias, String moneda, String tipo) {
         this.CBU = generarCBU();
         setAlias(alias);
-        this.saldo = saldo;
         setMoneda(moneda);
         setTipo(tipo);
+    }
+
+    public CuentaBancaria() {
+    }
+
+    public CuentaBancaria(String moneda, String tipo) {
+        this("jujujuju",moneda, tipo);
+        // para evitar volver a escribir podemos sobrecargar metodos con this()
+
+        // tiene se repiten datos similares
+//        this.CBU = generarCBU();
+//        this.alias = "fhjfhdj";
+//        this.moneda = moneda;
+//        this.tipo = tipo;
     }
 
     public String getAlias() {
@@ -50,11 +63,11 @@ public class CuentaBancaria {
     }
 
     public String generarCBU(){
-        return "r56rt3748";
+        return "jajajajaj";
     }
 
     public void mostrarDatos(){
-        System.out.println(CBU+" - "+alias+" - "+saldo);
+        System.out.println(CBU+" - "+alias+" - "+saldo+" - "+moneda);
     }
 
     public double mostrarSaldo(){
