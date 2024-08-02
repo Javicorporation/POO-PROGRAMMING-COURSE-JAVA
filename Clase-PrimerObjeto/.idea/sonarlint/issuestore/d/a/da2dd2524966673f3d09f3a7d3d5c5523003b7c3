@@ -1,9 +1,2 @@
 
-‘
-java:S1192"NDefine a constant instead of duplicating this literal "el saldo es: " 3 times.(­¼è£8¾ô¡Ñ2J$4e05c3b5-ffaf-4a6f-a262-775b641af6b3
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( º…ì8¤€¡Ñ2J$56e709d3-498b-4305-aafa-ad56fd82d993
-m	java:S106"+Replace this use of System.out by a logger.(­¼è£8¹€¡Ñ2J$1a63fcb0-3727-4e9a-8120-9f22c35ccd2a
-m	java:S106"+Replace this use of System.out by a logger.(­¼è£8¾€¡Ñ2J$2bd63f74-1baf-490e-b631-605a73898fa3
-r	java:S106"+Replace this use of System.out by a logger.(æÍªøÿÿÿÿ8¾€¡Ñ2J$88efe079-c3a6-4154-836f-bdec3f6500db
-m	java:S106"+Replace this use of System.out by a logger.(á‘–í8¾€¡Ñ2J$adbe727c-9581-42fe-a670-b9adc77d7469
-m	java:S106"+Replace this use of System.out by a logger.(­¼è£8Óô¡Ñ2J$a3961234-390c-43ff-8523-597f87a354fd
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( º…ì8ÑŸÚ§‘2J$fb46ac4b-5a62-4602-a24a-ca03c7f5ffc3
