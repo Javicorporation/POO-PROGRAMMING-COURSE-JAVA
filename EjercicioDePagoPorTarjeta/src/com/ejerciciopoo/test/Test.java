@@ -12,6 +12,7 @@ public class Test {
         System.out.println();
 
         System.out.println("tiket tras pagar");
+
         Tiket tiket = postnet.efectuarPago(100,tarjeta1,5);
         System.out.println(tiket);
         System.out.println();

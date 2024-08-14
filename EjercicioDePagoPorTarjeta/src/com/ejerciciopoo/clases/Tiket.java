@@ -2,12 +2,12 @@ package com.ejerciciopoo.clases;
 
 public class Tiket {
     private String nombreapellido;
-    private double nomtoAPagar;
-    private int cuotas;
+    private double montoPorFinalAPagar;
+    private double montoCuota;
 
-    public Tiket(String nombreapellido, double nomtoAPagar, int cuotas) {
+    public Tiket(String nombreapellido, double montoPorFinalAPagar, double montoCuota) {
         this.nombreapellido = nombreapellido;
-        this.nomtoAPagar = nomtoAPagar;
-        this.cuotas = cuotas;
+        this.montoPorFinalAPagar = montoPorFinalAPagar;
+        this.montoCuota = montoCuota;
     }
 }

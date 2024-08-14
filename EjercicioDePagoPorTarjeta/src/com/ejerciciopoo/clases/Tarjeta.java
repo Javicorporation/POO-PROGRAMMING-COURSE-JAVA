@@ -23,9 +23,6 @@ public class Tarjeta {
         return numeroTarjeta;
     }
 
-    public double getSaldoDisponible() {
-        return saldoDisponible;
-    }
 
     public Titular getTitular() {
         return titular;
@@ -45,4 +42,17 @@ public class Tarjeta {
                 ", nombreEntidadFinanciera=" + nombreEntidadFinanciera +
                 '}';
     }
+
+    public boolean fondosDeTarjeta(double monto){
+        return  monto >= saldoDisponible;
+    }
+    public String nombreAp (){
+        return titular.nombrApell();
+    }
+
+    public double descontar(double monto){
+        return  saldoDisponible -=monto;
+    }
+
+
 }

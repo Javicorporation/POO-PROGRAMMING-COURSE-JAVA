@@ -46,4 +46,10 @@ public class Titular {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    public String nombrApell(){
+        return nombre+" "+apellido;
+    }
+
+
 }
