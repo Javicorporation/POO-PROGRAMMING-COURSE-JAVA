@@ -44,7 +44,7 @@ public class Tarjeta {
     }
 
     public boolean fondosDeTarjeta(double monto){
-        return  monto >= saldoDisponible;
+        return  saldoDisponible >= monto;
     }
     public String nombreAp (){
         return titular.nombrApell();

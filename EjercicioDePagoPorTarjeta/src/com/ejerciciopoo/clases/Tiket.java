@@ -10,4 +10,13 @@ public class Tiket {
         this.montoPorFinalAPagar = montoPorFinalAPagar;
         this.montoCuota = montoCuota;
     }
+
+    @Override
+    public String toString() {
+        return "Tiket{" +
+                "nombreapellido='" + nombreapellido + '\'' +
+                ", montoPorFinalAPagar=" + montoPorFinalAPagar +
+                ", montoCuota=" + montoCuota +
+                '}';
+    }
 }
