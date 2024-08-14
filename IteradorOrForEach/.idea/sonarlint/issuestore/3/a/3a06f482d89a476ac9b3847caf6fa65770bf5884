@@ -1,3 +1,8 @@
 
-m	java:S106 "+Replace this use of System.out by a logger.(¬É”Â8è ö”2J$6f909161-2870-48a3-b1b1-8ef0a48dacb0
-m	java:S106&"+Replace this use of System.out by a logger.(¬É”Â8æ¡ö”2J$26878d2a-0155-4637-85c9-5b42e91831be
+d
+java:S1192"GDefine a constant instead of duplicating this literal "juanin" 3 times.(íÀ8•’Óö”2
+~	java:S125"<This block of commented-out lines of code should be removed.(¯ßº¨8äşĞö”2J$6f930ba2-2287-408c-bfc6-d82e11da273f
+~	java:S125&"<This block of commented-out lines of code should be removed.(Œ”Ü8äşĞö”2J$82074917-6f0e-40f3-873f-468d918f01de
+m	java:S106."+Replace this use of System.out by a logger.(¬É”Â8××Ñö”2J$f0ebdc67-9a66-453e-9364-aa7bdb6d511e
+r
+java:S1128"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ8äşĞö”2J$4b6ebd35-6dba-4ff6-8836-072117cba4e6

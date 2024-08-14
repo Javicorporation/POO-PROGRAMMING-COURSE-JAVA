@@ -74,3 +74,5 @@ w
 G.idea/sonarlint/issuestore/a/e/ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1,6\2\6248197ca7a44d8bc42b5bd6cd80cd6e99143261
 Å
 Q.idea/sonarlint/securityhotspotstore/a/e/ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1,e\3\e36d3b35b0aa033dfcf067b2cd16117a306b1e80
+^
+.src/com/iteradororforeach/IteratorAndJSON.java,4\c\4ce4067c3bed71ebce60392c3ec3b928b9155f56

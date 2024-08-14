@@ -15,27 +15,36 @@ public class Principal {
         nombres.add("licia");
         nombres.add("carmen");
         nombres.add("luis");
+        nombres.add("juanin");
         nombres.add("maria");
         nombres.add("mario");
 
 
         // creamos un iterador de tipo String y iteramos la lista nombres de manera secuencial
                               // este metodo .iterator() nos devuelve un iterador para la lista de nombres
-        Iterator<String> it = nombres.iterator();
-        // mientras existan mas elementos en la lista que no han sido iterados retorna true y si no hay mas retorna false
+//        Iterator<String> it = nombres.iterator();
+//        // mientras existan mas elementos en la lista que no han sido iterados retorna true y si no hay mas retorna false
+//
+//        while(it.hasNext()){
+//            String nombre = it.next();
+//            if(nombre.equals("juanin")){
+//                it.remove();
+//            }else {
+//                System.out.println(nombre);
+//            }
+//        }
 
-        while(it.hasNext()){
-            String nombre = it.next();
-            if(nombre.equals("juanin")){
-                it.remove();
+        // usando un foreach
+//        for (String nombre : nombres) {
+//            System.out.println(nombre);
+//        }
+
+        for (Object nombre : nombres.toArray()) {
+            if (nombre.equals("juanin")){
+                nombres.remove(nombre);
             }else {
                 System.out.println(nombre);
             }
-        }
-
-        // usando un foreach
-        for (String nombre : nombres) {
-            System.out.println(nombre);
         }
 
     }
