@@ -11,10 +11,12 @@ public class Test {
 
 
 
-        consesionaria.agregarAuto(new Auto("RYRT37","verde"));
-        consesionaria.agregarAuto(new Auto("RYRT37","azul"));
-        consesionaria.agregarAuto(new Auto("RYRT37","rojo"));
+        consesionaria.agregarAuto(new Auto("RYRT37","verde",203));
+        consesionaria.agregarAuto(new Auto("RYRT37","azul",300));
+        consesionaria.agregarAuto(new Auto("RYRT37","rojo",400));
         consesionaria.mostrarConcesionaria();
+        System.out.println();
+        System.out.println("promedio de kilometros: "+consesionaria.promedioKilometrosRe());
 
 
 

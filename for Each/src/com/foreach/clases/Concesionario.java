@@ -35,6 +35,24 @@ public class Concesionario {
         }
     }
 
+    private double sumatoriaKilo(){
+        double sumatoria = 0;
+        for (Auto auto : autos){
+            sumatoria+=auto.getKilometroR();
+        }
+        return sumatoria;
+    }
+
+    public double promedioKilometrosRe(){
+        double promedio = 0;
+        if (autos.isEmpty()){
+            return promedio;
+        }
+        double sumatoria = sumatoriaKilo();
+        return  sumatoria/autos.size();
+
+    }
+
 
 
     public void agregarAuto(Auto auto) {
