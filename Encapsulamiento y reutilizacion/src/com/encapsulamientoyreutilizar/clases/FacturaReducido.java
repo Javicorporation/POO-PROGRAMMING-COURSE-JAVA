@@ -1,7 +1,7 @@
 package com.encapsulamientoyreutilizar.clases;
 
-public class FacturaSinIva extends Factura{
-    public FacturaSinIva(int id, String concepto, double importe) {
+public class FacturaReducido extends Factura{
+    public FacturaReducido(int id, String concepto, double importe) {
         super(id, concepto, importe);
     }
 
