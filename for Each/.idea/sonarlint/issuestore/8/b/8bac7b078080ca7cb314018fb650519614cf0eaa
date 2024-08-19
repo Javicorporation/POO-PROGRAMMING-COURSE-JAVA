@@ -1,7 +1,5 @@
 
-
-java:S1192"GDefine a constant instead of duplicating this literal "RYRT37" 3 times.(°§ôÎúÿÿÿÿ8ıÑ¼Á•2J$093067bd-b9ae-4ca7-9022-e76d2de25516
-r	java:S106
-"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ8˜¼•Á•2J$22f8559f-5cb3-4006-b339-e0e20d61aea7
-r	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8š¼•Á•2J$14a7a5bc-281b-437f-8f87-03369da6397c
-r	java:S106"+Replace this use of System.out by a logger.( ÷ú®ıÿÿÿÿ8š¼•Á•2J$2087c9dc-2ac0-43ee-816d-2d9d76f09362
+~	java:S125"<This block of commented-out lines of code should be removed.(ªóñé8ÙÆÍæ–2J$1eea0755-9668-4642-8c6b-6f5b5edbef7a
+m	java:S106"+Replace this use of System.out by a logger.(¨Œœª8âÆÍæ–2J$58808e8a-00fd-41ee-997d-c2d985c3972b
+r	java:S106"+Replace this use of System.out by a logger.(›¢ö¤ıÿÿÿÿ8äÆÍæ–2J$4cdef725-50ff-41ed-9040-f093df0b23de
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(¯÷ØÔÿÿÿÿÿ8äÆÍæ–2J$806f2d44-9898-4eaa-be4d-cb4634c8e0c1

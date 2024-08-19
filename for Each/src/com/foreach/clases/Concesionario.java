@@ -53,8 +53,31 @@ public class Concesionario {
 
     }
 
+    public Auto buscarAuto(String patente){
+        Auto autoEncontrado = null;
+        /*
+        for (Auto auto : autos){
+            System.out.println("hghgh");
+            if (auto.getModelo().equalsIgnoreCase(patente)) {
+                autoEncontrado = auto;
+            }
+        }*/
+        int i = 0;
+        while (i < autos.size() && autoEncontrado == null){
+            Auto auto = this.autos.get(i);
+            System.out.println("Buscando autos:"+ auto.getModelo());
+            if (auto.getModelo().equalsIgnoreCase(patente)) {
+                autoEncontrado = auto;
+            }
+            i++;
+        }
+        return autoEncontrado;
+
+    }
 
 
+
+    //////////////////////////////////////
     public void agregarAuto(Auto auto) {
         this.autos.add(auto);
     }
