@@ -1,6 +1,7 @@
 package com.mayorymenorarraylist.Clases;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Consesionario {
 
@@ -11,30 +12,49 @@ public class Consesionario {
         autos.add(auto);
     }
 
-    public Auto autokilomMaximo(){
+//    public Auto autokilomMaximo(){
+//        int maxKilo = -1;
+//        Auto maxAuto = null;
+//        for (Auto auto : autos) {
+//            if (auto.getKilometraje() > maxKilo) {
+//                maxKilo = auto.getKilometraje();
+//                //System.out.println(maxKilo);
+//                maxAuto = auto;
+//            }
+//        }
+//        return maxAuto;
+//    }
+
+
+
+//    public Auto autokilomMinimo(){
+//        int minKilo = Integer.MAX_VALUE;
+//        Auto minAuto = null;
+//        for (Auto auto : autos) {
+//            if (auto.getKilometraje() < minKilo) {
+//                minKilo = auto.getKilometraje();
+//                //System.out.println(minKilo);
+//                minAuto = auto;
+//            }
+//        }
+//        return minAuto;
+//    }
+
+
+    // guardar los autos  con mayor kilometraje con una sola recorrida del arrayList
+    public List<Auto> obtenerAutosConMayorKilo() {
+        ArrayList<Auto> listaAutos = new ArrayList<>();
         int maxKilo = -1;
-        Auto maxAuto = null;
         for (Auto auto : autos) {
-            if (auto.getKilometraje() > maxKilo) {
+            if (auto.getKilometraje() == maxKilo){
+                listaAutos.add(auto);
+            }
+            else if (auto.getKilometraje() > maxKilo) {
                 maxKilo = auto.getKilometraje();
-                //System.out.println(maxKilo);
-                maxAuto = auto;
+                listaAutos.clear();
+                listaAutos.add(auto);
             }
         }
-        return maxAuto;
-    }
-
-
-    public Auto autokilomMinimo(){
-        int minKilo = Integer.MAX_VALUE;
-        Auto minAuto = null;
-        for (Auto auto : autos) {
-            if (auto.getKilometraje() < minKilo) {
-                minKilo = auto.getKilometraje();
-                //System.out.println(minKilo);
-                minAuto = auto;
-            }
-        }
-        return minAuto;
+        return listaAutos;
     }
 }
