@@ -63,17 +63,17 @@ public class Concesionario {
             }
         }*/
         int i = 0;
-        while (i < autos.size() && autoEncontrado == null){
-            Auto auto = this.autos.get(i);
-            System.out.println("Buscando autos:"+ auto.getModelo());
-            if (auto.getModelo().equalsIgnoreCase(patente)) {
-                autoEncontrado = auto;
-            }
+        while (i < autos.size() && !this.autos.get(i).getModelo().equalsIgnoreCase(patente)){
             i++;
+        }
+        if (i < autos.size()){
+            autoEncontrado = autos.get(i);
         }
         return autoEncontrado;
 
     }
+
+
 
 
 
