@@ -1,6 +1,7 @@
 package com.foreach.clases;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Concesionario {
 
@@ -55,6 +56,8 @@ public class Concesionario {
 
     public Auto buscarAuto(String patente){
         Auto autoEncontrado = null;
+        Iterator<Auto> iterator = autos.iterator();
+
         /*
         for (Auto auto : autos){
             System.out.println("hghgh");
@@ -63,11 +66,11 @@ public class Concesionario {
             }
         }*/
         int i = 0;
-        while (i < autos.size() && !this.autos.get(i).getModelo().equalsIgnoreCase(patente)){
-            i++;
-        }
-        if (i < autos.size()){
-            autoEncontrado = autos.get(i);
+        while (iterator.hasNext() && autoEncontrado == null){
+            Auto a = iterator.next();
+            if (a.getModelo().equalsIgnoreCase(patente)) {
+                autoEncontrado = a;
+            }
         }
         return autoEncontrado;
 
