@@ -13,10 +13,15 @@ public class Test {
         cargarfabrica(fabrica);
         //fabrica.listarIntrumentos();
 
-        ArrayList<Instrumento> lista= fabrica.obtenerIntrumentoPorTipo(TipoInstrumento.VIENTO);
-        for (Instrumento i : lista){
-            System.out.println(i);
-        }
+        Instrumento instrumento = fabrica.borrarElemeto("HDPUIY");
+        System.out.println("Elememto borrado: "+ instrumento);
+
+        fabrica.listarIntrumentos();
+
+//        ArrayList<Instrumento> lista= fabrica.obtenerIntrumentoPorTipo(TipoInstrumento.VIENTO);
+//        for (Instrumento i : lista){
+//            System.out.println(i);
+//        }
 
 
     }

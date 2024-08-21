@@ -11,6 +11,9 @@ public class Instrumento {
         this.tipo = tipo;
     }
 
+    public String getID() {
+        return ID;
+    }
 
     public double getPrecio() {
         return precio;

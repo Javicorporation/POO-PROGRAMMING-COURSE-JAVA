@@ -45,4 +45,24 @@ public class Sucursal {
         }
         return listaTipo;
     }
+
+    private Instrumento buscarInstrumento(String id){
+        Instrumento instrumentoABuscar= null;
+        int i = 0;
+        while (i < instrumentos.size() && !this.instrumentos.get(i).getID().equalsIgnoreCase(id)) {
+            i++;
+        }
+        if (i < instrumentos.size()){
+            instrumentoABuscar = this.instrumentos.get(i);
+        }
+        return instrumentoABuscar;
+    }
+
+    public Instrumento borraintrumentoId (String id){
+        Instrumento intrumentoABorrar = buscarInstrumento(id);
+        this.instrumentos.remove(intrumentoABorrar);
+        return intrumentoABorrar;
+    }
+
+
 }

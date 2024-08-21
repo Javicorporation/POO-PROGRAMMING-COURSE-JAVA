@@ -30,4 +30,15 @@ public class Fabrica {
         }
         return listaTipo;
     }
+
+    public Instrumento borrarElemeto(String id){
+        Instrumento borrado = null;
+        int i = 0;
+        while (i < listaSucursales.size() && borrado == null){
+            borrado = listaSucursales.get(i).borraintrumentoId(id);
+            i++;
+        }
+
+        return borrado;
+    }
 }
