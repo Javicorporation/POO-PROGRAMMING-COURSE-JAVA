@@ -13,7 +13,7 @@ public class Test {
         cargarfabrica(fabrica);
         //fabrica.listarIntrumentos();
 
-        ArrayList<Instrumento> lista= fabrica.obtenerIntrumentoPorTipo(TipoInstrumento.CUERDA);
+        ArrayList<Instrumento> lista= fabrica.obtenerIntrumentoPorTipo(TipoInstrumento.VIENTO);
         for (Instrumento i : lista){
             System.out.println(i);
         }
