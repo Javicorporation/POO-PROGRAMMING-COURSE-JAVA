@@ -20,6 +20,14 @@ public class Instrumento {
         this.precio = precio;
     }
 
+    public TipoInstrumento getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoInstrumento tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
         return "Instrumento{" +

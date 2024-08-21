@@ -5,11 +5,19 @@ import com.ejercicioarraylist.Clases.Instrumento;
 import com.ejercicioarraylist.Clases.Sucursal;
 import com.ejercicioarraylist.Clases.TipoInstrumento;
 
+import java.util.ArrayList;
+
 public class Test {
     public static void main(String[] args) {
         Fabrica fabrica = new Fabrica();
         cargarfabrica(fabrica);
-        fabrica.listarIntrumentos();
+        //fabrica.listarIntrumentos();
+
+        ArrayList<Instrumento> lista= fabrica.obtenerIntrumentoPorTipo(TipoInstrumento.CUERDA);
+        for (Instrumento i : lista){
+            System.out.println(i);
+        }
+
 
     }
 

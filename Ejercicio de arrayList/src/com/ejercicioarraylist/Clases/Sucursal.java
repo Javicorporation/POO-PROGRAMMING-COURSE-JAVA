@@ -35,4 +35,14 @@ public class Sucursal {
     public void agregarInstrumento(Instrumento instrumento){
         instrumentos.add(instrumento);
     }
+
+    public ArrayList<Instrumento> obtenerIntrumentoPorTipo(TipoInstrumento tipo){
+        ArrayList<Instrumento> listaTipo = new ArrayList<>();
+        for (Instrumento instrumento : instrumentos){
+            if (instrumento.getTipo() == tipo) {
+                listaTipo.add(instrumento);
+            }
+        }
+        return listaTipo;
+    }
 }

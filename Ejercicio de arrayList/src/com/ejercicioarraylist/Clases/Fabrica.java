@@ -18,4 +18,13 @@ public class Fabrica {
             sucursal.listarInstrumentos();
         }
     }
+
+    public ArrayList<Instrumento> obtenerIntrumentoPorTipo(TipoInstrumento tipo){
+        ArrayList<Instrumento> listaTipo = new ArrayList<>();
+        for (Sucursal sucursal: listaSucursales){
+            // para evitar un foreach y recorres cada sucursal por buscar podemos unar el método .addAll en listaTipo
+            listaTipo.addAll(sucursal.obtenerIntrumentoPorTipo(tipo));
+        }
+        return listaTipo;
+    }
 }
