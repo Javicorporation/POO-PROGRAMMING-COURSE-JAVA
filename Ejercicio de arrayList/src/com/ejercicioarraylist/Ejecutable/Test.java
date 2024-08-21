@@ -1,0 +1,35 @@
+package com.ejercicioarraylist.Ejecutable;
+
+import com.ejercicioarraylist.Clases.Fabrica;
+import com.ejercicioarraylist.Clases.Instrumento;
+import com.ejercicioarraylist.Clases.Sucursal;
+import com.ejercicioarraylist.Clases.TipoInstrumento;
+
+public class Test {
+    public static void main(String[] args) {
+        Fabrica fabrica = new Fabrica();
+        cargarfabrica(fabrica);
+        fabrica.listarIntrumentos();
+
+    }
+
+    // metodo para cargar la fabrica
+    public static void cargarfabrica(Fabrica fabrica){
+        // creamos sucursales
+        Sucursal a = new Sucursal("Lana");
+        Sucursal b = new Sucursal("mini");
+
+        // agregamos instrumentos a las sucursales existentes
+        a.agregarInstrumento(new Instrumento("HDDHDF",123, TipoInstrumento.CUERDA));
+        a.agregarInstrumento(new Instrumento("VNNHDF",143, TipoInstrumento.PERCUSION));
+        a.agregarInstrumento(new Instrumento("HDDERF",163, TipoInstrumento.VIENTO));
+
+        b.agregarInstrumento(new Instrumento("EQQWQF",183, TipoInstrumento.CUERDA));
+        b.agregarInstrumento(new Instrumento("HDPUIY",193, TipoInstrumento.PERCUSION));
+        b.agregarInstrumento(new Instrumento("QWQQWQ",103, TipoInstrumento.VIENTO));
+
+        // agregamos las sucursales a la fabrica
+        fabrica.agregarSucursal(a);
+        fabrica.agregarSucursal(b);
+    }
+}
