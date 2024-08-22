@@ -1,6 +1,6 @@
-package com.herencia.clases;
+package com.herencia.vehiculo;
 
-public class Auto extends Vehiculo{
+public class Auto extends Vehiculo {
     boolean tieneAire;
 
     void prenderAire(){

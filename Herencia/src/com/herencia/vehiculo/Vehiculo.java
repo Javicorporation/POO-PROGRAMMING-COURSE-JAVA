@@ -1,9 +1,9 @@
-package com.herencia.clases;
+package com.herencia.vehiculo;
 
 public class Vehiculo {
-    private String marca;
-    private String modelo;
-    private String patente;
+    protected String marca;
+    protected String modelo;
+    protected String patente;
 
     public void acelerar(){
         System.out.println("acelerar..");

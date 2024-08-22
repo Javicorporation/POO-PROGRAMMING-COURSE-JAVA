@@ -1,6 +1,6 @@
-package com.herencia.clases;
+package com.herencia.vehiculo;
 
-public class Moto extends Vehiculo{
+public class Moto extends Vehiculo {
 
     public int anchoDeManubrio;
 

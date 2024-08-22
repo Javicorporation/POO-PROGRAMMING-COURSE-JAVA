@@ -1,7 +1,7 @@
 package com.herencia.test;
 
-import com.herencia.clases.Auto;
-import com.herencia.clases.Moto;
+import com.herencia.vehiculo.Auto;
+import com.herencia.vehiculo.Moto;
 
 public class Test {
 
