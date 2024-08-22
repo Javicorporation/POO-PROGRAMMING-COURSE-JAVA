@@ -11,7 +11,7 @@ public class Test {
 
         Moto moto = new Moto();
         moto.acelerar();
-
+        moto.getMarca();
 
     }
 }
