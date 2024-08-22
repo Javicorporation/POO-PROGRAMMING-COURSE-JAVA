@@ -64,5 +64,23 @@ public class Sucursal {
         return intrumentoABorrar;
     }
 
+    public double[] porcentajeIntrumentoPorTipo(String nombre){
+        final int CANTIDAD_INTRUMENTOS = TipoInstrumento.values().length;
+        double[] porcentajeIntrumento = new double[CANTIDAD_INTRUMENTOS];
+        for (Instrumento instrumento : instrumentos){
+            porcentajeIntrumento[instrumento.getTipo().ordinal()]++;
+        }
+        porcentajeAbsoluto(porcentajeIntrumento);
+        return porcentajeIntrumento;
+    }
+
+
+    public void porcentajeAbsoluto(double[] porcentajeIntrumento){
+        for (int i = 0; i < porcentajeIntrumento.length; i++) {
+            porcentajeIntrumento[i] = (porcentajeIntrumento[i]*100)/instrumentos.size();
+        }
+    }
+
+
 
 }

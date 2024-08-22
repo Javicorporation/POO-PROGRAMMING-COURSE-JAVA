@@ -38,7 +38,30 @@ public class Fabrica {
             borrado = listaSucursales.get(i).borraintrumentoId(id);
             i++;
         }
-
         return borrado;
+    }
+
+    public Sucursal buscarSucursal(String nombre){
+        Sucursal sucursalABuscar = null;
+        int i = 0;
+        while (i < listaSucursales.size() && !listaSucursales.get(i).getNombreSucursal().equalsIgnoreCase(nombre)){
+            sucursalABuscar = listaSucursales.get(i);
+            i++;
+        }
+        if (i < listaSucursales.size()){
+            sucursalABuscar =this.listaSucursales.get(i);
+        }
+
+
+        return sucursalABuscar;
+    }
+
+    public double[] porcentajeIntrumento(String nombre){
+        double[] porcentajes = null;
+        Sucursal sucursalEncontrada = buscarSucursal(nombre);
+        if(sucursalEncontrada != null){
+            porcentajes= sucursalEncontrada.porcentajeIntrumentoPorTipo(nombre);
+        }
+        return porcentajes;
     }
 }
