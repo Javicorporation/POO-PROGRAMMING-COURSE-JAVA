@@ -8,7 +8,7 @@ public class Auto extends Vehiculo {
         this.tieneAire = tieneAire;
     }
 
-    void prenderAire(){
+    public void prenderAire(){
         if (tieneAire){
             System.out.println("encendido..");
         }

@@ -25,13 +25,22 @@ public class Concesionaria {
     }*/
 
     // forma de upcasting o generalizacion
-    ArrayList<Vehiculo> v ;
+    ArrayList<Vehiculo> vehiculos ;
     public Concesionaria() {
-        this.v = new ArrayList<>();
+        this.vehiculos = new ArrayList<>();
     }
 
     public void agregarVehiculo(Vehiculo v) {
-        System.out.println(v instanceof Moto);
-        this.v.add(v);
+        if (v instanceof Auto) {
+            // casteamos el vehiculo a un auto
+            Auto a =(Auto) v;
+            // y ya podemos usar los metodos del auto
+            a.prenderAire();
+
+            // se puede hacer asi tambien
+            //castear el auto en la misma linea
+            //((Auto) v).prenderAire();
+        }
+        this.vehiculos.add(v);
     }
 }

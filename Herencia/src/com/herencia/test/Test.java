@@ -19,7 +19,24 @@ public class Test {
 //        Vehiculo auto2 = new Auto("Toyota","6534732", "CBNVHD", true);
 
         Concesionaria c = new Concesionaria();
-        c.agregarVehiculo(new Auto("Toyota","6534732", "CBNVHD", true));
-        c.agregarVehiculo(new Moto("Toyota","6534732", "CBNVHD", 23));
+        Auto auto = new Auto("Toyota","6534732", "CBNVHD", true);
+
+       // upcasting
+       Vehiculo v = auto;
+
+       //Dawncasting
+       // lo contrario, esto da error por que el vehiculo no puede ser un auto
+        //Auto a2 = v;
+//        Auto a2 = (Auto) v;
+//        a2.prenderAire();
+
+        //Moto m2 = (Moto) v;
+        //m2.hacerCaballito();
+
+
+       //auto.prenderAire();
+
+       c.agregarVehiculo(auto);
+       c.agregarVehiculo(new Moto("Toyota","6534732", "CBNVHD", 23));
     }
 }
