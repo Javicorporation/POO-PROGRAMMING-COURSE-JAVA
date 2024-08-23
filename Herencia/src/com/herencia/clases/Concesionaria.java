@@ -1,5 +1,7 @@
 package com.herencia.clases;
 
+import com.herencia.vehiculo.Auto;
+import com.herencia.vehiculo.Moto;
 import com.herencia.vehiculo.Vehiculo;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class Concesionaria {
     }
 
     public void agregarVehiculo(Vehiculo v) {
+        System.out.println(v instanceof Moto);
         this.v.add(v);
     }
 }
