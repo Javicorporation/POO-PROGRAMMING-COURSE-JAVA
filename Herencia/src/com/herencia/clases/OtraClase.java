@@ -4,6 +4,6 @@ import com.herencia.vehiculo.Vehiculo;
 
 public class OtraClase {
     public OtraClase(){
-        Vehiculo v = new Vehiculo();
+        //Vehiculo v = new Vehiculo();
     }
 }
