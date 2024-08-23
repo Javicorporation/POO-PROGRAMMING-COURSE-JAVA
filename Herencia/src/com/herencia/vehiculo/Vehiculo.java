@@ -1,6 +1,6 @@
 package com.herencia.vehiculo;
 
-public class Vehiculo {
+public abstract class Vehiculo {
     private String marca;
     private String modelo;
     private String patente;

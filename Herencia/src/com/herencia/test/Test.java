@@ -37,6 +37,7 @@ public class Test {
        //auto.prenderAire();
 
        c.agregarVehiculo(auto);
+       //c.agregarVehiculo(new Vehiculo());
        c.agregarVehiculo(new Moto("Toyota","6534732", "CBNVHD", 23));
     }
 }
