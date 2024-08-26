@@ -1,12 +1,14 @@
 package com.herenciaejercicio.baraja.cartas;
 
+// creamos la clase carta con un atributo tapada
 public abstract class Carta {
     private boolean tapada;
 
-    public Carta(boolean tapada) {
-        this.tapada = tapada;
+    // creamos constructor vacio
+    public Carta() {
     }
 
+    // funciones
     public void darVuelta(){}
 
     public void mostrar(){}
