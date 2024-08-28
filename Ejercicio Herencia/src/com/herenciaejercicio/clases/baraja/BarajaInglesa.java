@@ -13,11 +13,14 @@ public class BarajaInglesa {
 
     public BarajaInglesa() {
         this.barajaCartas = new ArrayList<>();
+        generarCartas();
     }
 
     public void mostrarBarajaInglesa() {
         for(Carta carta : barajaCartas){
+            carta.darVuelta();
             carta.mostrar();
+
         }
     }
 
@@ -29,7 +32,7 @@ public class BarajaInglesa {
 
     private void generarCartasNumericas(){
         // creamos valores maximos y minimos
-        final int VALORMIN = 1;
+        final int VALORMIN = 2;
         final int VALORMAX = 10;
         //creamos un array de palos con el metodo values
         Palo[] palos = Palo.values();
@@ -38,7 +41,7 @@ public class BarajaInglesa {
         for (int i = 0; i < palos.length; i++) {
             // creamos una nueva variable palo actual y le asignamos i
             Palo paloActual = palos[i];
-            for (int j = 0; VALORMIN <= VALORMAX ; j++) {
+            for (int j = VALORMIN; j <= VALORMAX ; j++) {
                 // agregamos y generamos un objeto Carta numeral
                 this.barajaCartas.add(new CartaNumeral(j, paloActual));
 

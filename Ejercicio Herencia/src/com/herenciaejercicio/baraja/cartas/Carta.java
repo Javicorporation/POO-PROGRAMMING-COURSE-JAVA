@@ -4,14 +4,34 @@ package com.herenciaejercicio.baraja.cartas;
 public abstract class Carta {
     private boolean tapada;
 
+    public boolean isTapada() {
+        return tapada;
+    }
+
     // creamos constructor vacio
     public Carta() {
+        this.tapada = true;
     }
 
     // funciones
-    public void darVuelta(){}
+    public void darVuelta(){
+        tapada = !tapada;
+    }
 
-    public void mostrar(){}
+    // para evitar repetir esta lógica
+    // podemos crear una funcion para solo lo que cambia
+    public void mostrar(){
+        if (tapada){
+            System.out.println("***************************");
+        }else {
+            System.out.println(obtenerCarta());
+        }
+    }
+
+    // metodo para reutilizar
+    public String obtenerCarta(){
+        return "Ests e una carta generica";
+    }
 
     @Override
     public String toString() {

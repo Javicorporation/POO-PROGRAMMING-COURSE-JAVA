@@ -11,4 +11,8 @@ public enum Palo {
     Palo(Color color) {
         this.color = color;
     }
+
+    public Color getColor() {
+        return color;
+    }
 }

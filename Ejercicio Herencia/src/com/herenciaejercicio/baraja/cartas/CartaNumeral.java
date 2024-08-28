@@ -9,4 +9,11 @@ public class CartaNumeral extends CartaConPalo{
         super(palo);
         this.numero = numero;
     }
+
+    // metodo para reutilizar
+    @Override
+    public String obtenerCarta(){
+        return numero+" de "+getPalo();
+    }
+
 }

@@ -10,4 +10,12 @@ public class CartaFigura extends CartaConPalo{
         super(palo);
         this.letra = letra;
     }
+
+    // metodo para reutilizar
+    @Override
+    public String obtenerCarta(){
+        return letra+" de "+getPalo();
+    }
+
+
 }

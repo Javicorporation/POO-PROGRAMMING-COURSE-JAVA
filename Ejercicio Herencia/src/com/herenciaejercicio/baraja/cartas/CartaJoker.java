@@ -8,4 +8,10 @@ public class CartaJoker extends Carta{
         super();
         this.aColor = aColor;
     }
+
+    @Override
+    public String obtenerCarta(){
+        return "El Joker a "+ (aColor ? "Colores." : "Blanco y negro");
+    }
+
 }

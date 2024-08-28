@@ -7,6 +7,9 @@ public abstract class CartaConPalo extends Carta{
 
     private Palo palo;
 
+    public Palo getPalo() {
+        return palo;
+    }
 
     public CartaConPalo(Palo palo) {
         super();
