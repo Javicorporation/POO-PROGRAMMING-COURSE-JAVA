@@ -14,7 +14,7 @@ public class CartaFigura extends CartaConPalo{
     // metodo para reutilizar
     @Override
     public String obtenerCarta(){
-        return letra+" de "+getPalo();
+        return letra+super.mostrarPalo();
     }
 
 

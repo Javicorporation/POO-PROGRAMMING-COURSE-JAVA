@@ -15,4 +15,10 @@ public abstract class CartaConPalo extends Carta{
         super();
         this.palo = palo;
     }
+
+    public String mostrarPalo(){
+        return " de "+palo;
+    }
+
+
 }

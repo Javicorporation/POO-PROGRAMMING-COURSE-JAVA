@@ -13,7 +13,7 @@ public class CartaNumeral extends CartaConPalo{
     // metodo para reutilizar
     @Override
     public String obtenerCarta(){
-        return numero+" de "+getPalo();
+        return numero+super.mostrarPalo();
     }
 
 }
