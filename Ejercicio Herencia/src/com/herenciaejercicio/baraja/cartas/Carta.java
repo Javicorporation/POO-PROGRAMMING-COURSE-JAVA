@@ -29,9 +29,7 @@ public abstract class Carta {
     }
 
     // metodo para reutilizar
-    public String obtenerCarta(){
-        return "Ests e una carta generica";
-    }
+    public  abstract String obtenerCarta();
 
     @Override
     public String toString() {
