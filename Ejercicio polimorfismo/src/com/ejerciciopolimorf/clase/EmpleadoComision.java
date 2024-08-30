@@ -13,8 +13,16 @@ public class EmpleadoComision extends Empleado{
         this.montoPorCliente = montoPorCliente;
     }
 
+    public int getCantidadDeClientesCaptados() {
+        return cantidadDeClientesCaptados;
+    }
+
     @Override
     public double getSalario() {
-        return 0;
+        double sal = montoPorCliente * cantidadDeClientesCaptados;
+        if (sal < salarioMin) {
+            sal = salarioMin;
+        }
+        return sal;
     }
 }

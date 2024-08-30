@@ -13,5 +13,8 @@ public class Test {
         empresa.agregarEmpleado(new EmpleadoComision("76548", "Keren", "Silva", 2017, 30000, 200, 100));
         empresa.agregarEmpleado(new EmpleadoSalarioFijo("44345", "Juli", "Carrion", 2014, 10000));
 
+        empresa.mostrarEmpleados();
+        System.out.println("-------");
+        System.out.println(empresa.empleadoConMasClientes().mostrarNombres());
     }
 }

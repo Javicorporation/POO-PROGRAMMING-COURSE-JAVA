@@ -1,5 +1,7 @@
 package com.ejerciciopolimorf.clase;
 
+import java.time.LocalDate;
+
 public abstract class Empleado {
     private String DNI;
     private String nombre;
@@ -13,5 +15,23 @@ public abstract class Empleado {
         this.anioIngreso = anioIngreso;
     }
 
+    public String mostrarNombres(){
+        return nombre+" "+apellido;
+    }
+    public int aniosDeAntiguedad(){
+        int anioAct = LocalDate.now().getYear();
+        return anioAct - this.anioIngreso;
+    }
+
     public abstract double getSalario();
+
+//    @Override
+//    public String toString() {
+//        return "Empleado{" +
+//                "DNI='" + DNI + '\'' +
+//                ", nombre='" + nombre + '\'' +
+//                ", apellido='" + apellido + '\'' +
+//                ", anioIngreso=" + anioIngreso +
+//                '}';
+//    }
 }
