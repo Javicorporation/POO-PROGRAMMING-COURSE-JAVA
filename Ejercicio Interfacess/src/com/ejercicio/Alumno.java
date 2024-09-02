@@ -26,9 +26,18 @@ public class Alumno implements Aprobable{
                 '}';
     }
 
+    public void agregarExamen(Examen examen) {
+        examenes.add(examen);
+    }
+
     @Override
     public boolean aprobable() {
-        return false;
+        int i = 0;
+        while (i < examenes.size() && examenes.get(i).aprobable()) {
+
+            i++;
+        }
+        return i == examenes.size();
     }
 }
 

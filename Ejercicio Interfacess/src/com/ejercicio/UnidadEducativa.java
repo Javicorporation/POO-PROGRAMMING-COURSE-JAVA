@@ -6,10 +6,19 @@ public class UnidadEducativa {
     private ArrayList<Alumno> alumnos;
 
     public int cantidadAprobados(){
-        return 0;
+        int cantidad = 0;
+        for (Alumno a : alumnos) {
+            a.aprobable();
+            cantidad++;
+        }
+        return cantidad;
     }
 
     public UnidadEducativa() {
         this.alumnos = new ArrayList<>();
+    }
+
+    public void agregarAlumno(Alumno a){
+        alumnos.add(a);
     }
 }
