@@ -11,8 +11,8 @@ public class Test {
             z = x / y;
             System.out.println("Resultado: " + z);
         }catch (Exception e){
-            System.out.println("Error");
-            e.printStackTrace();
+            System.out.println("Error "+ e.getMessage()+" ");
+            e.printStackTrace(System.out);
         }
         System.out.println("Bye");
     }
