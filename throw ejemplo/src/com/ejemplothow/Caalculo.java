@@ -6,7 +6,7 @@ public class Caalculo {
             throw  new RuntimeException("no se puede calcular factorial");
         }
         if (n > 12) {
-            throw new IllegalArgumentException("no se puede obtener factorial a partir de 12");
+            throw new PersonalizacionException("no se puede obtener factorial a partir de 12");
         }
         int fact = 1;
         for (int i = 1; i <= n; i++) {
