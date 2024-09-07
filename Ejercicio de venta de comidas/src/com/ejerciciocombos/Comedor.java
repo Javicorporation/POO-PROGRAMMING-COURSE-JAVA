@@ -21,8 +21,9 @@ public class Comedor {
 
     public void menu(){
         int opcion = 0;
+        boolean finLopp = false;
         //Persona persona = null;//
-        while (opcion != 3){
+        do {
             System.out.println("bienvenido al comedor");
             System.out.println("1. Elegir Comida");
             System.out.println("2. Mostrar registro de ventas");
@@ -31,19 +32,17 @@ public class Comedor {
             opcion = getting.nextInt();
             switch(opcion){
                 case 1:
-                    guardarPersona();
                     menuDeCombos();
-
                 case 2:
                     System.out.println();
                 case 3:
-                    opcion = 3;
-                    System.out.println("adios");
+                    System.out.print("adios");
+                    finLopp = true;
                     break;
                 default:
                     System.out.println("Opcion no valida");
             }
-        }
+        }while (!finLopp);
 
     }
     public void guardarPersona(){
@@ -55,10 +54,29 @@ public class Comedor {
         usuarios.add(new Persona(nombre, apellido));
     }
 
+    public void mostrarFactura(int numCombo){
+
+        double iva = combos.get(numCombo).getPrecio() * 0.12;
+        double total = combos.get(numCombo).getPrecio() + iva;
+        System.out.println("-- Factura --");
+        System.out.println("Datos del comprador: "+ usuarios.get(numCombo).nombreApellido());
+
+        System.out.println("Producto: "+combos.get(numCombo).getNombreDeCombo());
+        System.out.println("Precio: "+combos.get(numCombo).getPrecio());
+
+        System.out.println("Iva: "+ iva);
+        System.out.println("Total: "+total);
+
+    }
+
+
+
 
     public void menuDeCombos() {
+        guardarPersona();
         int tope = combos.size() + 1;
         int opcion = 0;
+        boolean loop = false;
         do {
             System.out.println("Estos son los combos");
             for (int i = 0; i < combos.size(); i++) {
@@ -69,21 +87,9 @@ public class Comedor {
             opcion = getting.nextInt();
             if(opcion != tope){
                 mostrarFactura(opcion-1);
+                loop = true;
             }
-        }while (opcion != tope) ;
-    }
-    public void mostrarFactura(int numCombo, ){
-        double iva = combos.get(numCombo).getPrecio() * 0.12;
-        double total = combos.get(numCombo).getPrecio() + iva;
-
-        System.out.println("-- Factura --");
-        System.out.println("Producto: "+combos.get(numCombo).getNombreDeCombo());
-        System.out.println("Precio: "+combos.get(numCombo).getPrecio());
-
-        System.out.println("Iva: "+ iva);
-        System.out.println("Total: "+total);
-
-
+        }while (!loop) ;
     }
 
 }
