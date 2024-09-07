@@ -24,4 +24,8 @@ public class Persona {
                 ", apellido='" + apellido + '\'' +
                 '}';
     }
+
+    public String nombreApellido(){
+        return this.nombre+" "+apellido;
+    }
 }

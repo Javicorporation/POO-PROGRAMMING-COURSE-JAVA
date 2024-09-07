@@ -10,5 +10,6 @@ public class Test {
         comedor.agregarComida(new ComboDeComida("comboo familiar 4", 6.50));
         comedor.agregarComida(new ComboDeComida("comboo familiar 5", 2.50));
 
+        comedor.menu();
     }
 }
