@@ -34,7 +34,6 @@ public class Comedor {
                     guardarPersona();
                     menuDeCombos();
 
-
                 case 2:
                     System.out.println();
                 case 3:
@@ -73,13 +72,14 @@ public class Comedor {
             }
         }while (opcion != tope) ;
     }
-    public void mostrarFactura(int numCombo){
+    public void mostrarFactura(int numCombo, ){
         double iva = combos.get(numCombo).getPrecio() * 0.12;
         double total = combos.get(numCombo).getPrecio() + iva;
 
         System.out.println("-- Factura --");
         System.out.println("Producto: "+combos.get(numCombo).getNombreDeCombo());
         System.out.println("Precio: "+combos.get(numCombo).getPrecio());
+
         System.out.println("Iva: "+ iva);
         System.out.println("Total: "+total);
 
