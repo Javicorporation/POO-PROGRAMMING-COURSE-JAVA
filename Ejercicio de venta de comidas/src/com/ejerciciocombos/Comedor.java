@@ -7,9 +7,11 @@ import java.util.Scanner;
 public class Comedor {
     public Scanner getting = new Scanner(System.in);
     private List<ComboDeComida> combos;
+    private List<Persona> usuarios;
 
     public Comedor() {
         this.combos = new ArrayList<>();
+        this.usuarios = new ArrayList<>();
     }
 
     public void  agregarComida(ComboDeComida comida){
@@ -51,7 +53,7 @@ public class Comedor {
         nombre = getting.next();
         System.out.print("Escriba su apellido: ");
         apellido = getting.next();
-        Persona persona = new Persona(nombre, apellido);
+        usuarios.add(new Persona(nombre, apellido));
     }
 
 
@@ -66,11 +68,23 @@ public class Comedor {
             System.out.println(tope + ". Salir");
             System.out.print("Escoge una opcion: ");
             opcion = getting.nextInt();
+            if(opcion != tope){
+                mostrarFactura(opcion-1);
+            }
         }while (opcion != tope) ;
+    }
+    public void mostrarFactura(int numCombo){
+        double iva = combos.get(numCombo).getPrecio() * 0.12;
+        double total = combos.get(numCombo).getPrecio() + iva;
+
+        System.out.println("-- Factura --");
+        System.out.println("Producto: "+combos.get(numCombo).getNombreDeCombo());
+        System.out.println("Precio: "+combos.get(numCombo).getPrecio());
+        System.out.println("Iva: "+ iva);
+        System.out.println("Total: "+total);
 
 
-
-        }
+    }
 
 }
 

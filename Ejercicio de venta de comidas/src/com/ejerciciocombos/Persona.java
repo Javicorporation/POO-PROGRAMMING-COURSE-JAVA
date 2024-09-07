@@ -9,13 +9,6 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
 
     @Override
     public String toString() {
