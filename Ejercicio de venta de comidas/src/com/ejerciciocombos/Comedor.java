@@ -13,7 +13,6 @@ public class Comedor {
     public Comedor() {
         this.combos = new ArrayList<>();
         this.personas = new ArrayList<>();
-
     }
 
     public void  agregarComida(ComboDeComida comida){
@@ -25,7 +24,6 @@ public class Comedor {
     public void menu(){
         int opcion ;
         boolean finLopp = false;
-
         do {
             System.out.println("\nBienvenido al comedor");
             System.out.println("1. Elegir Comida");
@@ -38,7 +36,7 @@ public class Comedor {
                     hacerPedido();
                     break;
                 case 2:
-                    System.out.println();
+                    valanceDeVentas();
                     break;
                 case 3:
                     System.out.print("adios");
@@ -48,7 +46,6 @@ public class Comedor {
                     System.out.println("Opcion no valida");
             }
         }while (!finLopp);
-
     }
 
 
@@ -57,14 +54,11 @@ public class Comedor {
         double total;
         double sub = 0;
         double ivaN = 0.12;
-
         for (int i = 0; i < persona.combos.size(); i++) {
             sub += persona.combos.get(i).getPrecio();
         }
         iva = sub * ivaN;
         total = sub + iva;
-
-
         System.out.println("\n-- Factura --");
         System.out.println("Datos del comprador: "+ persona.nombreApellido());
         for (int i = 0; i < persona.combos.size(); i++) {
@@ -73,6 +67,7 @@ public class Comedor {
         System.out.println("Sub total: $"+ sub);
         System.out.println("Iva: $"+ iva);
         System.out.println("Total: $"+total);
+        persona.totalDeCompra(total);
 
     }
 
@@ -84,7 +79,6 @@ public class Comedor {
         int opcion;
         boolean loop = false;
         Persona persona;
-
 
         String nombre;
         String apellido;
@@ -109,9 +103,16 @@ public class Comedor {
                 loop = true;
             }
 
-
         }while (!loop) ;
         mostrarFactura(persona);
+    }
+
+    public void valanceDeVentas(){
+        double valor = 0;
+        for (int i = 0; i < personas.size(); i++) {
+            valor += personas.get(i).getTotalVenta();
+        }
+        System.out.println("El total es: "+ valor);
     }
 
 }
