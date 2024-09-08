@@ -7,11 +7,13 @@ import java.util.Scanner;
 public class Comedor {
     public Scanner getting = new Scanner(System.in);
     private List<ComboDeComida> combos;
-    private List<Persona> usuarios;
+    private List<Persona> personas;
+
 
     public Comedor() {
         this.combos = new ArrayList<>();
-        this.usuarios = new ArrayList<>();
+        this.personas = new ArrayList<>();
+
     }
 
     public void  agregarComida(ComboDeComida comida){
@@ -19,12 +21,13 @@ public class Comedor {
     }
 
 
+
     public void menu(){
         int opcion = 0;
         boolean finLopp = false;
-        //Persona persona = null;//
+
         do {
-            System.out.println("bienvenido al comedor");
+            System.out.println("\nbienvenido al comedor");
             System.out.println("1. Elegir Comida");
             System.out.println("2. Mostrar registro de ventas");
             System.out.println("3. Salir");
@@ -32,9 +35,11 @@ public class Comedor {
             opcion = getting.nextInt();
             switch(opcion){
                 case 1:
-                    menuDeCombos();
+                    hacerPedido();
+                    break;
                 case 2:
                     System.out.println();
+                    break;
                 case 3:
                     System.out.print("adios");
                     finLopp = true;
@@ -45,38 +50,56 @@ public class Comedor {
         }while (!finLopp);
 
     }
-    public void guardarPersona(){
+//    public void guardarPersona(){
+//        String nombre, apellido;
+//        System.out.print("Escriba su nombre: ");
+//        nombre = getting.next();
+//        System.out.print("Escriba su apellido: ");
+//        apellido = getting.next();
+//        personas.add(new Persona(nombre, apellido));
+//    }
+
+    public void mostrarFactura( Persona persona){
+        double iva = 0;
+        double sub = 0;
+        double ivaN = 0.12;
+        double total = 0;
+
+        for (int i = 0; i < persona.combos.size(); i++) {
+            sub += persona.combos.get(i).getPrecio();
+        }
+        iva = sub * ivaN;
+        total = sub + iva;
+
+
+        System.out.println("-- Factura --");
+        System.out.println("Datos del comprador: "+ persona.nombreApellido());
+        for (int i = 0; i < persona.combos.size(); i++) {
+            System.out.println(persona.combos.get(i).getNombreDeCombo()+" - $"+persona.combos.get(i).getPrecio());
+        }
+        System.out.println("Sub total: $"+ sub);
+        System.out.println("Iva: $"+ iva);
+        System.out.println("Total: $"+total);
+
+    }
+
+
+
+
+    public void hacerPedido() {
+        int tope = combos.size() + 1;
+        int opcion = 0;
+        boolean loop = false;
+        Persona persona = null;//
+
+        //guardarPersona();
         String nombre, apellido;
         System.out.print("Escriba su nombre: ");
         nombre = getting.next();
         System.out.print("Escriba su apellido: ");
         apellido = getting.next();
-        usuarios.add(new Persona(nombre, apellido));
-    }
-
-    public void mostrarFactura(int numCombo){
-
-        double iva = combos.get(numCombo).getPrecio() * 0.12;
-        double total = combos.get(numCombo).getPrecio() + iva;
-        System.out.println("-- Factura --");
-        System.out.println("Datos del comprador: "+ usuarios.get(numCombo).nombreApellido());
-
-        System.out.println("Producto: "+combos.get(numCombo).getNombreDeCombo());
-        System.out.println("Precio: "+combos.get(numCombo).getPrecio());
-
-        System.out.println("Iva: "+ iva);
-        System.out.println("Total: "+total);
-
-    }
-
-
-
-
-    public void menuDeCombos() {
-        guardarPersona();
-        int tope = combos.size() + 1;
-        int opcion = 0;
-        boolean loop = false;
+        persona = new Persona(nombre, apellido);
+        personas.add(persona);
         do {
             System.out.println("Estos son los combos");
             for (int i = 0; i < combos.size(); i++) {
@@ -85,12 +108,17 @@ public class Comedor {
             System.out.println(tope + ". Salir");
             System.out.print("Escoge una opcion: ");
             opcion = getting.nextInt();
-            if(opcion != tope){
-                mostrarFactura(opcion-1);
+            if (opcion != tope){
+                persona.combos.add(combos.get(opcion));
+                mostrarFactura(persona);
+            }else {
                 loop = true;
             }
+
         }while (!loop) ;
     }
+
+    public void escogerComida(){}
 
 }
 

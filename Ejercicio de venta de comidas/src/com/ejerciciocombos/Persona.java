@@ -27,8 +27,4 @@ public class Persona {
         return this.nombre+" "+apellido;
     }
 
-
-    public void agregarCombo(ComboDeComida combo){
-        this.combos.add(combo);
-    }
 }
