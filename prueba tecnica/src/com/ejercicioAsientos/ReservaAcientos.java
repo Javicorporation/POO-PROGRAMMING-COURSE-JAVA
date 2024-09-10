@@ -9,7 +9,8 @@ public class ReservaAcientos {
         char acientos [][] = new char[10][10];
         boolean loop = false;
         Scanner gettin = new Scanner(System.in);
-        int fila, asiento;
+        int fila = 0;
+        int asiento = 0;
         String respuesta;
 
 
@@ -25,12 +26,30 @@ public class ReservaAcientos {
         while (!loop){
             System.out.println("estos son los asientos vacios");
             String opcion = gettin.nextLine();
+            if (opcion.equalsIgnoreCase("si")){
+
+            }
             verAsientosVacios(acientos);
-            System.out.println("Ingrese fila y asiento a reservar");
-            System.out.print("Fila debe ser ente 0 y 9: ");
-            fila = gettin.nextInt();
-            System.out.print("asiento debe ser ente 0 y 9: ");
-            asiento = gettin.nextInt();
+            // reserva
+            boolean estaBien = false;
+            while (!estaBien) {
+                System.out.println("Ingrese fila y asiento a reservar");
+                System.out.print("Fila debe ser ente 0 y 9: ");
+                fila = gettin.nextInt();
+                System.out.print("asiento debe ser ente 0 y 9: ");
+                asiento = gettin.nextInt();
+
+                if (fila <= 9 && fila >= 0){
+                    if (asiento <= 9 && asiento >= 0) {
+                        estaBien = true;
+                    }else {
+                        System.out.println("la fila debe ser entre 0 y 9");
+                    }
+                }else {
+                    System.out.println("El numero de haciento esta mal");
+                }
+            }
+
 
             if (acientos[fila][asiento] == 'L'){
                 acientos[fila][asiento] = 'X';
