@@ -9,7 +9,7 @@ public class ReservaAcientos {
         char acientos [][] = new char[10][10];
         boolean loop = false;
         Scanner gettin = new Scanner(System.in);
-        int fila, aciento;
+        int fila, asiento;
         String respuesta;
 
 
@@ -23,26 +23,42 @@ public class ReservaAcientos {
         System.out.println("------ Asientos-------");
         // creación de bucle que permite la optencion de datos
         while (!loop){
+            System.out.println("estos son los asientos vacios");
+            String opcion = gettin.nextLine();
+            verAsientosVacios(acientos);
             System.out.println("Ingrese fila y asiento a reservar");
             System.out.print("Fila debe ser ente 0 y 9: ");
             fila = gettin.nextInt();
             System.out.print("asiento debe ser ente 0 y 9: ");
-            fila = gettin.nextInt();
+            asiento = gettin.nextInt();
 
-            if (acientos[fila][fila] == 'L'){
-                acientos[fila][fila] = 'X';
+            if (acientos[fila][asiento] == 'L'){
+                acientos[fila][asiento] = 'X';
                 System.out.println("el asiento fue reservado con exito");
             }else {
                 System.out.println("el asiento esta reservado, pida otro");
             }
-            System.out.println("Deseas seguir reservando?: S si, Nno");
+            System.out.println("Deseas finalizar la reserva?: S si, Nno");
             respuesta = gettin.next();
             if (respuesta.equalsIgnoreCase("S")){
                 loop = true;
             }
 
+
+
         }
 
+
+    }
+
+    public static void verAsientosVacios(char asientos[][]){
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i +". ");
+            for (int j = 0; j < 10; j++) {
+                System.out.print("["+asientos[i][j]+"] ");
+            }
+            System.out.println("");
+        }
 
     }
 }
