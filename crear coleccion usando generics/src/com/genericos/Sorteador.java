@@ -1,6 +1,7 @@
 package com.genericos;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class Sorteador<T> {
@@ -25,14 +26,24 @@ public class Sorteador<T> {
 
     // obtener un elemento
     public T get(){
-        int rnd = randon.nextInt(elementos.size());
-        return elementos.get(rnd);
+        checkEmptynes();
+        return elementos.get(rnd());
     }
 
     // remover un elemento
     public T remove(){
-        int rnd = randon.nextInt(elementos.size());
-        return elementos.remove(rnd);
+        checkEmptynes();
+        return elementos.remove(rnd());
+    }
+
+    private void checkEmptynes(){
+        if (isEmpty()){
+            throw new NoSuchElementException("No hay mas elementos");
+        }
+    }
+
+    private int rnd(){
+        return randon.nextInt(elementos.size());
     }
 
 
