@@ -3,16 +3,15 @@ package com.usodegenericos;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Bolsa implements Iterable{
-
-    private ArrayList lista = new ArrayList<>();
+public class Bolsa<T> implements Iterable<T>{
+    private ArrayList<T> lista = new ArrayList<>();
     private int tope;
 
-    public Bolsa(int tope) {
-        this.tope = tope;
-    }
+//    public Bolsa(int tope) {
+//        this.tope = tope;
+//    }
 
-    public void add(Object obj){
+    public void add(T obj){
         if(lista.size() >=tope){
             lista.add(obj);
         }else {
@@ -21,7 +20,7 @@ public class Bolsa implements Iterable{
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator <T>iterator() {
         return lista.iterator();
     }
 }
