@@ -9,6 +9,9 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
     }
+    public String mostrarNombres(){
+       return nombre+" "+apellido;
+    }
 
     @Override
     public String toString() {
