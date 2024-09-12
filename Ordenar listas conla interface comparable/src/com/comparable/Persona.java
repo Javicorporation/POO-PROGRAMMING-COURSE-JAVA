@@ -1,6 +1,6 @@
 package com.comparable;
 
-public class Persona {
+public class Persona implements Comparable<Persona>{
 
     private int id;
     private String nombre;
@@ -54,5 +54,22 @@ public class Persona {
                 ", apellido='" + apellido + '\'' +
                 ", altura=" + altura +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Persona p) {
+
+        // se compara por medio del id
+        //return this.id - p.id;
+        // se compara por medio del apellido
+        //return this.apellido.compareTo(p.apellido);
+        // se compara por la estatura
+        int retorno = 0;
+        if (this.altura < p.getAltura()) {
+            retorno = -1;
+        } else if (this.altura == p.getAltura()) {
+            retorno = 1;
+        }
+        return retorno;
     }
 }

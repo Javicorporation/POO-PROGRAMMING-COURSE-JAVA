@@ -22,14 +22,14 @@ public class Test {
         numeroList.add(5);
 
         ArrayList<Persona> personas = new ArrayList<>();
-        personas.add(new Persona(12, "Juanin", "paz",1.67));
+        personas.add(new Persona(12, "Juanin", "zaz",1.67));
         personas.add(new Persona(2, "Maria", "paz",1.47));
-        personas.add(new Persona(22, "Julia", "paz",1.77));
-        personas.add(new Persona(42, "Carla", "paz",1.61));
+        personas.add(new Persona(22, "Julia", "caz",1.77));
+        personas.add(new Persona(42, "Carla", "daz",1.61));
 
         // ordenar listas con Collections y su método sort
-        Collections.sort(letras);
-        mostraLista(letras);
+//        Collections.sort(letras);
+//        mostraLista(letras);
 
         Collections.sort(personas);
         mostraLista(personas);
