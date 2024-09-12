@@ -6,12 +6,15 @@ public class Persona implements Comparable<Persona>{
     private String nombre;
     private String apellido;
     private double altura;
+    private EstadoCivil estadoCivil;
 
-    public Persona(int id, String nombre, String apellido, double altura) {
+
+    public Persona(int id, String nombre, String apellido, double altura, EstadoCivil estadoCivil) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.altura = altura;
+        this.estadoCivil = estadoCivil;
     }
 
     public int getId() {
@@ -38,12 +41,21 @@ public class Persona implements Comparable<Persona>{
         this.apellido = apellido;
     }
 
+
     public double getAltura() {
         return altura;
     }
 
     public void setAltura(double altura) {
         this.altura = altura;
+    }
+
+    public EstadoCivil getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
+        this.estadoCivil = estadoCivil;
     }
 
     @Override
@@ -53,6 +65,7 @@ public class Persona implements Comparable<Persona>{
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", altura=" + altura +
+                ", estadoCivil=" + estadoCivil +
                 '}';
     }
 
@@ -64,12 +77,18 @@ public class Persona implements Comparable<Persona>{
         // se compara por medio del apellido
         //return this.apellido.compareTo(p.apellido);
         // se compara por la estatura
-        int retorno = 0;
-        if (this.altura < p.getAltura()) {
-            retorno = -1;
-        } else if (this.altura == p.getAltura()) {
-            retorno = 1;
-        }
-        return retorno;
+//        int retorno = 0;
+//        if (this.altura < p.getAltura()) {
+//            retorno = -1;
+//        } else if (this.altura == p.getAltura()) {
+//            retorno = 1;
+//        }
+//        return retorno;
+
+        // obtenemos el estado origina en el que esta guardado el enum
+        return estadoCivil.ordinal() - p.estadoCivil.ordinal();
+        //en forma ascendente
+        //return p.estadoCivil.compareTo(this.estadoCivil);
+
     }
 }

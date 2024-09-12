@@ -22,10 +22,10 @@ public class Test {
         numeroList.add(5);
 
         ArrayList<Persona> personas = new ArrayList<>();
-        personas.add(new Persona(12, "Juanin", "zaz",1.67));
-        personas.add(new Persona(2, "Maria", "paz",1.47));
-        personas.add(new Persona(22, "Julia", "caz",1.77));
-        personas.add(new Persona(42, "Carla", "daz",1.61));
+        personas.add(new Persona(12, "Juanin", "zaz",1.67, EstadoCivil.CASADO));
+        personas.add(new Persona(2, "Maria", "paz",1.47, EstadoCivil.SOLTERO));
+        personas.add(new Persona(22, "Julia", "caz",1.77, EstadoCivil.VIUDO));
+        personas.add(new Persona(42, "Carla", "daz",1.61, EstadoCivil.DIVORSIADOS));
 
         // ordenar listas con Collections y su método sort
 //        Collections.sort(letras);
@@ -44,7 +44,10 @@ public class Test {
 
 
         // implementacion de comparator con objetos de tipo persona de forma decendente por medio del nombre
-        Collections.sort(personas, new ComparadorDePersonas());
+//        Collections.sort(personas, new ComparadorDePersonas());
+//        mostraLista(personas);
+
+        Collections.sort(personas);
         mostraLista(personas);
 
     }
