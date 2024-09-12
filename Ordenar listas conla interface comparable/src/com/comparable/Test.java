@@ -31,8 +31,22 @@ public class Test {
 //        Collections.sort(letras);
 //        mostraLista(letras);
 
-        Collections.sort(personas);
+        //Collections.sort(personas);
+
+        // implementacion de comparator con numeros enteros de forma decendente
+        Collections.sort(numeroList,new ComparadorDeEnteros());
+        mostraLista(numeroList);
+
+        // implementacion de comparator con cadenas de textos de forma decendente
+
+        Collections.sort(letras, new ComparadorDeCadenas());
+        mostraLista(letras);
+
+
+        // implementacion de comparator con objetos de tipo persona de forma decendente por medio del nombre
+        Collections.sort(personas, new ComparadorDePersonas());
         mostraLista(personas);
+
     }
 
 
