@@ -34,7 +34,7 @@ public class Test {
         //Collections.sort(personas);
 
         // implementacion de comparator con numeros enteros de forma decendente
-        Collections.sort(numeroList,new ComparadorDeEnteros());
+        Collections.sort(numeroList,new ComparadorDeEnteros(false));
         mostraLista(numeroList);
 
         // implementacion de comparator con cadenas de textos de forma decendente
