@@ -9,17 +9,17 @@ import jakarta.persistence.Id;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProducto;
+    private Long id;
     private String nombre;
     private double precio;
 
 
     public Long getIdProducto() {
-        return idProducto;
+        return id;
     }
 
-    public void setIdProducto(Long idProducto) {
-        this.idProducto = idProducto;
+    public void setIdProducto(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
