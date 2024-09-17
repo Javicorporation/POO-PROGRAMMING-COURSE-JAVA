@@ -21,7 +21,7 @@ public class ProductoController {
     }
 
     // obtenemos un producto por medio de su id
-    @GetMapping("/{id]")
+    @GetMapping("/{id}")
     public Producto getProductoById(@PathVariable Long id){
         return  productoRepository.findById(id).orElseThrow( () -> new RuntimeException("no se encontro"));
     }
