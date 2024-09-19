@@ -1,26 +1,48 @@
 package com.generarpass;
 
-public class Test {
-    public static void main(String[] args) {
+import java.security.SecureRandom;
 
-        System.out.println(generarPass());
+public class Test {
+
+    //definicion de arrays constantes
+    private static final char[] MAYUSCULAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private static final char[] MINUSCULAS = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    private static final char[] NUMEROS = "0123456789".toCharArray();
+    private static final char[] CARACTERES_ESPECIALES = "!@#$%^&*()-_=+[]{}|;:,.<>?/`~".toCharArray();
+
+    public static void main(String[] args) {
+        int longitud = 15;
+        String password = generarPass(longitud, true, true, true, true);
+        System.out.println(password);
+
     }
 
-    public static String generarPass() {
-        char[] mayusculas = {'A', 'B', 'C', 'D', 'E', 'F'};
-        char[] minusculas = {'a', 'b', 'c', 'd', 'e', 'f'};
-        char[] numeros = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
+    public static String generarPass(int longitud, boolean mayusculas, boolean minusculas, boolean numeros, boolean caracteresEspeciales) {
         StringBuilder caracteres = new StringBuilder();
-        caracteres.append(mayusculas);
-        caracteres.append(minusculas);
-        caracteres.append(numeros);
-        StringBuilder password = new StringBuilder();
 
-        for (int i = 0; i < 15; i++) {
-            int cantidadCaracteres = caracteres.length();
-            int numeroRam = (int) (Math.random() * cantidadCaracteres);
-            password.append(caracteres.toString().charAt(numeroRam));
+        if (mayusculas) {
+            caracteres.append(MAYUSCULAS);
+        }
+        if (minusculas) {
+            caracteres.append(MINUSCULAS);
+        }
+        if (numeros) {
+            caracteres.append(NUMEROS);
+        }
+        if (caracteresEspeciales) {
+            caracteres.append(CARACTERES_ESPECIALES);
+        }
+        if(caracteres.length() == 0){
+            throw new IllegalArgumentException("El caracter no puede estar vacio");
+        }
+        // uso de secureRandom
+        SecureRandom random = new SecureRandom();
+        // uso de StringBuilder
+        StringBuilder password = new StringBuilder();
+        // recorremos la longitud pasada por parametro
+        for (int i = 0; i < longitud; i++) {
+            int indexaleatorio = random.nextInt(caracteres.length());
+            password.append(caracteres.charAt(indexaleatorio));
         }
         return password.toString();
     }
