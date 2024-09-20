@@ -18,7 +18,7 @@ public class Test {
                 getting.nextLine();
 
                 getting.close();
-                int resultado = n1/n2;
+                int resultado = dividir(n1, n2);
                 System.out.println(resultado);
                 loop = true;
             }catch (InputMismatchException e) {
@@ -27,12 +27,21 @@ public class Test {
                 getting.nextLine();
             }catch (ArithmeticException e){
                 System.out.println("Ocurrio un error, ino se puede dividir entre 0.");
-            }finally {
+            } catch (OperadorException e) {
+                throw new RuntimeException(e);
+            } finally {
                 getting.nextLine();
                 getting.close();
 
             }
         }while (!loop);
 
+    }
+
+    static int dividir (int n1, int n2) throws OperadorException {
+        if (n2 == 0) {
+            throw new OperadorException("Dividir entre 0");
+        }
+        return n1 / n2;
     }
 }
