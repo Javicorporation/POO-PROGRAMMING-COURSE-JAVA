@@ -17,12 +17,13 @@ public class Test {
         lista.agregarPersona(p1);
         lista.agregarPersona(p2);
         lista.agregarPersona(p3);
+        lista.mostrarPersonas();
+
+        System.out.println();
         lista.borrarPersona("John");
         lista.mostrarPersonas();
 
 
-
-        lista.mostrarPersonas();
 
         System.out.println();
         System.out.println("encontrado");

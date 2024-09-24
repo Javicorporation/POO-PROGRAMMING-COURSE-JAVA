@@ -1,5 +1,6 @@
 package com.listas.clases;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,13 +22,24 @@ public class LinkedListss {
         }
     }
     public void borrarPersona(String nombre) {
-        for (Persona p : lista) {
+        // creacion de Iterator de tipo persona
+        Iterator<Persona> iterador = lista.iterator();
+        // definicion de un bollena para detectar si se encontro
+        boolean encontrado = false;
+        // implementacion de while
+        // .hasnext es parte de la interfaz Iterator en Java y se utiliza para determinar si hay más elementos disponibles en la colección que se está iterando.
+        while (iterador.hasNext()) {
+            Persona p = iterador.next();
             if (p.getNombre().equals(nombre)) {
-                lista.remove(p);
-                System.out.println("Eliminación exitosa");
-            }else {
-                System.out.println("no hay");
+                iterador.remove();
+                encontrado = true;
+                System.out.println("Eliminado exitosamente");
+                break;
             }
+        }
+        // si es diferente, no se encontro
+        if (!encontrado) {
+            System.out.println("No existe el persona con el nombre " + nombre);
         }
     }
 
