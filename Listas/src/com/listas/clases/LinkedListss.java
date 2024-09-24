@@ -20,8 +20,25 @@ public class LinkedListss {
             System.out.println(p);
         }
     }
-    public void borrarPersona(Persona p) {
-        lista.remove(p);
+    public void borrarPersona(String nombre) {
+        for (Persona p : lista) {
+            if (p.getNombre().equals(nombre)) {
+                lista.remove(p);
+                System.out.println("Eliminación exitosa");
+            }else {
+                System.out.println("no hay");
+            }
+        }
+    }
+
+    public Persona buscarPersona(String nombre) {
+        Persona p = null;
+        for (Persona persona : lista) {
+            if (persona.getNombre().equals(nombre)) {
+                p = persona;
+            }
+        }
+        return  p;
     }
 
 
