@@ -13,7 +13,6 @@ public class UsoList {
         listaletras.add("C");
         listaletras.add("D");
         listaletras.add("E");
-        listaletras.add("F");
 
         for (String a : listaletras) {
             System.out.println(a);
