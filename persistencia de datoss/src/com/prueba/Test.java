@@ -1,37 +1,62 @@
 package com.prueba;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        List lista1 = new ArrayList();
-        lista1.add(1);
-        lista1.add("hola");
-        lista1.add(25);
-        lista1.add(11.23);
+//        List lista1 = new ArrayList();
+//        lista1.add(1);
+//        lista1.add("hola");
+//        lista1.add(25);
+//        lista1.add(11.23);
+//
+////        for (Object o : lista1) {
+////            System.out.println(o);
+////        }
+//
+//        // podemos usar una lamda para el foreach
+//        lista1.forEach(dato -> System.out.println(dato));
+//
+//        // tamaño de la lista
+//        System.out.println(lista1.size());
+//        // lobtencion de un elemnto especifica de la lista
+//        System.out.println(lista1.get(0));
+//        // eliminamos un elemento de la lista especifica
+//        lista1.remove(0);
+//
+//        // modificamos un elemento de la lista
+//        System.out.println(lista1.set(2,"vas"));
+//
+//        System.out.println();
+//        System.out.println("lista actualizada");
+//        // podemos usar una lamda para el foreach
+//        lista1.forEach(dato -> System.out.println(dato));
 
-//        for (Object o : lista1) {
-//            System.out.println(o);
-//        }
 
-        // podemos usar una lamda para el foreach
-        lista1.forEach(dato -> System.out.println(dato));
+        HashSet dias = new HashSet();
+        dias.add("lunes");
+        dias.add("martes");
+        dias.add("miercoles");
+        dias.add("jueves");
+        dias.add("viernes");
+        dias.add("sabado");
+        dias.add("domingo");
 
-        // tamaño de la lista
-        System.out.println(lista1.size());
-        // lobtencion de un elemnto especifica de la lista
-        System.out.println(lista1.get(0));
-        // eliminamos un elemento de la lista especifica
-        lista1.remove(0);
+        dias.forEach(datos -> System.out.println(datos));
 
-        // modificamos un elemento de la lista
-        System.out.println(lista1.set(2,"vas"));
-
+        // elimina un elemento
+        dias.remove("lunes");
+        // elimina todo
+        //dias.clear();
+        dias.clone();
+        dias.size();
         System.out.println();
-        System.out.println("lista actualizada");
-        // podemos usar una lamda para el foreach
-        lista1.forEach(dato -> System.out.println(dato));
+        System.out.println("has actualizado");
+        dias.forEach(datos -> System.out.println(datos));
+
+
     }
 
 
