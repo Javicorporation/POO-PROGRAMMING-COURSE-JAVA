@@ -1,8 +1,6 @@
 package com.prueba;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -35,26 +33,39 @@ public class Test {
 //        lista1.forEach(dato -> System.out.println(dato));
 
 
-        HashSet dias = new HashSet();
-        dias.add("lunes");
-        dias.add("martes");
-        dias.add("miercoles");
-        dias.add("jueves");
-        dias.add("viernes");
-        dias.add("sabado");
-        dias.add("domingo");
+//        HashSet dias = new HashSet();
+//        dias.add("lunes");
+//        dias.add("martes");
+//        dias.add("miercoles");
+//        dias.add("jueves");
+//        dias.add("viernes");
+//        dias.add("sabado");
+//        dias.add("domingo");
+//
+//        dias.forEach(datos -> System.out.println(datos));
+//
+//        // elimina un elemento
+//        dias.remove("lunes");
+//        // elimina todo
+//        //dias.clear();
+//        dias.clone();
+//        dias.size();
+//        System.out.println();
+//        System.out.println("has actualizado");
+//        dias.forEach(datos -> System.out.println(datos));
 
-        dias.forEach(datos -> System.out.println(datos));
+        Map numeros = new HashMap();
 
-        // elimina un elemento
-        dias.remove("lunes");
-        // elimina todo
-        //dias.clear();
-        dias.clone();
-        dias.size();
-        System.out.println();
-        System.out.println("has actualizado");
-        dias.forEach(datos -> System.out.println(datos));
+        numeros.put(1, "uno");
+        numeros.put(2, "dos");
+        numeros.put(3, "tres");
+        numeros.put(4, "quatro");
+        numeros.put(5, "cinco");
+
+        System.out.println(numeros);
+        System.out.println(numeros.get(1));
+
+
 
 
     }
