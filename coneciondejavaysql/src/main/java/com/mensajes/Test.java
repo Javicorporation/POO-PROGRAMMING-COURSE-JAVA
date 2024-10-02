@@ -6,6 +6,7 @@ public class Test {
     // implementacion de excepcion
     public static void main(String[] args) throws SQLException {
 
+        ingresarRegistros("Mariana", "Bastion", "Guayaquil");
         listarRegistros();
         System.out.println();
         editarRegistro("Maria", "Bastion", "Guayaquil");
@@ -14,10 +15,15 @@ public class Test {
         listarRegistros();
     }
 
+    private static Connection conectador() throws SQLException {
+        Connection conectador = DriverManager.getConnection("jdbc:mysql://localhost/tiendadb?serverTimezone=UTC", "root", "12345");
+        return conectador;
+    }
+
 
     // insertar un registro desde java
     public static void ingresarRegistros(String nombre, String direccion, String ciudad) throws SQLException {
-        Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost/tiendadb?serverTimezone=UTC", "root", "12345");
+        Connection conectado = conectador();
 
         String sql = "INSERT INTO mensajes(nombre , direccion, ciudad) VALUES (?,?,?)";
         PreparedStatement ps = conectado.prepareStatement(sql);
@@ -36,14 +42,14 @@ public class Test {
     // mostrar los registros desde java
     public static void listarRegistros() throws SQLException {
         // creamos una variavle para realizar conexiòn de base de datos
-        Connection conectarsql = DriverManager.getConnection("jdbc:mysql://localhost/tiendadb?serverTimezone=UTC","root", "12345");
+        Connection conectado = conectador();
         System.out.println("conectado");
 
 
         // variable de sentencia
         String sql = "SELECT * FROM mensajes";
         // variable de implementación de la conexión
-        PreparedStatement pst = conectarsql.prepareStatement(sql);
+        PreparedStatement pst = conectado.prepareStatement(sql);
         // resultado de la query
         ResultSet rs = pst.executeQuery();
 
@@ -60,14 +66,14 @@ public class Test {
         // cerrar servicios
         rs.close();
         pst.close();
-        conectarsql.close();
+        conectado.close();
     }
 
 
 
 
     public static void editarRegistro(String direccion, String ciudad, String nombre) throws SQLException {
-        Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/tiendadb?serverTimezone=UTC", "root", "12345");
+        Connection conectar = conectador();
         System.out.println("Conexion exitosa");
         String sql = "UPDATE mensajes SET direccion = ?, ciudad = ? WHERE nombre = ?";
         PreparedStatement pst = conectar.prepareStatement(sql);
@@ -83,7 +89,7 @@ public class Test {
     }
 
     public static void eliminarRegistro(String nombre) throws SQLException{
-        Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/tiendadb?serverTimezone=UTC", "root", "12345");
+        Connection conectar = conectador();
         String sql = "DELETE FROM mensajes WHERE nombre = ?";
         PreparedStatement pst = conectar.prepareStatement(sql);
         pst.setString(1, nombre);
