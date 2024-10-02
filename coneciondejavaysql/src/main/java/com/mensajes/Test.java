@@ -10,6 +10,7 @@ public class Test {
         System.out.println();
         editarRegistro("Maria", "Bastion", "Guayaquil");
         System.out.println();
+        eliminarRegistro("Maria");
         listarRegistros();
     }
 
@@ -79,6 +80,17 @@ public class Test {
 
         pst.close();
         conectar.close();
+    }
+
+    public static void eliminarRegistro(String nombre) throws SQLException{
+        Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/tiendadb?serverTimezone=UTC", "root", "12345");
+        String sql = "DELETE FROM mensajes WHERE nombre = ?";
+        PreparedStatement pst = conectar.prepareStatement(sql);
+        pst.setString(1, nombre);
+        pst.executeUpdate();
+        pst.close();
+        conectar.close();
+
     }
 
 }
