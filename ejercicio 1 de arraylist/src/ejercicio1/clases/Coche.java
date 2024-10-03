@@ -9,11 +9,11 @@ public class Coche extends Vehiculo implements Conducible{
 
     @Override
     public void arrancar() {
-        System.out.println("El coche " + getMarca() + " " + getModelo() + " está arrancando.");
+        System.out.println("El coche " + this.getMarca() + " " + this.getModelo() + " está arrancando.");
     }
 
     @Override
     public void conducir() {
-        System.out.println("Conduciendo el coche " + getMarca() + " " + getModelo());
+        System.out.println("Conduciendo el coche " + this.getMarca() + " " + this.getModelo());
     }
 }

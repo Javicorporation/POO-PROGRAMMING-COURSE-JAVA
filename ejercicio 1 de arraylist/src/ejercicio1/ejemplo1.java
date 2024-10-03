@@ -1,6 +1,7 @@
 package ejercicio1;
 
 import ejercicio1.clases.Coche;
+import ejercicio1.clases.Conducible;
 import ejercicio1.clases.Moto;
 import ejercicio1.clases.Vehiculo;
 
@@ -17,6 +18,16 @@ public class ejemplo1 {
         vehiculos.add(new Moto("Yamaha", "URJJTR"));
         vehiculos.add(new Moto("Suzuki", "URJJTR"));
 
-        vehiculos.forEach(v -> v.mostrarInformacion());
+        //vehiculos.forEach(v -> v.mostrarInformacion());
+
+        for (Vehiculo vehiculo : vehiculos) {
+            vehiculo.mostrarInformacion();
+            vehiculo.arrancar();
+
+            if (vehiculo instanceof Conducible) {
+                ((Conducible) vehiculo).conducir();
+            }
+            System.out.println();
+        }
     }
 }
