@@ -10,8 +10,16 @@ public class Desarrollador extends Empleado{
     }
 
     @Override
-    public void calcularSalario() {
+    public double calcularSalario() {
         horasExtras = (int) (horasExtras * 0.12);
-        setSalario(getSalario() + horasExtras);
+        return  getSalario() + horasExtras;
+    }
+
+    @Override
+    public void mostrardatos() {
+        super.mostrardatos();
+        System.out.println("Rol: Desarrollador");
+        System.out.println("Bonificación por proyectos: " + horasExtras);
+        System.out.println("Salario total: " + calcularSalario());
     }
 }

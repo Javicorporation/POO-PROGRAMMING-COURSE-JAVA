@@ -33,5 +33,10 @@ public abstract class Empleado {
                 '}';
     }
 
-    public abstract void calcularSalario();
+    public abstract double calcularSalario();
+
+    public void mostrardatos(){
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Salario: " + salario);
+    }
 }
