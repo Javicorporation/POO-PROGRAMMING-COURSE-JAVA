@@ -44,4 +44,11 @@ public class Producto implements Identificable{
     }
 
 
+    @Override
+    public String toString() {
+        return
+                "ID: " + id +
+                "\nNombre: " + nombre +
+                "\nPrecio: " + precio +"\n---------------------------";
+    }
 }

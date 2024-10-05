@@ -23,11 +23,5 @@ public class Electrodomestico extends Producto{
         return Objects.hash(marca, consumoEnergia);
     }
 
-    @Override
-    public String toString() {
-        return "Electrodomestico{" +
-                                "marca='" + marca + '\'' +
-                ", consumoEnergia=" + consumoEnergia +
-                '}';
-    }
+
 }

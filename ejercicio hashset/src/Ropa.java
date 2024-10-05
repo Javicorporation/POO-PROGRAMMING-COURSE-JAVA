@@ -23,12 +23,6 @@ public class Ropa extends Producto{
         return Objects.hash(talla, material);
     }
 
-    @Override
-    public String toString() {
-        return "Ropa{" +
-                "talla='" + talla + '\'' +
-                ", material='" + material + '\'' +
-                '}';
-    }
+
 }
 
