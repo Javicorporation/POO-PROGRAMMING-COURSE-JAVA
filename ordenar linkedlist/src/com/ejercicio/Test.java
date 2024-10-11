@@ -1,9 +1,6 @@
 package com.ejercicio;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -17,8 +14,11 @@ public class Test {
         personass.add(new Persona(0, "Lisa", 20));
 
         System.out.println(personass);
-        System.out.println();
-        Collections.sort(personass);
+        System.out.println("-----------");
+        // con implementacion en la clase modelo
+        //Collections.sort(personass);
+        // implementacion de una clase para comparar
+        Collections.sort(personass, new Comparacion());
         System.out.println(personass);
 
 
