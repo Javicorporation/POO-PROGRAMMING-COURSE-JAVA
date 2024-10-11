@@ -28,4 +28,6 @@ public abstract class Producto {
     public double getPrecio() {
         return precio;
     }
+
+    public abstract double calcularPrecioVenta();
 }
