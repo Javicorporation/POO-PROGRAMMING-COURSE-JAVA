@@ -1,11 +1,11 @@
 package com.mycompany.proyectojpa;
 
-import com.mycompany.proyectojpa.persistencia.ControladoraPersistencia;
+import com.mycompany.proyectojpa.percistencia.ControladoraPersistencia;
 
 
 public class Proyectojpa {
 
     public static void main(String[] args) {
-        ControladoraPersistencia controper = new ControladoraPersistencia();
+        ControladoraPersistencia controlper = new ControladoraPersistencia();
     }
 }
