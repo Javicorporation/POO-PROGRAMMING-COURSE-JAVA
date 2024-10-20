@@ -23,7 +23,7 @@ public class Main {
 
 
         Student student = new Student();
-        student.setId(1);
+        student.setId(2);
         student.setName("John Doe");
 
         // El método persist hace que la entidad Student sea gestionada por el contexto de persistencia.

@@ -1,9 +1,8 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-
-             version="3.0"
-             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-    <persistence-unit name="la-persistencia" transaction-type="RESOURCE_LOCAL">
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     version="3.0"
+                     xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+            <persistence-unit name="my-persistence-unit" transaction-type="RESOURCE_LOCAL">
         <description>hola con hibernate</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
