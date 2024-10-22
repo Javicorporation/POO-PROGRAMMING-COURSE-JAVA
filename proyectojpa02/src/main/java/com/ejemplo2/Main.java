@@ -13,6 +13,8 @@ public class Main {
     public static void main(String[] args) {
 
         Map<String, String> properties = new HashMap<>();
+        properties.put("hibernate.show_sql", "true");
+        properties.put("hibernate.format_sql", "true");
         try(EntityManagerFactory emf
                     = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new MyPersistenUnitInfo(), properties)) {
 
@@ -21,12 +23,18 @@ public class Main {
 
         em.getTransaction().begin();
 
-        Student student = new Student();
+        Student estudi = em.find(Student.class, 1);
 
-        student.setId(8);
-        student.setName("Pablito");
+        //Student student = new Student();
 
-        em.persist(student);
+        //student.setId(5);
+        //student.setName("Karen");
+
+        System.out.println(estudi);
+        estudi.setName("Estudio");
+
+
+        //em.persist(student);
 
         em.getTransaction().commit();
         }
