@@ -13,11 +13,9 @@ public class Main {
     public static void main(String[] args) {
 
         Map<String, String> properties = new HashMap<>();
-        properties.put("hibernate.show_sql", "true");
-        properties.put("hibernate.format_sql", "true");
-        try {
-            EntityManagerFactory emf
-                    = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new MyPersistenUnitInfo(), properties);
+        try(EntityManagerFactory emf
+                    = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new MyPersistenUnitInfo(), properties)) {
+
 
         EntityManager em  = emf.createEntityManager();
 
@@ -31,9 +29,7 @@ public class Main {
         em.persist(student);
 
         em.getTransaction().commit();
-        }catch (Exception e) {
-        e.printStackTrace();
-    }
+        }
 
     }
 }

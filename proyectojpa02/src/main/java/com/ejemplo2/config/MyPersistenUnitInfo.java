@@ -31,7 +31,8 @@ public class MyPersistenUnitInfo implements PersistenceUnitInfo {
     @Override
     public DataSource getJtaDataSource() {
         HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl("jdbc:postgresql://localhost:3306/basejpa");
+        ds.setDriverClassName("org.postgresql.Driver");
+        ds.setJdbcUrl("jdbc:postgresql://localhost:5432/basejpa");
         ds.setUsername("postgres");
         ds.setPassword("12345");
         return ds;
@@ -44,7 +45,7 @@ public class MyPersistenUnitInfo implements PersistenceUnitInfo {
 
     @Override
     public List<String> getMappingFileNames() {
-        return List.of("com.ejemplo2");
+        return List.of();
     }
 
     @Override
@@ -59,7 +60,7 @@ public class MyPersistenUnitInfo implements PersistenceUnitInfo {
 
     @Override
     public List<String> getManagedClassNames() {
-        return List.of();
+        return List.of("com.ejemplo2.Student");
     }
 
     @Override
