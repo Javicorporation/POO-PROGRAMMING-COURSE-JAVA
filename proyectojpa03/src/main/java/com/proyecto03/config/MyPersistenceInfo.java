@@ -60,7 +60,7 @@ public class MyPersistenceInfo implements PersistenceUnitInfo {
 
     @Override
     public List<String> getManagedClassNames() {
-        return List.of("com.proyecto03.entities.Student");
+        return List.of("com.proyecto03.entities.Student", "com.proyecto03.entities.Book");
     }
 
     @Override

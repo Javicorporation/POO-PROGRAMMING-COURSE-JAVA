@@ -1,9 +1,12 @@
 import com.proyecto03.config.MyPersistenceInfo;
+import com.proyecto03.entities.Book;
 import com.proyecto03.entities.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,9 +26,16 @@ public class Main {
             emg.getTransaction().begin();
 
             Student estudiante = new Student();
-            estudiante.setId(1);
             estudiante.setNombre("Juanita");
+            estudiante.setEmail("hola.@gmail.com");
+            estudiante.setFecha(LocalDate.of(2000, Month.DECEMBER,11));
             emg.persist(estudiante);
+
+            // metodo persist
+
+            Book book = new Book();
+            emg.persist(book);
+
 
             emg.getTransaction().commit();
         }
