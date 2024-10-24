@@ -22,7 +22,17 @@ public class Student {
     private String email;
     @Transient
     private String password;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     private LocalDate fecha;
+    private int age;
 
     public String getPassword() {
         return password;
