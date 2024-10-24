@@ -3,6 +3,7 @@ package com.proyecto03.entities;
 import com.proyecto03.generators.CustomGenerator;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NaturalId;
 
 import java.time.LocalDate;
 import java.util.Locale;
@@ -15,9 +16,21 @@ public class Student {
     //@GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "Full name", nullable = false)
     private String nombre;
+    @NaturalId(mutable = true)
     private String email;
+    @Transient
+    private String password;
     private LocalDate fecha;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;
