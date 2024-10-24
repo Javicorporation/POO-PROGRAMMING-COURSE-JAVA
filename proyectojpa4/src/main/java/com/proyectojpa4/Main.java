@@ -1,6 +1,7 @@
 package com.proyectojpa4;
 
 import com.proyectojpa4.config.MyPersistencieUnitinfo;
+import com.proyectojpa4.entities.City;
 import com.proyectojpa4.entities.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -23,9 +24,15 @@ public class Main {
 
             emf.getTransaction().begin();
 
+            // perist cascada
+            City city = new City();
+            city.setName("California");
+
             Student studi = new Student();
             studi.setName("Juanin");
+            studi.setCity(city);
 
+            // insertar estudiante
             emf.persist(studi);
             emf.getTransaction().commit();
 

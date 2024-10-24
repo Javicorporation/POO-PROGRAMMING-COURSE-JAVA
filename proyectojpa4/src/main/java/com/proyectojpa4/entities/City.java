@@ -3,24 +3,13 @@ package com.proyectojpa4.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "studets")
-public class Student {
-
+@Table(name = " city")
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "City_id")
-    private City city;
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
 
     public Long getId() {
         return id;
@@ -40,7 +29,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "City{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
