@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "book_seq_id")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "book_seq_id")
     private Long id;
 
     public Long getId() {

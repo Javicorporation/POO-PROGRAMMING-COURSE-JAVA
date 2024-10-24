@@ -1,6 +1,8 @@
 package com.proyecto03.entities;
 
+import com.proyecto03.generators.CustomGenerator;
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 import java.util.Locale;
@@ -11,7 +13,7 @@ public class Student {
     @Id
     // el proveedor de persistencia generara los valore automaticamente
     //@GeneratedValue(strategy = GenerationType.AUTO)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
     private String email;

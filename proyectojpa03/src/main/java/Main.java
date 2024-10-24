@@ -33,9 +33,12 @@ public class Main {
 
             // metodo persist
 
-            Book book = new Book();
-            emg.persist(book);
+//            Book book = new Book();
+//            emg.persist(book);
 
+            emg.flush();
+            Student studi3 = emg.find(Student.class, 1);
+            studi3.setEmail("Hola");
 
             emg.getTransaction().commit();
         }
