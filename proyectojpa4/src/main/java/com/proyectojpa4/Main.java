@@ -14,8 +14,8 @@ public class Main {
     public static void main(String[] args) {
         Map<String, String> properties = new HashMap<>();
 
-//        properties.put("hibernate.show_sql", "true");
-//        properties.put("hibernate.format_sql", "true");
+        properties.put("hibernate.show_sql", "true");
+        properties.put("hibernate.format_sql", "true");
         properties.put("hibernate.hbm2ddl.auto", "create");
 
         try(EntityManagerFactory entityManagerFactory
@@ -24,16 +24,26 @@ public class Main {
 
             emf.getTransaction().begin();
 
-            // perist cascada
+//            // perist cascada
             City city = new City();
             city.setName("California");
 
-            Student studi = new Student();
-            studi.setName("Juanin");
-            studi.setCity(city);
+            //Student studi = emf.getReference(Student.class, 1);
+//            studi.setName("Juanin");
+//            studi.setCity(city);
 
             // insertar estudiante
-            emf.persist(studi);
+            //emf.persist(studi);
+
+            //------------
+
+
+            Student student2 = new Student();
+            student2.setName("Jack");
+            student2.setCity(city);
+            emf.persist(student2);
+
+
             emf.getTransaction().commit();
 
         }
