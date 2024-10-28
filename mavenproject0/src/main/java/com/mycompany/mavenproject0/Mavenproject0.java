@@ -4,6 +4,8 @@
 
 package com.mycompany.mavenproject0;
 
+import com.mycompany.mavenproject0.persistencia.ControladoraPersistencia;
+
 /**
  *
  * @author krchi
@@ -11,6 +13,6 @@ package com.mycompany.mavenproject0;
 public class Mavenproject0 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ControladoraPersistencia  contrala = new ControladoraPersistencia();
     }
 }
