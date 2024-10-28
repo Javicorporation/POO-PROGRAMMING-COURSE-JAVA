@@ -1,18 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.mavenproject0;
-
+import com.mycompany.mavenproject0.logica.Alumno;
+import com.mycompany.mavenproject0.logica.Controladora;
 import com.mycompany.mavenproject0.persistencia.ControladoraPersistencia;
+import java.util.Date;
 
-/**
- *
- * @author krchi
- */
+
 public class Mavenproject0 {
-
     public static void main(String[] args) {
-        ControladoraPersistencia  contrala = new ControladoraPersistencia();
+        Controladora controladora = new Controladora();
+        
+        Alumno alumno1 = new Alumno(1, "Juanin", "Paz", new Date());
+        
+        controladora.crearAlumno(alumno1);
     }
 }
