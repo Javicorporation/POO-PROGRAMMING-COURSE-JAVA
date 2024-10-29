@@ -10,8 +10,12 @@ public class Mavenproject0 {
         
         Controladora controladora = new Controladora();
         
-//        Alumno alumno1 = new Alumno(10, "Carlitos", "Paz", new Date());
-//        controladora.crearAlumno(alumno1);
-        controladora.eliminarAlumno(1);
+        Alumno alumno1 = new Alumno(10, "Carlitos", "Paz", new Date());
+        controladora.crearAlumno(alumno1);
+        
+        //controladora.eliminarAlumno(1);
+        
+        alumno1.setApellido("Marss");
+        controladora.editarAlumno(alumno1);
     }
 }
