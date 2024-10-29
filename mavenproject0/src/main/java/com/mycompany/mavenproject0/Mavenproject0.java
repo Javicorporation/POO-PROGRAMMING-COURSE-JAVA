@@ -7,10 +7,11 @@ import java.util.Date;
 
 public class Mavenproject0 {
     public static void main(String[] args) {
+        
         Controladora controladora = new Controladora();
         
-        Alumno alumno1 = new Alumno(1, "Juanin", "Paz", new Date());
-        
-        controladora.crearAlumno(alumno1);
+//        Alumno alumno1 = new Alumno(10, "Carlitos", "Paz", new Date());
+//        controladora.crearAlumno(alumno1);
+        controladora.eliminarAlumno(1);
     }
 }
