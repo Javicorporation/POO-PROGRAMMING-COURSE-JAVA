@@ -14,10 +14,19 @@ public class Mavenproject0 {
         
         Controladora controladora = new Controladora();
         
+        // creamos una lista de materia y las agregamos
+        List<Materia> listaMaterias = new LinkedList<>();
+        
+        // creacion de carrera con lista de materias
+        Carrera carrera1 = new Carrera(1, "Administracion", listaMaterias);
+        
+        // guardar carrera en BD
+        controladora.crearCarrera(carrera1);
+        
         // instanciamos materias
-        Materia materia1 = new Materia(1, "Matematicas", "Escrito");        
-        Materia materia2 = new Materia(2, "Lenguaje", "Virtual");
-        Materia materia3 = new Materia(3, "Historia", "Escrito");
+        Materia materia1 = new Materia(1, "Matematicas", "Escrito", carrera1);        
+        Materia materia2 = new Materia(2, "Lenguaje", "Virtual", carrera1);
+        Materia materia3 = new Materia(3, "Historia", "Escrito", carrera1);
 
         // creamos las materias
         controladora.crearMateria(materia1);
@@ -25,14 +34,14 @@ public class Mavenproject0 {
         controladora.crearMateria(materia3);
         
         // agregamos a la lista
-        List<Materia> listaMaterias = new LinkedList<>();
+        
         listaMaterias.add(materia1);        
         listaMaterias.add(materia2);
         listaMaterias.add(materia3);
-
         
-        Carrera carrera1 = new Carrera(1, "Administracion", listaMaterias);
-        controladora.crearCarrera(carrera1);
+        carrera1.setListaMaterias(listaMaterias);
+        controladora.editarCarrera(carrera1);
+
         
         Alumno alumno1 = new Alumno(5, "Martha", "Luz", new Date(), carrera1);
         controladora.crearAlumno(alumno1);
