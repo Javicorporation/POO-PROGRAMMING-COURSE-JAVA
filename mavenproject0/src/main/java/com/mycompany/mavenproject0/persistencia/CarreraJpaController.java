@@ -1,6 +1,5 @@
 package com.mycompany.mavenproject0.persistencia;
 
-import com.mycompany.mavenproject0.logica.Alumno;
 import com.mycompany.mavenproject0.logica.Carrera;
 import com.mycompany.mavenproject0.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
@@ -11,10 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
-
 public class CarreraJpaController {
-    
-    
     public CarreraJpaController(EntityManagerFactory emf){
     this.emf = emf;
     }

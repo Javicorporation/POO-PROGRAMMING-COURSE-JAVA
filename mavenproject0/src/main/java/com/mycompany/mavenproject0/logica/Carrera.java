@@ -16,15 +16,16 @@ public class Carrera {
     private String name;
     
     //relacion de uno a muchos
-    @OneToMany
+    @OneToMany(mappedBy = "carrera")
     private List<Materia> listaMaterias;
 
     public Carrera() {
     }
-    
-    public Carrera(int id, String name) {
+
+    public Carrera(int id, String name, List<Materia> listaMaterias) {
         this.id = id;
         this.name = name;
+        this.listaMaterias = listaMaterias;
     }
 
     public int getId() {
@@ -43,10 +44,25 @@ public class Carrera {
         this.name = name;
     }
 
+    public List<Materia> getListaMaterias() {
+        return listaMaterias;
+    }
+
+    public void setListaMaterias(List<Materia> listaMaterias) {
+        this.listaMaterias = listaMaterias;
+    }
+    
+    
+    
+
+    
+
     @Override
     public String toString() {
         return "Carrera{" + "id=" + id + ", name=" + name + '}';
     }
+
+    
     
     
     
