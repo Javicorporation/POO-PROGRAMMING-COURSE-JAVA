@@ -34,6 +34,107 @@ public class AlumnoJpaController implements Serializable {
         emf = Persistence.createEntityManagerFactory("alumnoJpa");
     }
     
+    // obtener un alumno
+    public Alumno findAlumno(int id){
+        // implementacion de un objeto EntityManager en null
+        EntityManager em = null;
+        try {
+            // obtenemos un EntityManager para realizar las operaciones en las base de datos
+            em = getEntityManager();
+            // retornamos un objeto Alumno por medio de metodo find
+            // se puede hacer asi  tambien o directo en el return
+            //Alumno alu = em.find(Alumno.class, id);
+            return em.find(Alumno.class, id);
+        }finally{
+            // si el EntityManager no es nulo, libera recursos por medio del metodo .close()
+            if (em != null) {
+                em.close();                
+            }
+        }
+    }
+    
+    
+    // Este es un método privado que realiza la búsqueda general
+    private List<Alumno> findAlumnosEntidad(boolean all, int maxRsl, int minRsl){
+        EntityManager em = getEntityManager();
+        try {
+            // Crea un CriteriaQuery para realizar la consulta en la tabla de Alumno
+            CriteriaQuery<Alumno> cq = em.getCriteriaBuilder().createQuery(Alumno.class);
+            
+            // selecciona todos los registros de la entidadalumno
+            cq.select(cq.from(Alumno.class));
+            
+            // genera la consulta basada en el criteriaQuery
+            Query q = em.createQuery(cq);
+            
+            // Si 'all' es falso, se limitan los resultados
+            if (!all) {
+                q.setMaxResults(maxRsl);
+                q.setFirstResult(minRsl);             
+            }
+            return q.getResultList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
+    
+    // Un método público que llama a findAlumnosEntidad para obtener todos los registros.
+    public List<Alumno> findAlumnosEntities(){
+        // si es true no se aplicarán límites de resultados
+        // y se devolverán todos los registros encontrados.
+        return findAlumnosEntidad(true, -1, 0);
+    }
+    
+    public List<Alumno> findAlumnosEntities(int maxRes, int firsRes){
+        return findAlumnosEntidad(false, maxRes, firsRes);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //recomendacion implementar TryCatch en los metodos
+    
+    // metodo crear
+    public void Create(Alumno alumno){
+        // implementacion de un objeto EntityManager en null
+        EntityManager em = null;
+        try {
+            // obtenemos un EntityManager para realizar las operaciones en las base de datos
+            em = getEntityManager();
+            // inicializa una transaccion en la base de datos
+            em.getTransaction().begin();
+            // guarda un objeto alumno en la BD
+            em.persist(alumno);
+            // confirma los cambios en la BD de manera permanente
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("Dio Error...");
+            e.getStackTrace();
+            System.out.println(e.getMessage());
+        }finally{
+            // si el EntityManager no es nulo, libera recursos por medio del metodo .close()
+            if(em != null){
+                em.close();
+            }
+        }
+    }
+    
+    
+    
+    // metodo 
+    
     
    
 }
