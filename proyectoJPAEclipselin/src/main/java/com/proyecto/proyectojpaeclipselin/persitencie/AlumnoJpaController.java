@@ -133,7 +133,40 @@ public class AlumnoJpaController implements Serializable {
     
     
     
-    // metodo 
+    // metodo eliminar un objeto alumno
+   public void destroy (int id) throws NonexistentEntityException{
+       // implementamos un objeto EntityManager en null
+       EntityManager em = null;
+       try {
+           // obtenemos  un entityManager para las operaciones
+           em = getEntityManager();
+           // iniciamos la transaccion con la base de datos
+           em.getTransaction().begin();
+           // creamos un alumno local en el trycatch
+           Alumno alumno;
+           
+           try {
+               // busca un alumno por medio de su id con un proxy
+               alumno = em.getReference(Alumno.class, em);
+               // verifica si el alumno existe
+               alumno.getId();
+           } catch (Exception e) {
+               // Lanza una excepción si el ID no existe en la base de datos
+               throw new NonexistentEntityException("El id "+id+" no existe",e);
+           }
+           // elimina un registro Alumno de la tabla
+           em.remove(alumno);
+           // confirma los cambios en la BD de manera permanente
+           em.getTransaction().commit();
+           
+           
+       }finally{
+           // liberamos recursos
+           if (em != null){
+               em.close();
+           }
+       }
+   }
     
     
    
