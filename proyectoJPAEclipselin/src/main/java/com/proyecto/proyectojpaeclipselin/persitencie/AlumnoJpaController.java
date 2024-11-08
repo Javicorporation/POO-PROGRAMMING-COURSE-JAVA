@@ -167,6 +167,42 @@ public class AlumnoJpaController implements Serializable {
            }
        }
    }
+   
+   
+   // metodo edit
+   public void edit(Alumno alumno) throws NonexistentEntityException{
+       // creacion de un entityManager en null
+       EntityManager em = null;
+       
+       try {
+           // Obtiene un EntityManager para realizar la transacción en la base de datos
+           em = getEntityManager();
+           // inicializa una transaccion 
+           em.getTransaction().begin();
+           // actualiza un registro de la base de datos por medio del merge
+           alumno = em.merge(alumno);
+           // confirma la transaccion, haciendo los cambios permanentes en la base de datos
+           em.getTransaction().commit();
+       } catch (Exception e) {
+           // obtiene un mensaje de error para verificar si es vacio o nulo
+           String msg = e.getLocalizedMessage();
+           if (msg == null || msg.length() == 0) {
+               // Si no hay mensaje, verifica si el alumno existe en la base de datos
+               int id = alumno.getId();
+               if (findAlumno(id) == null) {
+                   // lanza una exception si el alumno no existe
+                   throw new NonexistentEntityException("El alumno con el id: "+id+" no existe");
+               } 
+           }
+           // Relanza la excepción original si hay otro tipo de error
+           throw e;
+       }finally{
+           // se liberan recursos
+           if (em != null) {
+               em.close(); 
+           }
+       }
+   }
     
     
    
