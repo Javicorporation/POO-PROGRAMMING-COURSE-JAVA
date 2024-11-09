@@ -2,23 +2,33 @@ package com.proyecto.proyectojpaeclipselin.persitencie;
 
 import com.proyecto.proyectojpaeclipselin.logica.Alumno;
 import com.proyecto.proyectojpaeclipselin.persitencie.exceptions.NonexistentEntityException;
+import java.util.List;
 
 
 public class ControladoraDePersistencia {
     
-    AlumnoJpaController ContoladorAlumno = new AlumnoJpaController();
+    AlumnoJpaController contoladorAlumno = new AlumnoJpaController();
 
     public void crearAlumno(Alumno alumno) {
-        ContoladorAlumno.Create(alumno);
+        contoladorAlumno.Create(alumno);
     }
 
     public void eliminar(int id) throws NonexistentEntityException {
-        ContoladorAlumno.destroy(id);   
+        contoladorAlumno.destroy(id);   
     }
 
     public void editar(Alumno alumno) throws NonexistentEntityException {
-        ContoladorAlumno.edit(alumno);  
+        contoladorAlumno.edit(alumno);  
         
+    }
+
+    public Alumno traerAlumno(int id) {
+        return contoladorAlumno.findAlumno(id);
+    }
+    
+    
+    public List<Alumno> traerListaAlumnos(){
+        return contoladorAlumno.findAlumnosEntities();
     }
     
     
