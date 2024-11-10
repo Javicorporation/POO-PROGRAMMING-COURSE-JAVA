@@ -1,7 +1,7 @@
 package com.proyecto.proyectojpaeclipselin;
 
 import com.proyecto.proyectojpaeclipselin.logica.Alumno;
-import com.proyecto.proyectojpaeclipselin.logica.ControladoraLogica;
+import com.proyecto.proyectojpaeclipselin.logica.ControladoraLogicaAlumno;
 import com.proyecto.proyectojpaeclipselin.persitencie.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +10,7 @@ public class ProyectoJPAEclipselin {
 
     public static void main(String[] args) throws NonexistentEntityException {
         
-        ControladoraLogica controladora = new ControladoraLogica();
+        ControladoraLogicaAlumno controladora = new ControladoraLogicaAlumno();
         Alumno alumno1 = new Alumno(2, "Maria", "Caseres", new Date());
         
         //---
