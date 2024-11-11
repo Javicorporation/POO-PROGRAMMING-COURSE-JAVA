@@ -91,12 +91,21 @@ public class CarreraJpaController implements Serializable {
         }
     }
 
-    Carrera findCarrera(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Carrera findCarrera(int id) {
+        EntityManager em = null;
+        try {
+           em = getEntityManager();
+           return em.find(Carrera.class, id);
+        } finally{
+            if( em != null){
+                em.close();
+            }
+        }
     }
 
-    List<Carrera> findAllCarrera() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public List<Carrera> findAllCarrera() {
+        
     }
     
 }
