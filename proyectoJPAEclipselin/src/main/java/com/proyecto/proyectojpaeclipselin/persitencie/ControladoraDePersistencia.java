@@ -64,7 +64,8 @@ public class ControladoraDePersistencia {
     
     // instancia de JPAControler de Materia
     
-    private MateriaJpaController materiaJpaController = new MateriaJpaController();
+
+    public MateriaJpaController materiaJpaController = new MateriaJpaController();
     public void crearMateria(Materia materia) {
         materiaJpaController.create(materia);
     }
@@ -82,7 +83,6 @@ public class ControladoraDePersistencia {
     }
 
     public List<Materia> TraerListaMateria() {
-        
         return materiaJpaController.findAllMaterias;
     }
 
