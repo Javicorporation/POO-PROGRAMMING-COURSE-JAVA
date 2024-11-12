@@ -12,15 +12,25 @@ public class ProyectoJPAEclipselin {
 
     public static void main(String[] args) throws NonexistentEntityException {
         
+        ControladoraLogicaCarrera controlCarrera = new ControladoraLogicaCarrera();
+        Carrera carrera1 = new Carrera(1, "Quimica");
+        Carrera carrera2 = new Carrera(2, "Quimica");
+        Carrera carrera3 = new Carrera(3, "Fisica");
+        
+        
         ControladoraLogicaAlumno controladora = new ControladoraLogicaAlumno();
-        Alumno alumno1 = new Alumno(2, "Maria", "Caseres", new Date());
+        Alumno alumno1 = new Alumno(2, "Maria", "Caseres", new Date(), carrera3);        
+        Alumno alumno2 = new Alumno(3, "Mar", "Caseres", new Date(), carrera1);
+
         
         //---
         //alumno1.setApellido("Quijije");
         
         //controladora.editar(alumno1);
         
-        //controladora.crearAlumno(alumno1);
+        controladora.crearAlumno(alumno1);        
+        controladora.crearAlumno(alumno2);
+
         //Alumno alu = controladora.traerAlumno(2);
         //System.out.println(alu);
         
@@ -28,16 +38,12 @@ public class ProyectoJPAEclipselin {
         for(Alumno alumnos : alumnosss){
             System.out.println(alumnos);
         }
-        ControladoraLogicaCarrera controlCarrera = new ControladoraLogicaCarrera();
-        //Carrera carrera1 = new Carrera(1, "Quimica");
-        Carrera carrera2 = new Carrera(2, "Quimica");
-        Carrera carrera3 = new Carrera(3, "Fisica");
-        Carrera carrera4 = new Carrera(4, "Historia");
+        
         
 //        
         controlCarrera.crearCarrera(carrera2);
         controlCarrera.crearCarrera(carrera3);
-        controlCarrera.crearCarrera(carrera4);
+        controlCarrera.crearCarrera(carrera1);
         
 //        carrera1.setNombre("Matematicas");
 //        controlCarrera.editarCarrera(carrera1);
