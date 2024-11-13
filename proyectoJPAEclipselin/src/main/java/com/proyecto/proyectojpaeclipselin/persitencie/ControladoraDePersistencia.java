@@ -4,7 +4,7 @@ import com.proyecto.proyectojpaeclipselin.logica.Alumno;
 import com.proyecto.proyectojpaeclipselin.logica.Carrera;
 import com.proyecto.proyectojpaeclipselin.logica.Materia;
 import com.proyecto.proyectojpaeclipselin.persitencie.exceptions.NonexistentEntityException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 
@@ -66,6 +66,7 @@ public class ControladoraDePersistencia {
     
 
     public MateriaJpaController materiaJpaController = new MateriaJpaController();
+    
     public void crearMateria(Materia materia) {
         materiaJpaController.create(materia);
     }
@@ -74,8 +75,8 @@ public class ControladoraDePersistencia {
         materiaJpaController.destroy(id);
     }
 
-    public void editarMateria(int id) {
-        materiaJpaController.edit(id);
+    public void editarMateria(Materia materia) {
+        materiaJpaController.edit(materia);
     }
 
     public Materia traerMateria(int id) {
@@ -83,7 +84,7 @@ public class ControladoraDePersistencia {
     }
 
     public List<Materia> TraerListaMateria() {
-        return materiaJpaController.findAllMaterias;
+        return materiaJpaController.findAllMaterias();
     }
 
     
