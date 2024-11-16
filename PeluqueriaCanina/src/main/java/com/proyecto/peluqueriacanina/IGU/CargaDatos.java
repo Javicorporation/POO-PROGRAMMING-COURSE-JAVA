@@ -1,11 +1,16 @@
 package com.proyecto.peluqueriacanina.IGU;
 
+import com.proyecto.peluqueriacanina.logica.Controlador;
+import com.proyecto.peluqueriacanina.logica.Mascota;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 
 public class CargaDatos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CargaDatos
-     */
+    
+    Controlador control = new Controlador();
+    
     public CargaDatos() {
         initComponents();
     }
@@ -204,6 +209,11 @@ public class CargaDatos extends javax.swing.JFrame {
         });
 
         ntnguardar.setText("Guardar");
+        ntnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ntnguardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -305,6 +315,37 @@ public class CargaDatos extends javax.swing.JFrame {
         cmbalergico.setSelectedIndex(0);
         cmbatenciones.setSelectedIndex(0);
     }//GEN-LAST:event_btnlimpiarActionPerformed
+
+    
+    // boton Guardar
+    private void ntnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntnguardarActionPerformed
+//        String color = txtcolor.getText();
+//        String celDuenio = txtceldueno.getText();
+//        String nombre = txtnombre.getText();
+//        String nombreDuenio = txtnombredueno.getText();
+//        String observacion = txtobservacion.getText();
+//        String raza = txtraza.getText();
+//        String alergico = (String)cmbalergico.getSelectedItem();
+//        String atencion = (String)cmbatenciones.getSelectedItem();
+//        control.guardar(color, celDuenio,nombre, nombreDuenio, observacion, raza, alergico, atencion);
+        
+        // otra manera de insertar los datos en el metodo guardar.
+        control.guardar(
+        txtcolor.getText(),
+        txtceldueno.getText(),
+        txtnombre.getText(),
+        txtnombredueno.getText(),
+        txtobservacion.getText(),
+        txtraza.getText(),
+        (String) cmbalergico.getSelectedItem(),
+        (String) cmbatenciones.getSelectedItem());
+        
+        JOptionPane optionPane = new JOptionPane("Se guardo correctamenteeeeee");
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionPane.createDialog("Se Guardo Bien...");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_ntnguardarActionPerformed
 
     /**
      * @param args the command line arguments
