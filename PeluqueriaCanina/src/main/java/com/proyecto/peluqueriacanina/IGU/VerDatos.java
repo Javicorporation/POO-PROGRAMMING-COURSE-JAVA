@@ -32,7 +32,7 @@ public class VerDatos extends javax.swing.JFrame {
         tabla01 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +85,12 @@ public class VerDatos extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        jButton1.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Editar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -102,14 +107,14 @@ public class VerDatos extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnEliminar))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton1)
+                .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addContainerGap(212, Short.MAX_VALUE))
@@ -170,6 +175,20 @@ public class VerDatos extends javax.swing.JFrame {
         cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // verifico y controlo que la tabla no este vacia
+        if (tabla01.getRowCount()> 0){
+            // controlo que se halla seleccionado una mascota
+            if (tabla01.getSelectedRow() != -1) {
+                //asignamos el numero de el cluente de la columna
+                // .getValueAt trae el valor de o donde 
+                // .getSelectedRow trae la fila seleccionada
+                int numCliente = Integer.parseInt(String.valueOf(tabla01.getValueAt(tabla01.getSelectedRow(), 0)));
+                
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -206,7 +225,7 @@ public class VerDatos extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -231,14 +250,14 @@ public class VerDatos extends javax.swing.JFrame {
         // establecemos los nombres de las columnas
            String titulos[] = {"num", "nombre", "color", "raza", "alergico", "atencio especial","Nombre duenio", "celular duenio"};
            tabla.setColumnIdentifiers(titulos);
-           
+            
            
            // carga de datos desde la base de datos y la guardamos en una lista
            List<Mascota> listaMascotas =  control.traerMascotas();
            // recorremos la lista y mostramos cada elemento
            if(listaMascotas != null){
                for(Mascota mascota :listaMascotas){
-               Object[] objecto = {mascota.getNumCliente(), mascota.getNombre(),mascota.getColor(),mascota.getRaza(),mascota.getAlergico(), mascota.getAtencionEspecial(),mascota.getDuenio().getNombre(), mascota.getDuenio().getNombre()};
+               Object[] objecto = {mascota.getNumCliente(), mascota.getNombre(),mascota.getColor(),mascota.getRaza(),mascota.getAlergico(), mascota.getAtencionEspecial(),mascota.getDuenio().getNombre(), mascota.getDuenio().getCelDuenio()};
                
                tabla.addRow(objecto);
                }
