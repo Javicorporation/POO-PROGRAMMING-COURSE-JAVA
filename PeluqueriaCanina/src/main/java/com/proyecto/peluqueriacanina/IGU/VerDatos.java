@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 public class VerDatos extends javax.swing.JFrame {
 
     
-    Controlador control;
+    Controlador control = null;
     
     public VerDatos() {
         control = new Controlador();
