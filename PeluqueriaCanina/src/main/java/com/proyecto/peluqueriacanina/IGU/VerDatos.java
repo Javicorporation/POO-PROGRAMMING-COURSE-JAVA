@@ -177,6 +177,7 @@ public class VerDatos extends javax.swing.JFrame {
         cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
+    //obtenemos el codigo de la mascota a eliminar
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // verifico y controlo que la tabla no este vacia
         if (tabla01.getRowCount()> 0){
@@ -185,21 +186,31 @@ public class VerDatos extends javax.swing.JFrame {
                 //asignamos el numero de el cluente de la columna
                 // .getValueAt trae el valor de o donde 
                 // .getSelectedRow trae la fila seleccionada
+                // Obtén el número de cliente de la fila seleccionada
                 int numCliente = Integer.parseInt(String.valueOf(tabla01.getValueAt(tabla01.getSelectedRow(), 0)));
-                control.borrarMascota(numCliente);
+                
+                // Intenta eliminar la mascota
+                control.borrarMascota(numCliente); // Cambia el método si no retorna un boolean
                 mensajeria("Correcto", "info", "Eliminado exitoso");
+                    cargarTabla(); 
+                
+            }else{
+                mensajeria("No seleccionaste ninguna fila.", "error", "Advertencia");
             }
+        }else{
+            mensajeria("No hay datos en la tabla para eliminar", "Error", "Eliminado exitoso");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    // metodo de mensajeria opcional
     public void mensajeria(String mensaje, String tipo, String titulo){
         JOptionPane optionPane = new JOptionPane(mensaje);
-        if (tipo.equals("Info")) {
+        if (tipo.equalsIgnoreCase("info")) {
             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        }else if (tipo.equals("Error")) {
-            optionPane.setMessageType(JOptionPane.ERROR);
-        }else{ //https://cedia.zoom.us/j/7634974495
-            optionPane.setMessageType(JOptionPane.ABORT);
+        }else if (tipo.equalsIgnoreCase("error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }else{ 
+            optionPane.setMessageType(JOptionPane.PLAIN_MESSAGE);
         }
         JDialog dialog = optionPane.createDialog(titulo);
         dialog.setAlwaysOnTop(true);
