@@ -41,23 +41,18 @@ public class MascotaJpaController implements Serializable {
     }
     
     public void destroy(int id){
-        EntityManager em = null;
+        EntityManager em = getEntityManager();
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Mascota mascota = null;
-            try {
-                mascota = em.getReference(Mascota.class, em);
-                mascota.getNumCliente();
-            } catch (Exception e) {
-                System.out.println("Existe un error...");
+            Mascota mascota = em.getReference(Mascota.class, id);
+            if (mascota != null) {
+                em.getTransaction().begin();
+                em.remove(mascota);
+                em.getTransaction().commit();
+            }else{
+                throw new IllegalArgumentException("Existe un error...");
             }
-            em.remove(mascota);
-            em.getTransaction().commit();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
     
@@ -94,7 +89,7 @@ public class MascotaJpaController implements Serializable {
     
     
     private List<Mascota> findEntitys(boolean all, int maxresult, int minresult){
-        EntityManager em = null;
+        EntityManager em = getEntityManager();
         try {
             CriteriaQuery<Mascota> cq = em.getCriteriaBuilder().createQuery(Mascota.class);
             cq.select(cq.from(Mascota.class));
