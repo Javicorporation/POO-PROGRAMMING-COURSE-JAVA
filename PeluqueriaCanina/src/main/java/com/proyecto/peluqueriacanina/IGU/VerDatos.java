@@ -3,6 +3,8 @@ package com.proyecto.peluqueriacanina.IGU;
 import com.proyecto.peluqueriacanina.logica.Controlador;
 import com.proyecto.peluqueriacanina.logica.Mascota;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -184,11 +186,25 @@ public class VerDatos extends javax.swing.JFrame {
                 // .getValueAt trae el valor de o donde 
                 // .getSelectedRow trae la fila seleccionada
                 int numCliente = Integer.parseInt(String.valueOf(tabla01.getValueAt(tabla01.getSelectedRow(), 0)));
-                
+                control.borrarMascota(numCliente);
+                mensajeria("Correcto", "info", "Eliminado exitoso");
             }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    public void mensajeria(String mensaje, String tipo, String titulo){
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR);
+        }else{ //https://cedia.zoom.us/j/7634974495
+            optionPane.setMessageType(JOptionPane.ABORT);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
