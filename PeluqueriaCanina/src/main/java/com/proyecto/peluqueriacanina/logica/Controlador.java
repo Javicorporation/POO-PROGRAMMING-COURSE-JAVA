@@ -34,7 +34,27 @@ public class Controlador {
     }
 
     public Mascota traerMascota(int numCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return controladorPersistencia.traerMascotas(numCliente);
+    }
+
+    public void modificarMascota(Mascota mascota, String color, String nombre, 
+            String observacion, String raza, String alergico, String atencion, 
+            String nombreDuenio, String celDuenio) {
+        
+        mascota.setColor(color);
+        mascota.setNombre(nombre);
+        mascota.setObservacion(observacion);
+        mascota.setRaza(raza);
+        mascota.setAlergico(alergico);
+        mascota.setAtencionEspecial(atencion);
+        
+        // cremos un metodo para modificar la mascota
+        controladorPersistencia.modificarMascota(mascota);
+        Duenio duenio = this.buscarDuenio(mascota.getDuenio().getId());
+    }
+
+    private Duenio buscarDuenio(int id) {
+        return controladorPersistencia.traerDuenio(id);
     }
 
     
