@@ -33,9 +33,13 @@ public class Controlador {
         controladorPersistencia.eliminarMascota(numCliente);
     }
 
-    public Mascota traerMascotas(int numCliente) {
-        controladorPersistencia.traerMascotas(numCliente);
+    public Mascota traerMascota(int numCliente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
+
+   
 
    
     
