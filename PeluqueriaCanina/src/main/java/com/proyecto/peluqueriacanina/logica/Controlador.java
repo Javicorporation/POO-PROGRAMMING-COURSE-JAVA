@@ -1,6 +1,7 @@
 package com.proyecto.peluqueriacanina.logica;
 
 import com.proyecto.peluqueriacanina.persistencia.ControladorPersistencia;
+import java.util.List;
 
 public class Controlador {
     ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
@@ -24,10 +25,19 @@ public class Controlador {
         controladorPersistencia.guardar(duenio, mascota);
     }
 
-    public void traerMascotas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Mascota> traerMascotas() {
+        return controladorPersistencia.traerMascotas();    
     }
-    
+
+    public void borrarMascota(int numCliente) {
+        controladorPersistencia.eliminarMascota(numCliente);
+    }
+
+    public Mascota traerMascotas(int numCliente) {
+        controladorPersistencia.traerMascotas(numCliente);
+    }
+
+   
     
     
 }
