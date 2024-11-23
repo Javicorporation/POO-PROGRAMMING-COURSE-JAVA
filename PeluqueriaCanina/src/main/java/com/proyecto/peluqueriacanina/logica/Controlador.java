@@ -50,11 +50,22 @@ public class Controlador {
         
         // cremos un metodo para modificar la mascota
         controladorPersistencia.modificarMascota(mascota);
+        
+        // seteo valores del dueño 
         Duenio duenio = this.buscarDuenio(mascota.getDuenio().getId());
+        duenio.setNombre(nombreDuenio);
+        duenio.setCelDuenio(celDuenio);
+        
+        this.modificarDuenio(duenio);
     }
 
+    // metodo para modificar dueño 
     private Duenio buscarDuenio(int id) {
         return controladorPersistencia.traerDuenio(id);
+    }
+
+    private void modificarDuenio(Duenio duenio) {
+        controladorPersistencia.modificarDuenio(duenio);
     }
 
     
