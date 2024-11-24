@@ -33,9 +33,28 @@ public class ControladorPersistencia {
         return mascotaJpaController.find(numCliente);
     }
 
+    public void modificarMascota(Mascota mascota) {
+        try {
+          mascotaJpaController.edit(mascota);  
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // metodo de traer dueño
+    public Duenio traerDuenio(int id) {
+        return duenioJpaController.find(id);
+    }
+
+    public void modificarDuenio(Duenio duenio) {
+        try {
+          duenioJpaController.edit(duenio);  
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
     
-    
-    
-    
-    
+
 }
