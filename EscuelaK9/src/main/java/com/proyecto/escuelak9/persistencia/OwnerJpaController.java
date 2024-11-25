@@ -2,12 +2,15 @@ package com.proyecto.escuelak9.persistencia;
 
 import com.proyecto.escuelak9.logica.Owner;
 import java.io.Serializable;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 
 public class OwnerJpaController implements Serializable {
     
@@ -116,7 +119,40 @@ public class OwnerJpaController implements Serializable {
         }
     }
     
-    //------------ metodo buscar Owner por Id
+    //------------ metodo para obtener Owners sin parametros
+    public List<Owner> findEntities(){
+        return findEntities(true, -1, -1);
+    }
+    
+    
+    //------------ metodo para obtener Owners con parametros
+    public List<Owner> findEntities(int maxRes, int firstRes){
+        return findEntities(maxRes, firstRes);
+    }
+    
+    
+    
+    
+    //------------ metodo interno para ejecutar las consultas.
+    private List<Owner> findEntities(boolean all, int maxRes, int firstRe){
+        EntityManager em = null;
+        try {
+            CriteriaQuery<Owner> cq = em.getCriteriaBuilder().createQuery(Owner.class);
+            cq.select(cq.from(Owner.class));
+            TypedQuery<Owner> query = em.createQuery(cq);
+            if(!all){
+                query.setMaxResults(maxRes);
+                query.setFirstResult(firstRe);
+            }
+            return query.getResultList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
+    
     
     
     
