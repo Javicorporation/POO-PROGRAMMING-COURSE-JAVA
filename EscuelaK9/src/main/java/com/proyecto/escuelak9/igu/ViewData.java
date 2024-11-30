@@ -1,11 +1,17 @@
 package com.proyecto.escuelak9.igu;
 
+import com.proyecto.escuelak9.logica.ControladorLogico;
+import javax.swing.table.DefaultTableModel;
+
 public class ViewData extends javax.swing.JFrame {
 
+    ControladorLogico controladorLogico;
+    
     public ViewData() {
         initComponents();
         // cambiamos el comportamiento de cierre de las ventanas con windowConstants
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.controladorLogico = new ControladorLogico();
     }
 
     @SuppressWarnings("unchecked")
@@ -124,8 +130,10 @@ public class ViewData extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // metodo al abrir la ventana
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        // metodo cargar tabla
+        cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
 
@@ -139,4 +147,26 @@ public class ViewData extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarTabla() {
+        
+        
+        
+        // definimos un modelo para la tabla
+        DefaultTableModel tablaDeRegistros = new DefaultTableModel(){
+        
+            // hacer que los registros no sean editablesç
+            public boolean isCellEditable(int row, int column){
+                return false;
+
+            }
+        };  
+        
+        // establecemos los nombres de las columnas
+        String titulos[] = {"Name Pet", "Race", "Color", " Allery", "Special", "Name Owner", "address", "Telf"};
+        tablaDeRegistros.setColumnIdentifiers(titulos);
+        
+        // carga de datos desde la base de datos
+        
+    }
 }
