@@ -1,6 +1,8 @@
 package com.proyecto.escuelak9.igu;
 
 import com.proyecto.escuelak9.logica.ControladorLogico;
+import com.proyecto.escuelak9.logica.Pet;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class ViewData extends javax.swing.JFrame {
@@ -167,6 +169,16 @@ public class ViewData extends javax.swing.JFrame {
         tablaDeRegistros.setColumnIdentifiers(titulos);
         
         // carga de datos desde la base de datos
+        List<Pet> ListPet = controladorLogico.traerMascotasBD();
         
+        // recorremos la lista y lo presentamos en la tabla
+        if(ListPet != null){
+            for(Pet pet: ListPet){
+            Object[] object = { pet.getNamePet(), pet.getRace(), pet.getColor(), pet.getAllery(), pet.getSpecialTreatment(), 
+                                pet.getOwner().getNameOwner(), pet.getOwner().getAddress(), pet.getOwner().getTelf()};
+                            tablaDeRegistros.addRow(object);
+            }
+            
+        }   
     }
 }
