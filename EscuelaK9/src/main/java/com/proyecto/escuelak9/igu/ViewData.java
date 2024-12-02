@@ -52,6 +52,11 @@ public class ViewData extends javax.swing.JFrame {
 
         btnEdit.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         TablaDeIntefaz.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,10 +161,23 @@ public class ViewData extends javax.swing.JFrame {
                 controladorLogico.borrar(idPet);
                 cargarTabla();
             }else{
-                controladorLogico.mensajeFlotante("No a seleccionado ningun registro", "Advertencia");
+                controladorLogico.mensajeFlotante("No a seleccionado ningun registro","warning" , "Advertencia");
             }
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        if (TablaDeIntefaz.getRowCount() > 0) {
+            if (TablaDeIntefaz.getSelectedRow() != -1) {
+                int id = Integer.parseInt(String.valueOf(TablaDeIntefaz.getValueAt(TablaDeIntefaz.getSelectedRow(), 0)));
+                
+                EditRegister editRegister = new EditRegister(id);
+                editRegister.setVisible(true);
+                editRegister.setLocationRelativeTo(null);
+            }
+            
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -186,7 +204,7 @@ public class ViewData extends javax.swing.JFrame {
         };  
         
         // establecemos los nombres de las columnas
-        String titulos[] = {"Id","Name Pet", "Race", "Color", " Allery", "Special", "Name Owner", "address", "Telf"};
+        String titulos[] = {"Id","Name Pet", "Race", "Color", " Allery", "Special"," Age", "Name Owner", "address", "Telf"};
         tablaDeRegistros.setColumnIdentifiers(titulos);
         
         // carga de datos desde la base de datos
@@ -196,7 +214,7 @@ public class ViewData extends javax.swing.JFrame {
         if(ListPet != null){
             for(Pet pet: ListPet){
                 
-            Object[] object = {pet.getId(), pet.getNamePet(), pet.getRace(), pet.getColor(), pet.getAllery(), pet.getSpecialTreatment(), 
+            Object[] object = {pet.getId(), pet.getNamePet(), pet.getRace(), pet.getColor(), pet.getAllery(), pet.getSpecialTreatment(),pet.getAge(), 
                                 pet.getOwner().getNameOwner(), pet.getOwner().getAddress(), pet.getOwner().getTelf()};
             
             tablaDeRegistros.addRow(object);
