@@ -7,6 +7,7 @@ public class EditRegister extends javax.swing.JFrame {
     
     ControladorLogico controladorLogico = null;
     int idPet;
+    Pet pet;
 
     public EditRegister(int idPet) {
         controladorLogico = new ControladorLogico();
@@ -196,6 +197,11 @@ public class EditRegister extends javax.swing.JFrame {
 
         btnSaveChanges.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnSaveChanges.setText("Save Changes");
+        btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveChangesActionPerformed(evt);
+            }
+        });
 
         btnClean.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnClean.setText("Clean");
@@ -297,6 +303,20 @@ public class EditRegister extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCleanActionPerformed
 
+    private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
+//        controladorLogico.savechangesOwner(txtNameOwner.getText(), txtAddress.getText(), txtTelf.getText());
+        
+        controladorLogico.savechanges(pet, txtNamePet.getText(), txtRace.getText(), 
+                txtColor.getText(),(String) cbxAllery.getSelectedItem(), (String) cbxSpecialTrea.getSelectedItem(),txtAge.getText(), txtNameOwner.getText(), txtAddress.getText(), txtTelf.getText());
+        
+        controladorLogico.mensajeFlotante("Edicion exitosa...", "Info", "Edicion");
+        
+        ViewData viewData = new ViewData();
+        viewData.setVisible(true);
+        viewData.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnSaveChangesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClean;
@@ -331,7 +351,7 @@ public class EditRegister extends javax.swing.JFrame {
     private void cargarDatos(int idPet) {
         
         // intanciamos un objeto de pet con el controlador logico y un metodo traer Pets
-        Pet pet = controladorLogico.traerPetAEdit(idPet);
+        this.pet = controladorLogico.traerPetAEdit(idPet);
         
         // seteamos los datos a la interfaz
         txtNamePet.setText(pet.getNamePet());
