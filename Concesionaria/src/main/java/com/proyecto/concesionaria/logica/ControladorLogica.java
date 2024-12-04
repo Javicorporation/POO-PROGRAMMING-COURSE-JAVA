@@ -70,4 +70,16 @@ public class ControladorLogica {
         auto.setNumDoor(Integer.parseInt(NumDoor));
         controladorPersistencia.ModificarAuto(auto);
     }
+    
+    public void verificarOpcion(String message, Runnable accion){
+        int opcion = JOptionPane.showConfirmDialog(null,
+                message,
+                "Estas seguro",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE
+            );
+        if (opcion == JOptionPane.YES_OPTION) {
+            accion.run();
+        }
+    }
 }

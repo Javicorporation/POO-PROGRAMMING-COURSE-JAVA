@@ -119,14 +119,19 @@ public class ViewData extends javax.swing.JFrame {
         if (TablaInterfaz.getRowCount()> 0) {
             if (TablaInterfaz.getSelectedRow() != -1) {
                 int idAuto = Integer.parseInt(String.valueOf(TablaInterfaz.getValueAt(TablaInterfaz.getSelectedRow(), 0)));
-
-                EditData editData = new EditData(idAuto);
-                editData.setVisible(true);
-                editData.setLocationRelativeTo(null);
-                this.dispose();
+                controladorLogica.verificarOpcion("Estas seguro de Hacer la edicion", 
+                        ()->{
+                            EditData editData = new EditData(idAuto);
+                            editData.setVisible(true);
+                            editData.setLocationRelativeTo(null);
+                            this.dispose();
+                        }
+                );
             }else{
                 controladorLogica.MensajeFlotante("No a seleccionado ningun registro","warning" , "Advertencia");
             }
+        }else{
+            controladorLogica.MensajeFlotante("No hay registros en la tabla", "warning", "Sin registros");
         }
     }//GEN-LAST:event_btnEditActionPerformed
 
@@ -134,12 +139,20 @@ public class ViewData extends javax.swing.JFrame {
         if(TablaInterfaz.getRowCount()> 0){
             if (TablaInterfaz.getSelectedRow() != -1) {
                 int idAuto = Integer.parseInt(String.valueOf(TablaInterfaz.getValueAt(TablaInterfaz.getSelectedRow(), 0)));
-                controladorLogica.deleteAuto(idAuto);
-                controladorLogica.MensajeFlotante("Elemento eliminado", "warning", "Eliminacion");
-                cargarTablaDatos();
+                
+                controladorLogica.verificarOpcion("Estas seguro de que deseas hacer la elimina",
+                        () -> {
+                            controladorLogica.deleteAuto(idAuto);
+                            controladorLogica.MensajeFlotante("Elemento eliminado", "warning", "Eliminacion");
+                            cargarTablaDatos();
+                        }
+                );
+            }else{
+                controladorLogica.MensajeFlotante("Por favor, selecciona un registro", "warning", "Sin selección");
             }
+        }else{
+            controladorLogica.MensajeFlotante("No hay registros en la tabla", "warning", "Sin registros");
         }
-        
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
