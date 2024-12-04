@@ -118,8 +118,10 @@ public class Index extends javax.swing.JFrame {
 
     private void btnNewRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRegisterActionPerformed
         NewRegister newRegister = new NewRegister();
+        
         newRegister.setVisible(true);
         newRegister.setLocationRelativeTo(null);
+        
     }//GEN-LAST:event_btnNewRegisterActionPerformed
 
     private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed

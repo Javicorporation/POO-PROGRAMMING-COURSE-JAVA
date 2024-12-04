@@ -21,7 +21,7 @@ public class AutoJpaController implements Serializable {
     }
 
     public AutoJpaController() {
-        emf = Persistence.createEntityManagerFactory("PUpeluqueriacanina");
+        emf = Persistence.createEntityManagerFactory("concesionaria");
     }
     
     // crear
