@@ -117,11 +117,15 @@ public class Index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRegisterActionPerformed
-        // TODO add your handling code here:
+        NewRegister newRegister = new NewRegister();
+        newRegister.setVisible(true);
+        newRegister.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnNewRegisterActionPerformed
 
     private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
-        // TODO add your handling code here:
+        ViewData viewData = new ViewData();
+        viewData.setVisible(true);
+        viewData.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnViewDataActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
