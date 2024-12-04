@@ -1,8 +1,17 @@
 package com.proyecto.concesionaria.igu;
 
+import com.proyecto.concesionaria.logica.Auto;
+import com.proyecto.concesionaria.logica.ControladorLogica;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class ViewData extends javax.swing.JFrame {
+    
+    ControladorLogica controladorLogica = null;
+    
     public ViewData() {
         initComponents();
+        this.controladorLogica = new ControladorLogica();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
@@ -114,10 +123,10 @@ public class ViewData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        // metodo de cargar datos a la tabla
+        cargarTablaDatos();
     }//GEN-LAST:event_formWindowOpened
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaInterfaz;
@@ -127,4 +136,33 @@ public class ViewData extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarTablaDatos() {
+        
+        DefaultTableModel tablaRegistros = new DefaultTableModel(){
+            
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        // establecemos los nombres en la tabla
+        String titulos[] = {"id","Model","Brand", "Motor", "Color", "Numero Door"};
+        tablaRegistros.setColumnIdentifiers(titulos);
+        
+        // cargamos los datos de la base de datos
+        List<Auto> listaAuto = controladorLogica.traerAutos();
+        
+        if(listaAuto != null){
+            for(Auto auto: listaAuto){
+                Object[] object ={auto.getId(), auto.getModel(), auto.getBrand(), 
+                     auto.getMotor(), auto.getColor(),auto.getNumDoor()};
+                
+                tablaRegistros.addRow(object);
+            }
+        }
+        TablaInterfaz.setModel(tablaRegistros);
+                
+    }
 }

@@ -181,7 +181,7 @@ public class NewRegister extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         controladorLogica.saveEntity(txtModel.getText(),txtBrand.getText(), txtMotor.getText(),txtColor.getText(), txtNumDor.getText());
-        controladorLogica.MensajeFlotante("Guardado correcto", "Info", "Guardado");
+        controladorLogica.MensajeFlotante("Guardado correcto", "info", "Guardado");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed

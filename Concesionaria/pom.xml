@@ -52,6 +52,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.29</version> <!-- Usa la última versión compatible -->
         </dependency>
+        <dependency>
+            <groupId>com.proyecto</groupId>
+            <artifactId>EscuelaK9</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

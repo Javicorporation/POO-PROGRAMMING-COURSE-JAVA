@@ -76,10 +76,8 @@ public class AutoJpaController implements Serializable {
     }
     
     public Auto find(int id){
-        EntityManager em = null;
+        EntityManager em = getEntityManager();
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
             return em.find(Auto.class, id);
         } finally{
             if (em != null) {
@@ -89,12 +87,16 @@ public class AutoJpaController implements Serializable {
     }
     
     public List<Auto> findEntities(){
-        return findEntitys(true, -1, 0);
+        return findEntitys(true, -1, -1);
     }
     
+    public List<Auto> findEntities(int maxRes, int firstRes){
+        return findEntitys(false,maxRes, firstRes);
+    }
     
     private List<Auto> findEntitys(boolean all, int maxresult, int minresult){
         EntityManager em = null;
+        em = getEntityManager();
         try {
             CriteriaQuery<Auto> cq = em.getCriteriaBuilder().createQuery(Auto.class);
             cq.select(cq.from(Auto.class));

@@ -1,12 +1,19 @@
 package com.proyecto.concesionaria.logica;
 
 import com.proyecto.concesionaria.persistencia.ControladorPersistencia;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class ControladorLogica {
+
     public ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
 
+    // Método traerAutos que interactúa con la capa de persistencia
+    public List<Auto> traerAutos() {
+        return controladorPersistencia.traerAutos();
+    }
+    
     public void saveEntity(String Model, String Brand, String Motor, String Color, String NumDoor) {
         
         Auto auto = new Auto();
@@ -26,7 +33,7 @@ public class ControladorLogica {
     }
     
     public void MensajeFlotante(String message, String Typo, String title){
-        JOptionPane jOptionPane = new JOptionPane();
+        JOptionPane jOptionPane = new JOptionPane(message);
         if (Typo.equalsIgnoreCase("info")) {
             jOptionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
         }else if (Typo.equalsIgnoreCase("error")) {
@@ -38,6 +45,10 @@ public class ControladorLogica {
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(true);
         
-    }
+    } 
+//    como se deberia generar el metodo
     
+//    public List<Auto> traerAutos() {
+//        return controladorPersistencia.traerAutos();
+//    }
 }
