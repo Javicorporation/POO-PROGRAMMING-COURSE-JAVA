@@ -59,4 +59,15 @@ public class ControladorLogica {
     public Auto traerAutoEdit(int idAuto) {
         return controladorPersistencia.traerAutoAEdit(idAuto);
     }
+
+    public void saveChanges(Auto auto, String Model, String Brand, 
+            String Motor,String Color, String NumDoor) {
+        
+        auto.setModel(Model);
+        auto.setBrand(Brand);
+        auto.setMotor(Motor);
+        auto.setColor(Color);
+        auto.setNumDoor(Integer.parseInt(NumDoor));
+        controladorPersistencia.ModificarAuto(auto);
+    }
 }

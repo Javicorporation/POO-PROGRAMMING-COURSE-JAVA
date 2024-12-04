@@ -28,5 +28,9 @@ public class ControladorPersistencia {
     public Auto traerAutoAEdit(int idAuto) {
         return autoJpa.find(idAuto);
     }
+
+    public void ModificarAuto(Auto auto) {
+        autoJpa.edit(auto);
+    }
     
 }

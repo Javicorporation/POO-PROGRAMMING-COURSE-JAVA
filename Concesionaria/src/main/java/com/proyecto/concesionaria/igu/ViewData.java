@@ -123,6 +123,7 @@ public class ViewData extends javax.swing.JFrame {
                 EditData editData = new EditData(idAuto);
                 editData.setVisible(true);
                 editData.setLocationRelativeTo(null);
+                this.dispose();
             }else{
                 controladorLogica.MensajeFlotante("No a seleccionado ningun registro","warning" , "Advertencia");
             }

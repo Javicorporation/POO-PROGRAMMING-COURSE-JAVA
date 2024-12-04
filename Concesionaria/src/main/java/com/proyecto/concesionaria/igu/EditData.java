@@ -11,7 +11,7 @@ public class EditData extends javax.swing.JFrame {
     
     
     ControladorLogica controladorLogica = null;
-    int idAuto = 0;
+    int idAuto;
     Auto auto = null;
     
     
@@ -190,7 +190,14 @@ public class EditData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSavechangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavechangesActionPerformed
+        controladorLogica.saveChanges(auto, txtModel.getText(), txtBrand.getText()
+                , txtMotor.getText(), txtColor.getText(), txtNumDor.getText());
+        controladorLogica.MensajeFlotante("Edicion exitosa", "info", "Edicion");
         
+        ViewData viewData = new ViewData();
+        viewData.setVisible(true);
+        viewData.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnSavechangesActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -221,6 +228,12 @@ public class EditData extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargaDeData(int idAuto) {
-        
+        this.auto = controladorLogica.traerAutoEdit(idAuto);
+        txtModel.setText(auto.getModel());
+        txtBrand.setText(auto.getBrand());
+        txtMotor.setText(auto.getMotor());
+        txtColor.setText(auto.getColor());
+        String numdoo = String.valueOf(auto.getNumDoor());
+        txtNumDor.setText(numdoo);
     }
 }
