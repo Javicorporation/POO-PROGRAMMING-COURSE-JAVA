@@ -1,9 +1,14 @@
 package com.proyecto.concesionaria.igu;
 
+import com.proyecto.concesionaria.logica.ControladorLogica;
+
 public class NewRegister extends javax.swing.JFrame {
 
+    public ControladorLogica controladorLogica = null;
+    
     public NewRegister() {
         initComponents();
+        controladorLogica = new ControladorLogica();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
@@ -175,11 +180,15 @@ public class NewRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
+        controladorLogica.saveEntity(txtModel.getText(),txtBrand.getText(), txtMotor.getText(),txtColor.getText(), txtNumDor.getText());
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
-        // TODO add your handling code here:
+        txtModel.setText("");
+        txtBrand.setText("");
+        txtMotor.setText("");
+        txtColor.setText("");
+        txtNumDor.setText("");
     }//GEN-LAST:event_btnCleanActionPerformed
 
     private void txtModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModelActionPerformed
