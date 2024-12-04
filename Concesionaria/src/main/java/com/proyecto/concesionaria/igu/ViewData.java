@@ -119,7 +119,15 @@ public class ViewData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
+        if(TablaInterfaz.getRowCount()> 0){
+            if (TablaInterfaz.getSelectedRow() != -1) {
+                int idAuto = Integer.parseInt(String.valueOf(TablaInterfaz.getValueAt(TablaInterfaz.getSelectedRow(), 0)));
+                controladorLogica.deleteAuto(idAuto);
+                controladorLogica.MensajeFlotante("Elemento eliminado", "warning", "Eliminacion");
+                cargarTablaDatos();
+            }
+        }
+        
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -51,4 +51,8 @@ public class ControladorLogica {
 //    public List<Auto> traerAutos() {
 //        return controladorPersistencia.traerAutos();
 //    }
+
+    public void deleteAuto(int idAuto) {
+        controladorPersistencia.eliminarAuto(idAuto);
+    }
 }
