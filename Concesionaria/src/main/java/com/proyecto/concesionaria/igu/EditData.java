@@ -4,11 +4,22 @@
  */
 package com.proyecto.concesionaria.igu;
 
-public class EditData extends javax.swing.JFrame {
+import com.proyecto.concesionaria.logica.Auto;
+import com.proyecto.concesionaria.logica.ControladorLogica;
 
-    public EditData() {
+public class EditData extends javax.swing.JFrame {
+    
+    
+    ControladorLogica controladorLogica = null;
+    int idAuto = 0;
+    Auto auto = null;
+    
+    
+    public EditData(int idAuto) {
+        this.controladorLogica = new ControladorLogica();
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        cargaDeData(idAuto);
     }
 
     @SuppressWarnings("unchecked")
@@ -179,7 +190,7 @@ public class EditData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSavechangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavechangesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnSavechangesActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -208,4 +219,8 @@ public class EditData extends javax.swing.JFrame {
     private javax.swing.JTextField txtMotor;
     private javax.swing.JTextField txtNumDor;
     // End of variables declaration//GEN-END:variables
+
+    private void cargaDeData(int idAuto) {
+        
+    }
 }

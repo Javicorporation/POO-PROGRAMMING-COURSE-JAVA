@@ -24,5 +24,9 @@ public class ControladorPersistencia {
         }
         
     }
+
+    public Auto traerAutoAEdit(int idAuto) {
+        return autoJpa.find(idAuto);
+    }
     
 }

@@ -4,6 +4,7 @@ import com.proyecto.concesionaria.logica.Auto;
 import com.proyecto.concesionaria.logica.ControladorLogica;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import org.eclipse.persistence.internal.libraries.asm.commons.StaticInitMerger;
 
 public class ViewData extends javax.swing.JFrame {
     
@@ -113,9 +114,19 @@ public class ViewData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        EditData editData = new EditData();
-        editData.setVisible(true);
-        editData.setLocationRelativeTo(null);
+        
+        
+        if (TablaInterfaz.getRowCount()> 0) {
+            if (TablaInterfaz.getSelectedRow() != -1) {
+                int idAuto = Integer.parseInt(String.valueOf(TablaInterfaz.getValueAt(TablaInterfaz.getSelectedRow(), 0)));
+
+                EditData editData = new EditData(idAuto);
+                editData.setVisible(true);
+                editData.setLocationRelativeTo(null);
+            }else{
+                controladorLogica.MensajeFlotante("No a seleccionado ningun registro","warning" , "Advertencia");
+            }
+        }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
