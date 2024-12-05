@@ -7,7 +7,7 @@ import com.proyecto.proyectojpaeclipselin.persitencie.exceptions.NonexistentEnti
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControladoraLogica {
+public class ControladoraLogicaAlumno {
     
     ControladoraDePersistencia controlDePersistencia = new ControladoraDePersistencia();
     

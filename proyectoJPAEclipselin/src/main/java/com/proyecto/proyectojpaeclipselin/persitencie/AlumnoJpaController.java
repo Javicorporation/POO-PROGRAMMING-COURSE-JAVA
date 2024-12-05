@@ -31,7 +31,7 @@ public class AlumnoJpaController implements Serializable {
     // nos permite inicializar EntityManagerFactory de manera automatica sin necesidad de 
     // un parametro externo
     public AlumnoJpaController(){
-        emf = Persistence.createEntityManagerFactory("alumnoJpa");
+        emf = Persistence.createEntityManagerFactory("pruebaJpa");
     }
     
     // obtener un alumno

@@ -11,9 +11,13 @@ public class EditarDatos extends javax.swing.JFrame {
     
     Controlador control = null;
     
-    public EditarDatos() {
+    int idCliente;
+    Mascota mascota;
+    public EditarDatos(int idCliente) {
         this.control = new Controlador();
+        
         initComponents();
+        cargarDatos(idCliente);
     }
 
     /**
@@ -296,6 +300,19 @@ public class EditarDatos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void mensajeria(String mensaje, String tipo, String titulo){
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equalsIgnoreCase("info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }else if (tipo.equalsIgnoreCase("error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }else{ 
+            optionPane.setMessageType(JOptionPane.PLAIN_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
     private void txtcolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcolorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcolorActionPerformed
@@ -323,7 +340,28 @@ public class EditarDatos extends javax.swing.JFrame {
     
     // boton Guardar
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-
+        
+        // datos de perro
+        String color = txtcolor.getText();
+        String nombre = txtnombre.getText();
+        String observacion = txtobservacion.getText();
+        String raza = txtraza.getText();
+        String alergico = (String)cmbalergico.getSelectedItem();
+        String atencion = (String)cmbatenciones.getSelectedItem();
+        
+        //datos de dueño
+        String nombreDuenio = txtnombredueno.getText();
+        String celDuenio = txtceldueno.getText();
+        
+        control.modificarMascota(mascota, color, nombre, observacion, raza,alergico,atencion, nombreDuenio, celDuenio);
+        mensajeria("Edicion exitosa", "Info", "Edicion Exitosa");
+        
+        
+        VerDatos pantalla = new VerDatos();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+        
+        this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
@@ -389,4 +427,33 @@ public class EditarDatos extends javax.swing.JFrame {
     private javax.swing.JTextArea txtobservacion;
     private javax.swing.JTextField txtraza;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos(int numCliente) {
+        
+        Mascota mascota = control.traerMascota(numCliente);
+        
+        txtcolor.setText(mascota.getColor());
+        txtceldueno.setText(mascota.getDuenio().getCelDuenio());
+        txtnombre.setText(mascota.getNombre());
+        txtnombredueno.setText(mascota.getDuenio().getNombre());
+        txtobservacion.setText(mascota.getObservacion());
+        txtraza.setText(mascota.getRaza());
+        
+        if(mascota.getAlergico().equalsIgnoreCase("SI")){
+            cmbalergico.setSelectedIndex(1);
+        }else{
+            if (mascota.getAlergico().equalsIgnoreCase("NO")) {
+                cmbalergico.setSelectedIndex(2);
+            }
+        }
+        
+        if (mascota.getAtencionEspecial().equalsIgnoreCase("SI")) {
+            cmbatenciones.setSelectedIndex(1);
+        }else{
+            if(mascota.getAtencionEspecial().equalsIgnoreCase("NO")){
+                cmbatenciones.setSelectedIndex(2);
+            }
+        }
+        
+    }
 }

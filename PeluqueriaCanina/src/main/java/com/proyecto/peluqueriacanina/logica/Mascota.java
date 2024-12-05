@@ -37,7 +37,7 @@ public class Mascota {
         this.alergico = alergico;
         this.atencionEspecial = atencionEspecial;
         this.observacion = observacion;
-        this.duenio = duenio;
+        this.duenio = new Duenio();
     }
 
     

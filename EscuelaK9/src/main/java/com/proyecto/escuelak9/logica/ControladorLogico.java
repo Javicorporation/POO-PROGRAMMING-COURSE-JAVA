@@ -11,7 +11,7 @@ public class ControladorLogico {
     public ControlPersistencia controlPersistencia = new ControlPersistencia();
 
     public void Save(String namePet, String race, String color, 
-            String allery, String special, String nameowner, 
+            String allery, String special, String age, String nameowner, 
             String address, String telf) {
         
         // creamos un objeto de cada entidad pet y Owner
@@ -28,6 +28,7 @@ public class ControladorLogico {
         pet.setColor(color);
         pet.setAllery(allery);
         pet.setSpecialTreatment(special);
+        pet.setAge(age);
         // guardamos el owner en el pet
         pet.setOwner(owner);
         
@@ -79,6 +80,39 @@ public class ControladorLogico {
 
     public void borrar(int id) {
         controlPersistencia.eliminar(id);
+    }
+
+    public Pet traerPetAEdit(int idPet) {
+         return  controlPersistencia.traerPetaEdit(idPet);
+    }
+
+    public void savechanges(Pet pet, String namePet, String race, String color, 
+                            String allery, String special, String age, 
+                            String nameOwner, String address, String telf) {
+        
+        pet.setNamePet(namePet);
+        pet.setRace(race);
+        pet.setColor(color);
+        pet.setAllery(allery);
+        pet.setSpecialTreatment(special);
+        pet.setAge(age);
+        
+        controlPersistencia.modificarPet(pet);
+        
+        Owner owner = this.buscarOwner(pet.getOwner().getIdOwner());
+        owner.setNameOwner(nameOwner);
+        owner.setAddress(address);
+        owner.setTelf(telf);
+        
+        this.modificarOwner(owner);
+    }
+
+    private Owner buscarOwner(int idOwner) {
+        return controlPersistencia.buscarOwner(idOwner);
+    }
+
+    private void modificarOwner(Owner owner) {
+        controlPersistencia.modificarOwner(owner);
     }
 
     

@@ -298,7 +298,7 @@ public class NewRegister extends javax.swing.JFrame {
     // control del boton guardar
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         controladorLogico.Save(txtname.getText(), txtrace.getText(), 
-                txtcolor.getText(),(String) cbxallery.getSelectedItem(), (String) cbxspecial.getSelectedItem(),
+                txtcolor.getText(),(String) cbxallery.getSelectedItem(), (String) cbxspecial.getSelectedItem(),txtage.getText(),
                 txtnameowner.getText(), txtaddress.getText(), txttelf.getText());
     }//GEN-LAST:event_btnguardarActionPerformed
 

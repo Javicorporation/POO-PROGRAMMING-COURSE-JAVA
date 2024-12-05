@@ -307,7 +307,8 @@ public class EditRegister extends javax.swing.JFrame {
 //        controladorLogico.savechangesOwner(txtNameOwner.getText(), txtAddress.getText(), txtTelf.getText());
         
         controladorLogico.savechanges(pet, txtNamePet.getText(), txtRace.getText(), 
-                txtColor.getText(),(String) cbxAllery.getSelectedItem(), (String) cbxSpecialTrea.getSelectedItem(),txtAge.getText(), txtNameOwner.getText(), txtAddress.getText(), txtTelf.getText());
+                txtColor.getText(),(String) cbxAllery.getSelectedItem(), (String) cbxSpecialTrea.getSelectedItem(),
+                txtAge.getText(), txtNameOwner.getText(), txtAddress.getText(), txtTelf.getText());
         
         controladorLogico.mensajeFlotante("Edicion exitosa...", "Info", "Edicion");
         

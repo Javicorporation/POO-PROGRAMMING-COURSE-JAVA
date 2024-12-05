@@ -174,6 +174,10 @@ public class ViewData extends javax.swing.JFrame {
                 EditRegister editRegister = new EditRegister(id);
                 editRegister.setVisible(true);
                 editRegister.setLocationRelativeTo(null);
+                
+                this.dispose();
+            }else{
+                controladorLogico.mensajeFlotante("No a seleccionado ningun registro","warning" , "Advertencia");
             }
             
         }
@@ -212,11 +216,9 @@ public class ViewData extends javax.swing.JFrame {
         
         // recorremos la lista y lo presentamos en la tabla
         if(ListPet != null){
-            for(Pet pet: ListPet){
-                
+            for(Pet pet: ListPet){ 
             Object[] object = {pet.getId(), pet.getNamePet(), pet.getRace(), pet.getColor(), pet.getAllery(), pet.getSpecialTreatment(),pet.getAge(), 
                                 pet.getOwner().getNameOwner(), pet.getOwner().getAddress(), pet.getOwner().getTelf()};
-            
             tablaDeRegistros.addRow(object);
             }
             

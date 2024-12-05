@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 
 public class OwnerJpaController implements Serializable {
     
+    //------------
     private static final Logger logger = LoggerFactory.getLogger(OwnerJpaController.class);
     //------------
     private EntityManagerFactory emf = null;
@@ -109,7 +110,7 @@ public class OwnerJpaController implements Serializable {
     
     //------------ metodo buscar Owner por Id
     public Owner find(int id){
-        EntityManager em = null;
+        EntityManager em = getEntityManager();
         try {
             return em.find(Owner.class, id);
         } finally{
@@ -127,15 +128,14 @@ public class OwnerJpaController implements Serializable {
     
     //------------ metodo para obtener Owners con parametros
     public List<Owner> findEntities(int maxRes, int firstRes){
-        return findEntities(maxRes, firstRes);
+        return findEntities(false, maxRes, firstRes);
     }
-    
-    
     
     
     //------------ metodo interno para ejecutar las consultas.
     private List<Owner> findEntities(boolean all, int maxRes, int firstRe){
         EntityManager em = null;
+        em = getEntityManager();
         try {
             CriteriaQuery<Owner> cq = em.getCriteriaBuilder().createQuery(Owner.class);
             cq.select(cq.from(Owner.class));
@@ -151,12 +151,5 @@ public class OwnerJpaController implements Serializable {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
     
 }

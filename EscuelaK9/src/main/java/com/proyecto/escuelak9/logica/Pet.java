@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Pet {
@@ -15,12 +17,13 @@ public class Pet {
     private String namePet;
     private String race;
     private String color;
-    private boolean allery;
-    private boolean specialTreatment;
-    private int age;
+    private String allery;
+    private String specialTreatment;
+    private String age;
+    @OneToOne
     private Owner owner; 
 
-    public Pet(int id, String namePet, String race, String color, boolean allery, boolean specialTreatment, int age, Owner owner) {
+    public Pet(int id, String namePet, String race, String color, String allery, String specialTreatment, String age, Owner owner) {
         this.id = id;
         this.namePet = namePet;
         this.race = race;
@@ -30,6 +33,17 @@ public class Pet {
         this.age = age;
         this.owner = owner;
     }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    
+
 
     public Pet() {
     }
@@ -66,29 +80,25 @@ public class Pet {
         this.color = color;
     }
 
-    public boolean isAllery() {
+    public String getAllery() {
         return allery;
     }
 
-    public void setAllery(boolean allery) {
+    public void setAllery(String allery) {
         this.allery = allery;
     }
 
-    public boolean isSpecialTreatment() {
+    public String getSpecialTreatment() {
         return specialTreatment;
     }
 
-    public void setSpecialTreatment(boolean specialTreatment) {
+    public void setSpecialTreatment(String specialTreatment) {
         this.specialTreatment = specialTreatment;
     }
 
-    public int getAge() {
-        return age;
-    }
+    
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    
 
     public Owner getOwner() {
         return owner;
@@ -98,10 +108,11 @@ public class Pet {
         this.owner = owner;
     }
 
-    @Override
-    public String toString() {
-        return "Pet{" + "id=" + id + ", namePet=" + namePet + ", race=" + race + ", color=" + color + ", allery=" + allery + ", specialTreatment=" + specialTreatment + ", age=" + age + ", owner=" + owner + '}';
-    }
+    
+    
+    
+
+    
     
     
     

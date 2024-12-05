@@ -41,12 +41,15 @@ public class Controlador {
             String observacion, String raza, String alergico, String atencion, 
             String nombreDuenio, String celDuenio) {
         
-        mascota.setColor(color);
-        mascota.setNombre(nombre);
-        mascota.setObservacion(observacion);
-        mascota.setRaza(raza);
-        mascota.setAlergico(alergico);
-        mascota.setAtencionEspecial(atencion);
+        if (mascota != null) {
+            mascota.setColor(color);
+            mascota.setNombre(nombre);
+            mascota.setObservacion(observacion);
+            mascota.setRaza(raza);
+            mascota.setAlergico(alergico);
+            mascota.setAtencionEspecial(atencion);
+        }
+        
         
         // cremos un metodo para modificar la mascota
         controladorPersistencia.modificarMascota(mascota);
@@ -59,7 +62,7 @@ public class Controlador {
         this.modificarDuenio(duenio);
     }
 
-    // metodo para modificar dueño 
+    // metodo para modificar dueño  
     private Duenio buscarDuenio(int id) {
         return controladorPersistencia.traerDuenio(id);
     }
@@ -68,11 +71,4 @@ public class Controlador {
         controladorPersistencia.modificarDuenio(duenio);
     }
 
-    
-
-   
-
-   
-    
-    
 }

@@ -35,7 +35,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -94,10 +94,10 @@ public class VerDatos extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Editar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -108,7 +108,7 @@ public class VerDatos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
+                    .addComponent(btnEditar)
                     .addComponent(btnEliminar))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -118,7 +118,7 @@ public class VerDatos extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnEditar)
                 .addContainerGap(212, Short.MAX_VALUE))
         );
 
@@ -169,9 +169,22 @@ public class VerDatos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if(tabla01.getRowCount() > 0){
+            if(tabla01.getSelectedRow() != -1){
+                int numCliente = Integer.parseInt(String.valueOf(tabla01.getValueAt(tabla01.getSelectedRow(), 0)));
+                
+                EditarDatos pantallaEditarDatos = new EditarDatos(numCliente);
+                pantallaEditarDatos.setVisible(true);
+                pantallaEditarDatos.setLocationRelativeTo(null);
+                this.dispose();
+            }else{
+                mensajeria("No seleccionaste ninguna fila.", "error", "Advertencia");
+            }
+        }else{
+            mensajeria("No seleccionaste ninguna fila.", "error", "Advertencia");                       
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         cargarTabla();
@@ -252,8 +265,8 @@ public class VerDatos extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -263,7 +276,7 @@ public class VerDatos extends javax.swing.JFrame {
     private javax.swing.JTable tabla01;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarTabla() {
+    public void cargarTabla() {
         // definir el modelo que queremos que genere de la tabla
         DefaultTableModel tabla = new DefaultTableModel(){
             // definir que las filas y columnas no sean editables

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
 
 public class CarreraJpaController implements Serializable {
     
@@ -104,8 +106,31 @@ public class CarreraJpaController implements Serializable {
     }
 
     
-    public List<Carrera> findAllCarrera() {
-        
+    public List<Carrera> findAllCarreras() {
+        return findAllCarrera(true, -1,0);
     }
+
+    
+    // se tiene que crear este metodo antes de crear el metodo traer todo
+    private List<Carrera> findAllCarrera(boolean all, int maxRest, int firstRest) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery<Carrera> cq = em.getCriteriaBuilder().createQuery(Carrera.class);
+            cq.select(cq.from(Carrera.class));
+            Query q = em.createQuery(cq);
+            
+            if (!all) {
+                q.setMaxResults(maxRest);
+                q.setFirstResult(firstRest);
+            }
+            return q.getResultList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
+    
     
 }
