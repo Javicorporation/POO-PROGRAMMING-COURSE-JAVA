@@ -1,7 +1,10 @@
 package com.proyecto.login.igu;
 
+import com.proyecto.login.logica.ControlLogica;
+
 public class PantallaLogin extends javax.swing.JFrame {
 
+    ControlLogica controlLogica = new ControlLogica();
     public PantallaLogin() {
         initComponents();
     }
@@ -42,6 +45,11 @@ public class PantallaLogin extends javax.swing.JFrame {
         jSeparator2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         btnLoginn.setText("Login");
+        btnLoginn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginnActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +149,12 @@ public class PantallaLogin extends javax.swing.JFrame {
         txtPassword.setText("");
         txtArea.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnLoginnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginnActionPerformed
+        String usuario = txtUserName.getText();
+        String pass = txtPassword.getText();
+        String mensaje = controlLogica.validarUsuario(usuario,pass);
+    }//GEN-LAST:event_btnLoginnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
