@@ -4,9 +4,11 @@ import com.proyecto.login.logica.Usuario;
 import java.util.List;
 
 public class ControlPersistencia {
+    
+    UsuarioJpaController usuarioJpa = new UsuarioJpaController();
 
-    public static List<Usuario> traerUsuarioos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Usuario> traerUsuarios() {
+        return usuarioJpa.findEntities();
     }
     
 }

@@ -4,9 +4,10 @@ import com.proyecto.login.logica.ControlLogica;
 
 public class PantallaLogin extends javax.swing.JFrame {
 
-    ControlLogica controlLogica = new ControlLogica();
+    ControlLogica controlLogica;
     public PantallaLogin() {
         initComponents();
+        this.controlLogica = new ControlLogica();
     }
 
     @SuppressWarnings("unchecked")
@@ -154,6 +155,8 @@ public class PantallaLogin extends javax.swing.JFrame {
         String usuario = txtUserName.getText();
         String pass = txtPassword.getText();
         String mensaje = controlLogica.validarUsuario(usuario,pass);
+        
+        txtArea.setText(mensaje);
     }//GEN-LAST:event_btnLoginnActionPerformed
 
 
