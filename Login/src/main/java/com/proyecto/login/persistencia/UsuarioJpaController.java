@@ -34,7 +34,7 @@ public class UsuarioJpaController implements Serializable {
     }
     //------------
     public UsuarioJpaController(){
-        this.emf = Persistence.createEntityManagerFactory("EscuelaK9");
+        this.emf = Persistence.createEntityManagerFactory("bdlogin");
     }
     
     //------------ metodo create
