@@ -5,7 +5,13 @@ import java.util.List;
 
 public class ControlLogica {
     
-    ControlPersistencia controlPersistencia = new ControlPersistencia();
+    ControlPersistencia controlPersistencia;
+
+    public ControlLogica() {
+        this.controlPersistencia = new ControlPersistencia();
+    }
+    
+    
 
     public String validarUsuario(String usuario, String pass) {
         
