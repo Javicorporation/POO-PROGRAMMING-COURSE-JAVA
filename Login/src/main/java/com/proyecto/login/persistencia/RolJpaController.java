@@ -1,7 +1,5 @@
 package com.proyecto.login.persistencia;
-
 import com.proyecto.login.logica.Rol;
-import com.proyecto.login.logica.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -14,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class RolJpaController implements Serializable {
-    
     //------------
     private static final Logger logger = (Logger) LoggerFactory.getLogger(UsuarioJpaController.class);
     
@@ -141,5 +138,4 @@ public class RolJpaController implements Serializable {
             }
         }
     }
-    
 }
