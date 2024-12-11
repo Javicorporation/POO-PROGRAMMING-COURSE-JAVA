@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -18,6 +19,7 @@ public class Usuario implements Serializable {
     private String userName;
     private String pass;
     @OneToOne
+    @JoinColumn(name = "id")
     private Rol unRol;
 
     public Usuario(int id, String userName, String pass, Rol unRol) {
