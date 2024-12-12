@@ -39,5 +39,9 @@ public class ControlLogica {
         }
         return ok;
     }
+
+    public String validarRol(String usuario) {
+        return "j";
+    }
     
 }

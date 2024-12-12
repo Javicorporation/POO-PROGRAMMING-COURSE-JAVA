@@ -1,9 +1,16 @@
 package com.proyecto.login.igu;
 
+import com.proyecto.login.logica.ControlLogica;
+
 public class IndexAdmin extends javax.swing.JFrame {
 
+    ControlLogica controlLogica;
     public IndexAdmin() {
         initComponents();
+    }
+
+    IndexAdmin(ControlLogica controlLogica) {
+        this.controlLogica = controlLogica;
     }
 
     @SuppressWarnings("unchecked")

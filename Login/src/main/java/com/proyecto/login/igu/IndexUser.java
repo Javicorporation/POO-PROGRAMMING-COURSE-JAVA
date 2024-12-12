@@ -1,9 +1,18 @@
 package com.proyecto.login.igu;
 
+import com.proyecto.login.logica.ControlLogica;
+
 public class IndexUser extends javax.swing.JFrame {
 
+    
+    ControlLogica controlLogica;
+    
     public IndexUser() {
         initComponents();
+    }
+
+    IndexUser(ControlLogica controlLogica) {
+        this.controlLogica = controlLogica;
     }
 
     @SuppressWarnings("unchecked")

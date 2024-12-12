@@ -5,6 +5,7 @@ import com.proyecto.login.logica.ControlLogica;
 public class PantallaLogin extends javax.swing.JFrame {
 
     ControlLogica controlLogica;
+    
     public PantallaLogin() {
         initComponents();
         this.controlLogica = new ControlLogica();
@@ -163,6 +164,17 @@ public class PantallaLogin extends javax.swing.JFrame {
         boolean ok = controlLogica.validarUsuario(usuario,pass);
         if ( ok == true) {
             String rol = controlLogica.validarRol(usuario);
+            if (rol.equals("admin")) {
+                IndexAdmin indexAdmin = new IndexAdmin(controlLogica);
+                indexAdmin.setVisible(true);
+                indexAdmin.setLocationRelativeTo(null);
+            }
+            if (rol.equals("user")) {
+                IndexUser indexUser = new IndexUser(controlLogica);
+                indexUser.setVisible(true);
+                indexUser.setLocationRelativeTo(null);
+                
+            }
         }else{
             txtArea.setText("Usuario o contraseña incorrecta");
         }
