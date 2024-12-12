@@ -22,7 +22,7 @@ public class PantallaLogin extends javax.swing.JFrame {
         txtUserName = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        btnLoginn = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
@@ -45,10 +45,10 @@ public class PantallaLogin extends javax.swing.JFrame {
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        btnLoginn.setText("Login");
-        btnLoginn.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginnActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class PantallaLogin extends javax.swing.JFrame {
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
-                                .addComponent(btnLoginn)
+                                .addComponent(btnLogin)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnLimpiar)
                                 .addGap(55, 55, 55))
@@ -128,7 +128,7 @@ public class PantallaLogin extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLoginn)
+                    .addComponent(btnLogin)
                     .addComponent(btnLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,13 +157,16 @@ public class PantallaLogin extends javax.swing.JFrame {
         txtArea.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnLoginnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginnActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String usuario = txtUserName.getText();
         String pass = txtPassword.getText();
-        String mensaje = controlLogica.validarUsuario(usuario,pass);
-        
-        txtArea.setText(mensaje);
-    }//GEN-LAST:event_btnLoginnActionPerformed
+        boolean ok = controlLogica.validarUsuario(usuario,pass);
+        if ( ok == true) {
+            String rol = controlLogica.validarRol(usuario);
+        }else{
+            txtArea.setText("Usuario o contraseña incorrecta");
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
@@ -172,7 +175,7 @@ public class PantallaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnLoginn;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

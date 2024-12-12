@@ -13,27 +13,31 @@ public class ControlLogica {
     
     
 
-    public String validarUsuario(String pass, String usuario) {
+    public boolean validarUsuario(String pass, String usuario) {
         
-        String mensaje = "";
+        //String mensaje = "";
+        boolean ok = false;
         
         List<Usuario> listaUsuario = controlPersistencia.traerUsuarios();
         
         for(Usuario user : listaUsuario){
             if (user.getUserName().equals(usuario)) {
                if (user.getPass().equals(pass)) {
-                   mensaje= "usuario y contraseña correcto, hola";
-                   return mensaje;
+                   //mensaje= "usuario y contraseña correcto, hola";
+                   ok = true;
+                   return ok;
                }else{
-                   mensaje= "contraseña incorrecta";
-                   return mensaje;
+                   //mensaje= "contraseña incorrecta";
+                   ok = false;
+                   return ok;
                }
            }else{
-               mensaje= "usuario incorrecto";
-               return mensaje;
+               //mensaje= "usuario incorrecto";
+               ok = false;
+               return ok;
            }
         }
-        return mensaje;
+        return ok;
     }
     
 }
