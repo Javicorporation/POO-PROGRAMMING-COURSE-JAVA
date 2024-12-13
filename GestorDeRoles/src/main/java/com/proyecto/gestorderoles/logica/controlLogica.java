@@ -14,15 +14,13 @@ public class controlLogica {
 
     public String validarUsuario(String userName, String pass) {
         
-        String mensje = "";
+        String mensje = "usuario o contraseña incorrecta";
         List<User> listaUsuarios = controlPersitencia.traerUser();
         
         for(User user: listaUsuarios){
             if (user.getUserName().equals(userName) && user.getPass().equals(pass)) {
                 mensje = "Bienvenido...";
-                
-            }else{
-                mensje = "usuario o contraseña incorrecta";
+                break; 
             }
         
         }

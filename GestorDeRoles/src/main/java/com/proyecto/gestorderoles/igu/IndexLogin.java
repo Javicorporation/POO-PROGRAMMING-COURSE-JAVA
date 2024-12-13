@@ -19,13 +19,13 @@ public class IndexLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtPass = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtMensaje = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        txtPass = new javax.swing.JPasswordField();
 
         jTextField1.setText("jTextField1");
 
@@ -158,7 +158,7 @@ public class IndexLogin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea txtMensaje;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
