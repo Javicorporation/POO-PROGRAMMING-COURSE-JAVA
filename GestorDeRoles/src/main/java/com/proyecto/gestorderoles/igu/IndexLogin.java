@@ -1,13 +1,14 @@
 package com.proyecto.gestorderoles.igu;
 
-import com.proyecto.gestorderoles.logica.controlLogica;
+import com.proyecto.gestorderoles.logica.ControlLogica;
+import com.proyecto.gestorderoles.logica.User;
 
 public class IndexLogin extends javax.swing.JFrame {
 
-    controlLogica controlLogica;
+    ControlLogica controlLogica;
     public IndexLogin() {
         initComponents();
-        this.controlLogica = new controlLogica();
+        this.controlLogica = new ControlLogica();
     }
 
     @SuppressWarnings("unchecked")
@@ -137,8 +138,30 @@ public class IndexLogin extends javax.swing.JFrame {
         String userName = txtUserName.getText();
         String pass = txtPass.getText();
         
-        String mensaje = controlLogica.validarUsuario(userName, pass);
-        txtMensaje.setText(mensaje);
+        User user = controlLogica.validarUsuario(userName, pass);
+        
+        
+        if (user != null) {
+            // obtenemos el nombre del rol que tenga un usuario
+            String rol = user.getRol().getNombreRol();
+            
+            if (rol.equals("administrador")) {
+                IndexAdmin indexAdmin = new IndexAdmin(controlLogica, user);
+                indexAdmin.setVisible(true);
+                indexAdmin.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            if (rol.equals("user")) {
+                IndexUser indexUser = new IndexUser(controlLogica, user);
+                indexUser.setVisible(true);
+                indexUser.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            
+        }else{
+            txtMensaje.setText("usaario o contraseña incorrecto");
+        }
+        //txtMensaje.setText(mensaje);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
