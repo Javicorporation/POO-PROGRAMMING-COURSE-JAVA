@@ -1,5 +1,6 @@
 package com.proyecto.gestorderoles.persistencia;
 
+import com.proyecto.gestorderoles.logica.Rol;
 import com.proyecto.gestorderoles.logica.User;
 import java.util.List;
 import javax.persistence.EntityManager;
