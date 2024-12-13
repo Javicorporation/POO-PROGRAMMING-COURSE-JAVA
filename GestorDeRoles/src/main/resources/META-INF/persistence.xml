@@ -3,6 +3,7 @@
   <persistence-unit name="gestorRoles" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.proyecto.gestorderoles.logica.User</class>
+    <class>com.proyecto.gestorderoles.logica.Rol</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestorRol?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
