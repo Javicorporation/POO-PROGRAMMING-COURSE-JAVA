@@ -1,6 +1,7 @@
 package com.proyecto.gestorderoles.persistencia;
 
-import com.proyecto.gestorderoles.logica.User;
+import com.proyecto.gestorderoles.logica.Rol;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,16 +12,16 @@ import javax.persistence.criteria.CriteriaQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UserJpaController {
+public class RolJpaController implements Serializable {
     
     //------------
-    private static final Logger logger = LoggerFactory.getLogger(UserJpaController.class);
+    private static final Logger logger = LoggerFactory.getLogger(RolJpaController.class);
     //------------
     private EntityManagerFactory emf = null;
 
     
     //------------
-    public UserJpaController(EntityManagerFactory emf) {
+    public RolJpaController(EntityManagerFactory emf) {
         if(emf == null){
             throw new IllegalArgumentException("El EntityManagerFactory no puede ser nulo.");
         }
@@ -33,13 +34,13 @@ public class UserJpaController {
     }
 
     //------------
-    public UserJpaController() {
+    public RolJpaController() {
         this.emf = Persistence.createEntityManagerFactory("gestorRoles");
     }
     
     //------------ metodo create
-    public void create(User user){
-        if (user == null) {
+    public void create(Rol rol){
+        if (rol == null) {
             throw new IllegalArgumentException("El objeto Owner no puede ser nulo.");
         }
         
@@ -48,7 +49,7 @@ public class UserJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(user);
+            em.persist(rol);
             em.getTransaction().commit();
             
         } catch (Exception e) {
@@ -69,11 +70,11 @@ public class UserJpaController {
             em = getEntityManager();
             em.getTransaction().begin();
             
-            User user = em.find(User.class, id);
-            if (user == null) {
+            Rol rol = em.find(Rol.class, id);
+            if (rol == null) {
                 throw new EntityNotFoundException("El Owner con el id "+id+" no existe.");
             }
-            em.remove(user);
+            em.remove(rol);
             em.getTransaction().commit();
         } catch (EntityNotFoundException e) {
             logger.error("Error al eliminar el Owner: {}", e.getMessage(), e);
@@ -86,8 +87,8 @@ public class UserJpaController {
     }
     
     //------------ metodo actualizar
-    public void edit(User user){
-        if (user == null) {
+    public void edit(Rol rol){
+        if (rol == null) {
             throw new IllegalArgumentException("El objeto Owner no puede ser nulo.");        
         }
         EntityManager em = null;
@@ -95,7 +96,7 @@ public class UserJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.merge(user);
+            em.merge(rol);
             em.getTransaction().commit();
         } catch (Exception e) {
             logger.error("Error al actualizar el Owner: {}", e.getMessage(), e);
@@ -108,10 +109,10 @@ public class UserJpaController {
     }
     
     //------------ metodo buscar Owner por Id
-    public User find(int id){
+    public Rol find(int id){
         EntityManager em = getEntityManager();
         try {
-            return em.find(User.class, id);
+            return em.find(Rol.class, id);
         } finally{
             if (em != null) {
                 em.close();
@@ -120,25 +121,25 @@ public class UserJpaController {
     }
     
     //------------ metodo para obtener Owners sin parametros
-    public List<User> findEntities(){
+    public List<Rol> findEntities(){
         return findEntities(true, -1, -1);
     }
     
     
     //------------ metodo para obtener Owners con parametros
-    public List<User> findEntities(int maxRes, int firstRes){
+    public List<Rol> findEntities(int maxRes, int firstRes){
         return findEntities(false, maxRes, firstRes);
     }
     
     
     //------------ metodo interno para ejecutar las consultas.
-    private List<User> findEntities(boolean all, int maxRes, int firstRe){
+    private List<Rol> findEntities(boolean all, int maxRes, int firstRe){
         EntityManager em = null;
         em = getEntityManager();
         try {
-            CriteriaQuery<User> cq = em.getCriteriaBuilder().createQuery(User.class);
-            cq.select(cq.from(User.class));
-            TypedQuery<User> query = em.createQuery(cq);
+            CriteriaQuery<Rol> cq = em.getCriteriaBuilder().createQuery(Rol.class);
+            cq.select(cq.from(Rol.class));
+            TypedQuery<Rol> query = em.createQuery(cq);
             if(!all){
                 query.setMaxResults(maxRes);
                 query.setFirstResult(firstRe);

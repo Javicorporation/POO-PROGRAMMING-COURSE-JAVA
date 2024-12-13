@@ -1,24 +1,40 @@
 package com.proyecto.gestorderoles.logica;
 
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Rol {
+public class Rol implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nombreRol;
     private String descripcion;
+    @OneToMany
+    private List<User> listaDeUser;
 
-    public Rol(int id, String nombreRol, String descripcion) {
+    public Rol(int id, String nombreRol, String descripcion, List<User> listaDeUser) {
         this.id = id;
         this.nombreRol = nombreRol;
         this.descripcion = descripcion;
+        this.listaDeUser = listaDeUser;
     }
+
+    public List<User> getListaDeUser() {
+        return listaDeUser;
+    }
+
+    public void setListaDeUser(List<User> listaDeUser) {
+        this.listaDeUser = listaDeUser;
+    }
+
+    
 
     public Rol() {
     }
@@ -49,8 +65,10 @@ public class Rol {
 
     @Override
     public String toString() {
-        return "Rol{" + "id=" + id + ", nombreRol=" + nombreRol + ", descripcion=" + descripcion + '}';
+        return "Rol{" + "id=" + id + ", nombreRol=" + nombreRol + ", descripcion=" + descripcion + ", listaDeUser=" + listaDeUser + '}';
     }
+
+    
     
     
     

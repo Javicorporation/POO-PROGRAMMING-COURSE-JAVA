@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User implements Serializable {
@@ -14,14 +15,26 @@ public class User implements Serializable {
     private int id;
     private String UserName;
     private String pass;
+    @OneToOne
+    private Rol rol;
 
-    public User(int id, String UserName, String pass) {
+    public User(int id, String UserName, String pass, Rol rol) {
         this.id = id;
         this.UserName = UserName;
         this.pass = pass;
+        this.rol = rol;
     }
 
+
     public User() {
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public int getId() {
@@ -50,8 +63,10 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", UserName=" + UserName + ", pass=" + pass + '}';
+        return "User{" + "id=" + id + ", UserName=" + UserName + ", pass=" + pass + ", rol=" + rol + '}';
     }
+
+  
     
     
     
