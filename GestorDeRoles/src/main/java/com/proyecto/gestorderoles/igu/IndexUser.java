@@ -2,6 +2,7 @@ package com.proyecto.gestorderoles.igu;
 
 import com.proyecto.gestorderoles.logica.ControlLogica;
 import com.proyecto.gestorderoles.logica.User;
+import javax.swing.table.DefaultTableModel;
 
 public class IndexUser extends javax.swing.JFrame {
     ControlLogica controlLogica;
@@ -136,7 +137,7 @@ public class IndexUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtNombreAdmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAdmiActionPerformed
@@ -145,6 +146,7 @@ public class IndexUser extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.txtNombreAdmi.setText(user.getUserName());
+        cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
    
@@ -160,4 +162,18 @@ public class IndexUser extends javax.swing.JFrame {
     private javax.swing.JTable tablaDeUserInterf;
     private javax.swing.JTextField txtNombreAdmi;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarTabla() {
+        DefaultTableModel modeloDeTabla = new DefaultTableModel(){
+        
+        @Override
+        public boolean isCellEditable(int row, int column){
+            return false;
+        }
+        };
+        
+        String[] titulos = {"id", "nombre","rol"};
+        modeloDeTabla.setColumnIdentifiers(titulos);
+        tablaDeUserInterf.setModel(modeloDeTabla);
+    }
 }
