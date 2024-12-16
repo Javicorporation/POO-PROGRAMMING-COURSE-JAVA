@@ -2,6 +2,8 @@ package com.proyecto.gestorderoles.igu;
 
 import com.proyecto.gestorderoles.logica.ControlLogica;
 import com.proyecto.gestorderoles.logica.User;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class IndexAdmin extends javax.swing.JFrame {
     
@@ -73,6 +75,11 @@ public class IndexAdmin extends javax.swing.JFrame {
 
         btnExitUs.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExitUs.setText("Salir");
+        btnExitUs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitUsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -159,7 +166,13 @@ public class IndexAdmin extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.txtNombreAdmi.setText(user.getUserName());
+        
+        mostrarTablaAdmin();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnExitUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitUsActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnExitUsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -175,4 +188,32 @@ public class IndexAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tablaDeAdminInterf;
     private javax.swing.JTextField txtNombreAdmi;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarTablaAdmin() {
+        DefaultTableModel tablaModel = new DefaultTableModel(){
+        
+        @Override
+        public boolean isCellEditable(int row, int column){
+            return false;
+        }
+        };
+        
+        
+        String[] titulos = {"Id", "Nombre", "Rol"};
+        tablaModel.setColumnIdentifiers(titulos);
+        
+        List<User> listaUsuarios = controlLogica.traerUsers();
+        
+        if (listaUsuarios != null) {
+            for(User user: listaUsuarios){
+                Object[] object = {user.getId(), user.getUserName(), user.getRol().getNombreRol()};
+                
+                tablaModel.addRow(object);
+            } 
+        }
+        
+        tablaDeAdminInterf.setModel(tablaModel);
+        
+    
+    }
 }
