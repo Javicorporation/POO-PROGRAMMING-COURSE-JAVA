@@ -36,5 +36,43 @@ public class ControlLogica {
     public List<User> traerUsers() {
        return controlPersitencia.traerUser();
     }
+
+  
+
+    public List<Rol> obtenerRol() {
+        return controlPersitencia.obtenerRol();
+    }
+
+    public void crearUser(String userName, String password, String rolName) {
+        User user = new User();
+        user.setUserName(userName);
+        user.setPass(password);
+        
+        // buscar el rol en la base de datos
+        
+        // creamos un rol
+        Rol rolAObtener = new Rol();
+        //a ese rol le asignamos el rol que debuelve el metodo
+        rolAObtener = this.traerRol(rolName);
+        // si rol es diferente de null se asigna el rol, si no se queda nulo
+        if (rolAObtener != null) {
+            user.setRol(rolAObtener);
+        }
+        
+        
+        
+        
+    }
+
+    private Rol traerRol(String rolName) {
+        List<Rol> listaRoles = controlPersitencia.traerRoles();
+        
+        for(Rol rol : listaRoles){
+            if (rol.getNombreRol().equals(rolName)) {
+                return rol;
+            }
+        }
+        return null;
+    }
     
 }
