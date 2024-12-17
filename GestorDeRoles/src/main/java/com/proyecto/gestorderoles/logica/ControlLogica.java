@@ -2,6 +2,8 @@ package com.proyecto.gestorderoles.logica;
 
 import com.proyecto.gestorderoles.persistencia.ControlPersitencia;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class ControlLogica {
     
@@ -15,7 +17,6 @@ public class ControlLogica {
     
 
     public User validarUsuario(String userName, String pass) {
-        
         //boolean ok = false;
         //String mensje = "usuario o contraseña incorrecta";
         User ucer = null;
@@ -27,11 +28,11 @@ public class ControlLogica {
                 ucer = user;
                 break; 
             }
-        
         }
         return ucer;
-        
     }
+    
+    
 
     public List<User> traerUsers() {
        return controlPersitencia.traerUser();
@@ -43,6 +44,8 @@ public class ControlLogica {
         return controlPersitencia.obtenerRol();
     }
 
+    
+    
     public void crearUser(String userName, String password, String rolName) {
         User user = new User();
         user.setUserName(userName);
@@ -58,11 +61,11 @@ public class ControlLogica {
         if (rolAObtener != null) {
             user.setRol(rolAObtener);
         }
-        
-        
-        
-        
+        controlPersitencia.crearUsuario(user);
+        mostrarMensaje("Guardado exitoso", "ok", "Guardado");
     }
+    
+    
 
     private Rol traerRol(String rolName) {
         List<Rol> listaRoles = controlPersitencia.traerRoles();
@@ -73,6 +76,25 @@ public class ControlLogica {
             }
         }
         return null;
+    }
+
+    public void borraUser(int id) {
+        controlPersitencia.borrarUser(id);
+    }
+
+    public void mostrarMensaje(String mensaje, String estado, String title) {
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (estado.equals("ok")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }else if (estado.equals("warning")){
+            optionPane.setMessageType(JOptionPane.WARNING_MESSAGE);
+        }else if (estado.equals("error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(title);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+            
     }
     
 }
