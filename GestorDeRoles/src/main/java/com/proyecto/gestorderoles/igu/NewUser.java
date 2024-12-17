@@ -6,10 +6,12 @@ import java.util.List;
 
 public class NewUser extends javax.swing.JFrame {
 
-    ControlLogica controlLogica;
-    public NewUser() {
+    ControlLogica controlLogico;
+    
+    
+    public NewUser(ControlLogica controlLogica) {
         initComponents();
-        this.controlLogica = new ControlLogica();
+        this.controlLogico = controlLogica;
     }
 
     @SuppressWarnings("unchecked")
@@ -138,9 +140,14 @@ public class NewUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        controlLogica.crearUser(txtUserName.getSelectedText(), 
-                                    txtPassWord.getSelectedText(),
+        controlLogico.crearUser(txtUserName.getText(), 
+                                    txtPassWord.getText(),
                                     (String)cmbRol.getSelectedItem());
+        
+//        this.dispose();
+//        IndexAdmin indexAdmin = new IndexAdmin();
+//        indexAdmin.setVisible(true);
+//        indexAdmin.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -150,14 +157,16 @@ public class NewUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCleanActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        List<Rol> roles = controlLogica.obtenerRol();
+        
+        // creamos una lista que obtiene todos los roles 
+        // por medio del metodo obtenerRol
+        List<Rol> roles = controlLogico.obtenerRol();
+        
         if (roles != null) {
            for(Rol rol : roles){
                cmbRol.addItem(rol.getNombreRol());
-            
            } 
         }
-        
     }//GEN-LAST:event_formWindowOpened
 
 

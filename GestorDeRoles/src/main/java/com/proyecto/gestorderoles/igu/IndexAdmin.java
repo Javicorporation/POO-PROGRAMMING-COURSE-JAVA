@@ -14,7 +14,10 @@ public class IndexAdmin extends javax.swing.JFrame {
         initComponents();
         this.controlLogica = new ControlLogica();
         this.user = new User();
-        
+    }
+    
+    public IndexAdmin() {
+        initComponents();        
     }
 
     @SuppressWarnings("unchecked")
@@ -180,9 +183,10 @@ public class IndexAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitUsActionPerformed
 
     private void btnCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUserActionPerformed
-        NewUser newUser = new NewUser();
+        NewUser newUser = new NewUser(controlLogica);
         newUser.setVisible(true);
         newUser.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnCrearUserActionPerformed
 
 
