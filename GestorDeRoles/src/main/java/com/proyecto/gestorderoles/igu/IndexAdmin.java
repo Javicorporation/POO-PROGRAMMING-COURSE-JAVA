@@ -169,7 +169,33 @@ public class IndexAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteUserActionPerformed
-        // TODO add your handling code here:
+        
+        // validar que la tabla tenga elemantos
+        if(tablaDeAdminInterf.getRowCount() != 0){
+            if(tablaDeAdminInterf.getSelectedRow() != -1){
+                //obtener el id de la fila seleccionada
+                
+                            // convertimos el String a entero
+                int id = Integer.parseInt(
+                        // convertimos el objeto a String
+                        String.valueOf(
+                                // obtenemos el objeto
+                                tablaDeAdminInterf.getValueAt(
+                                        tablaDeAdminInterf.getSelectedRow(), 0)));
+                
+                // lamamos al metodo borra user
+                controlLogica.borraUser(id);
+                
+                // mostrar mensaje
+                controlLogica.mostrarMensaje("Eliminado Correctamente", "ok", "Eliminacion");
+                
+                
+                // cargar tabla
+                mostrarTablaAdmin();
+                
+                
+            }
+        }
     }//GEN-LAST:event_btnDeleteUserActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
