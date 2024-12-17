@@ -1,6 +1,7 @@
 package com.proyecto.login.igu;
 
 import com.proyecto.login.logica.ControlLogica;
+import com.proyecto.login.logica.Usuario;
 
 public class PantallaLogin extends javax.swing.JFrame {
 
@@ -161,18 +162,27 @@ public class PantallaLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String usuario = txtUserName.getText();
         String pass = txtPassword.getText();
-        boolean ok = controlLogica.validarUsuario(usuario,pass);
-        if ( ok == true) {
-            String rol = controlLogica.validarRol(usuario);
-            if (rol.equals("admin")) {
+        
+        // obtenemos un user del cual vamos obtener su rol
+        Usuario usr = controlLogica.validarUsuario(usuario,pass);
+        
+        
+        
+        if ( usr !=null) {
+            // obtenemos el rol
+            String rol = usr.getIdRol().getNombreRol();
+            //dependiendo del rol abrimos una ventana correspondiente
+            if (rol.equals("administrador")) {
                 IndexAdmin indexAdmin = new IndexAdmin(controlLogica);
                 indexAdmin.setVisible(true);
                 indexAdmin.setLocationRelativeTo(null);
+                this.dispose();
             }
             if (rol.equals("user")) {
                 IndexUser indexUser = new IndexUser(controlLogica);
                 indexUser.setVisible(true);
                 indexUser.setLocationRelativeTo(null);
+                this.dispose();
                 
             }
         }else{

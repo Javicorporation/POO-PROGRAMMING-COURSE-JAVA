@@ -58,6 +58,11 @@ public class IndexAdmin extends javax.swing.JFrame {
 
         btnCrearUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCrearUser.setText("Crear Usuario");
+        btnCrearUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUserActionPerformed(evt);
+            }
+        });
 
         btnEditUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditUser.setText("Editar Usuario");
@@ -173,6 +178,12 @@ public class IndexAdmin extends javax.swing.JFrame {
     private void btnExitUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitUsActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnExitUsActionPerformed
+
+    private void btnCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUserActionPerformed
+        NewUser newUser = new NewUser();
+        newUser.setVisible(true);
+        newUser.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnCrearUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

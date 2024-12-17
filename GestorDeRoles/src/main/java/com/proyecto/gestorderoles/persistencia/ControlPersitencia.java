@@ -1,5 +1,6 @@
 package com.proyecto.gestorderoles.persistencia;
 
+import com.proyecto.gestorderoles.logica.Rol;
 import com.proyecto.gestorderoles.logica.User;
 import java.util.List;
 
@@ -15,6 +16,18 @@ public class ControlPersitencia {
 
     public List<User> traerUser() {
         return userJpa.findEntities();
+    }
+
+    public List<Rol> obtenerRol() {
+        return rolJpa.findEntities();
+    }
+
+    public List<Rol> traerRoles() {
+        return rolJpa.findEntities();
+    }
+
+    public void crearUsuario(User user) {
+        userJpa.create(user);
     }
     
 }

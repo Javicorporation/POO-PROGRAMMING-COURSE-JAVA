@@ -138,7 +138,9 @@ public class NewUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        controlLogica.guaradarUser(txtUserName, txtPassWord,cmbRol);
+        controlLogica.crearUser(txtUserName.getSelectedText(), 
+                                    txtPassWord.getSelectedText(),
+                                    (String)cmbRol.getSelectedItem());
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -149,6 +151,13 @@ public class NewUser extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         List<Rol> roles = controlLogica.obtenerRol();
+        if (roles != null) {
+           for(Rol rol : roles){
+               cmbRol.addItem(rol.getNombreRol());
+            
+           } 
+        }
+        
     }//GEN-LAST:event_formWindowOpened
 
 

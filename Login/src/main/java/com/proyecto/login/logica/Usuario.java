@@ -19,14 +19,14 @@ public class Usuario implements Serializable {
     private String userName;
     private String pass;
     @OneToOne
-    @JoinColumn(name = "id")
-    private Rol unRol;
+    //@JoinColumn(name = "idRol")
+    private Rol idRol;
 
     public Usuario(int id, String userName, String pass, Rol unRol) {
         this.id = id;
         this.userName = userName;
         this.pass = pass;
-        this.unRol = unRol;
+        this.idRol = unRol;
     }
 
     
@@ -58,21 +58,16 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
-    public Rol getUnRol() {
-        return unRol;
+    public Rol getIdRol() {
+        return idRol;
     }
 
-    public void setUnRol(Rol unRol) {
-        this.unRol = unRol;
+    public void setIdRol(Rol idRol) {
+        this.idRol = idRol;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", userName=" + userName + ", pass=" + pass + ", unRol=" + unRol + '}';
+        return "Usuario{" + "id=" + id + ", userName=" + userName + ", pass=" + pass + ", idRol=" + idRol + '}';
     }
-
-    
-    
-    
-    
 }
