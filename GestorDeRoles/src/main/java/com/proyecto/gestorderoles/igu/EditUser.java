@@ -1,7 +1,9 @@
 package com.proyecto.gestorderoles.igu;
 
 import com.proyecto.gestorderoles.logica.ControlLogica;
+import com.proyecto.gestorderoles.logica.Rol;
 import com.proyecto.gestorderoles.logica.User;
+import java.util.List;
 
 public class EditUser extends javax.swing.JFrame {
 
@@ -158,8 +160,17 @@ public class EditUser extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         User user = controlLogica.traerUser(id);
+        //cargando datos en la interfaz
         txtUserName.setText(user.getUserName());
         txtPassWord.setText(user.getPass());
+        
+        // cragamos los roles de forma generica
+        List<Rol> listaRoles = controlLogica.obtenerRol();
+        if(listaRoles != null){
+            for(Rol rol: listaRoles){
+                cmbRol.addItem(rol.getNombreRol());
+            }
+        }
         
         String rol = user.getRol().getNombreRol();
         

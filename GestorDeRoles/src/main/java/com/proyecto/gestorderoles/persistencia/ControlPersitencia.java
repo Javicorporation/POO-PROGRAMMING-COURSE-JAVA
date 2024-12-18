@@ -14,7 +14,7 @@ public class ControlPersitencia {
     }
     
 
-    public List<User> traerUser() {
+    public List<User> traerUsers() {
         return userJpa.findEntities();
     }
 
@@ -28,6 +28,19 @@ public class ControlPersitencia {
 
     public void crearUsuario(User user) {
         userJpa.create(user);
+    }
+
+    public void borrarUser(int id) {
+        try {
+            userJpa.destroy(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    public User traerUser(int id) {
+        return userJpa.find(id);
     }
     
 }
