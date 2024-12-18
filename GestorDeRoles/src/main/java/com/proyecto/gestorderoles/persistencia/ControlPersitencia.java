@@ -42,5 +42,13 @@ public class ControlPersitencia {
     public User traerUser(int id) {
         return userJpa.find(id);
     }
+
+    public void editarUser(User user) {
+        try {
+            userJpa.edit(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
 }

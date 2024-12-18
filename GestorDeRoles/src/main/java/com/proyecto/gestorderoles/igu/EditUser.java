@@ -9,6 +9,8 @@ public class EditUser extends javax.swing.JFrame {
 
     ControlLogica controlLogica;
     int id;
+    User user;
+    
     public EditUser(int idUser, ControlLogica controlLogico) {
         initComponents();
         this.controlLogica = controlLogico;
@@ -148,7 +150,7 @@ public class EditUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCleanActionPerformed
 
     private void btnSaveChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangeActionPerformed
-        controlLogica.crearUser(txtUserName.getText(),
+        controlLogica.editUser(user,txtUserName.getText(),
             txtPassWord.getText(),
             (String)cmbRol.getSelectedItem());
 
@@ -159,7 +161,7 @@ public class EditUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveChangeActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        User user = controlLogica.traerUser(id);
+        user = controlLogica.traerUser(id);
         //cargando datos en la interfaz
         txtUserName.setText(user.getUserName());
         txtPassWord.setText(user.getPass());
