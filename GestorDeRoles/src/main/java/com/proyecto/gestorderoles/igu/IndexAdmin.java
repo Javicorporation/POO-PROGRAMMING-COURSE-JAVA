@@ -29,11 +29,11 @@ public class IndexAdmin extends javax.swing.JFrame {
         tablaDeAdminInterf = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnCrearUser = new javax.swing.JButton();
         btnEditUser = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
         btnRecarTablaAdmi = new javax.swing.JButton();
         btnExitUs = new javax.swing.JButton();
+        btnCreateUsers = new javax.swing.JButton();
         txtNombreAdmi = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,16 +59,13 @@ public class IndexAdmin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Sistema administrador de usuariosss");
 
-        btnCrearUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCrearUser.setText("Crear Usuario");
-        btnCrearUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearUserActionPerformed(evt);
-            }
-        });
-
         btnEditUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditUser.setText("Editar Usuario");
+        btnEditUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditUserActionPerformed(evt);
+            }
+        });
 
         btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDeleteUser.setText("Eliminar Usuario");
@@ -89,25 +86,36 @@ public class IndexAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnCreateUsers.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCreateUsers.setText("Create User");
+        btnCreateUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateUsersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDeleteUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRecarTablaAdmi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExitUs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEditUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCrearUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDeleteUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRecarTablaAdmi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExitUs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEditUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnCreateUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCrearUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCreateUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEditUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -191,10 +199,14 @@ public class IndexAdmin extends javax.swing.JFrame {
                 
                 
                 // cargar tabla
-                mostrarTablaAdmin();
-                
-                
+                mostrarTablaAdmin(); 
+            }else{
+                // mostrar mensaje
+                controlLogica.mostrarMensaje("No selecciono ningun registro", "warning", "no seleccionado");
             }
+        }else{
+            // mostrar mensaje
+            controlLogica.mostrarMensaje("Tabla Vacia", "error", "Sin Registros");
         }
     }//GEN-LAST:event_btnDeleteUserActionPerformed
 
@@ -208,16 +220,36 @@ public class IndexAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnExitUsActionPerformed
 
-    private void btnCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUserActionPerformed
+    private void btnEditUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditUserActionPerformed
+        
+        if (tablaDeAdminInterf.getRowCount() == 0) {
+            if (tablaDeAdminInterf.getSelectedRow() != -1) {
+                int idUser = Integer.parseInt(
+                        String.valueOf(
+                                tablaDeAdminInterf.getValueAt(
+                                        tablaDeAdminInterf.getSelectedRow(), 0)));
+                EditUser editUser = new EditUser(idUser, controlLogica);
+                editUser.setVisible(true);
+                editUser.setLocationRelativeTo(null);
+            }else{
+                // mostrar mensaje
+                controlLogica.mostrarMensaje("No selecciono ningun registro", "warning", "no seleccionado");
+            }
+        }else{
+            // mostrar mensaje
+            controlLogica.mostrarMensaje("Tabla Vacia", "error", "Sin Registros");
+    }//GEN-LAST:event_btnEditUserActionPerformed
+
+    private void btnCreateUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUsersActionPerformed
         NewUser newUser = new NewUser(controlLogica);
         newUser.setVisible(true);
         newUser.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnCrearUserActionPerformed
+    }//GEN-LAST:event_btnCreateUsersActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearUser;
+    public javax.swing.JButton btnCreateUsers;
     private javax.swing.JButton btnDeleteUser;
     private javax.swing.JButton btnEditUser;
     private javax.swing.JButton btnExitUs;
