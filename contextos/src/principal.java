@@ -1,6 +1,8 @@
 // una clase es estructura de codigo que esta conformado por metodos y atributos
 public class principal {
 
+    public String name;
+    public boolean address;
     //los tipos de modificadores de acceso
     private String nombre;
 

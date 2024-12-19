@@ -1,14 +1,42 @@
+import java.security.Principal;
+import java.util.Random;
+
 public class Pin {
 
-    // una funcion de este estilo puede ser ejecutado
+//    final String name = "sdfg";
+//
+//
+//    // bloque de codigo
+//    {
+//        address = "holaaa";
+//    }
+//
+//    String address ="";
+//    public static void main(String[] args) {
+//        principal p = new principal() ;
+//        //p.name = "ssssssss";
+//        System.out.println(p.address);
+//
+//    }
+    {
+        System.out.println("Step 1");
+    }
+    static {
+        System.out.println("Step 2");
+    }
     public static void main(String[] args) {
-        System.out.println("Values: "+args[0]+ args[1]);
-
+        new Pin();
     }
 
-    private static void Example(){}
-}
-
-class Test{
+    public void mostrar() {
+        {
+            int x = 10;
+            System.out.println("Valor de x: " + x);
+        }
+        {
+            int y = 20;
+            System.out.println("Valor de y: " + y);
+        }
+    }
 
 }
