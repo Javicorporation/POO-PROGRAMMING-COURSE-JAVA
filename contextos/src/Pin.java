@@ -18,25 +18,26 @@ public class Pin {
 //        System.out.println(p.address);
 //
 //    }
-    {
-        System.out.println("Step 1");
-    }
-    static {
-        System.out.println("Step 2");
-    }
+//    {
+//        System.out.println("Step 1");
+//    }
+
+//    public static void main(String[] args) {
+//       String str = null;
+//        System.out.println(str);
+//    }
+
+
     public static void main(String[] args) {
-        new Pin();
+        int n = 21;
+
+        Integer i = 0;
+
+        i.compareTo(2);
+        System.out.println(i);
+
     }
 
-    public void mostrar() {
-        {
-            int x = 10;
-            System.out.println("Valor de x: " + x);
-        }
-        {
-            int y = 20;
-            System.out.println("Valor de y: " + y);
-        }
-    }
+
 
 }
