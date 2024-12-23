@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Inicio {
 
@@ -22,8 +23,28 @@ public class Inicio {
 //    }
 
     public static void main(String[] args) {
-        Funcionales f = new Funcionales();
-        f.pruebas();
+//        Funcionales f = new Funcionales();
+//        f.pruebas();
+
+        ArrayList<String> lista = new ArrayList<>();
+
+        lista.add("juana");
+        lista.add("mia");
+        lista.add("lucia");
+        lista.add("carla");
+
+        // usando Stream
+        //lista.stream().forEach(x -> System.out.println(x));
+
+        Stream<String> valores = lista.stream().map(x -> x.toUpperCase());
+
+        valores.forEach(x -> System.out.println(x)
+        );
+
+        // usando un foreach bormal
+//        for (String x : lista) {
+//            System.out.println(x);
+//        }
     }
 
 

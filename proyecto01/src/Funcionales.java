@@ -19,6 +19,14 @@ public class Funcionales {
     public void pruebas(){
         toMayus.apply("juanin");
         valInt.apply(5);
+        saludar(toMayus,"hola");
+
+    }
+
+    // esta es una funcion normal que acepta como parametro otra funcion y
+    // esta acepta un atributo de tipo string
+    public void saludar(Function<String, String> miFuncion, String nombre){
+        miFuncion.apply(nombre);
 
     }
 
