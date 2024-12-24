@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -28,18 +29,31 @@ public class Inicio {
 
         ArrayList<String> lista = new ArrayList<>();
 
-        lista.add("juana");
+        lista.add("Luana");
         lista.add("mia");
-        lista.add("lucia");
+        lista.add("Lucia");
         lista.add("carla");
 
         // usando Stream
         //lista.stream().forEach(x -> System.out.println(x));
 
-        Stream<String> valores = lista.stream().map(x -> x.toUpperCase());
+        Stream<String> valores = lista.stream()
+                .map(x -> x.toUpperCase())
+                .filter(x -> x.startsWith("L"));
 
-        valores.forEach(x -> System.out.println(x)
-        );
+        valores.forEach(x -> System.out.println(x));
+
+        // lo unico malo es que eco la funcion map el string se consume y no puede acceder de nuevo
+
+        int []numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        var stNumeros = Arrays.stream(numeros);
+        var resultado = stNumeros.filter(x -> x % 2 == 0).reduce(0, (x, y) -> {
+            System.out.println("sdfghjk");
+            return x + y;
+        });
+        //resultado.forEach(System.out::println);
+        System.out.println(resultado);
+
 
         // usando un foreach bormal
 //        for (String x : lista) {
