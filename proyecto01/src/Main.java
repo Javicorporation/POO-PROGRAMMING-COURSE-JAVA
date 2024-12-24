@@ -1,9 +1,33 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println(suma(5));
-        System.out.println(sumaRecursiva(5));
+        //System.out.println(suma(5));
+        //System.out.println(sumaRecursiva(5));
+        //tailRecursion(5);
+        headRecursion(5);
 
     }
+
+
+    // recursividad de cola
+    public static void tailRecursion(int valor) {
+        if (valor == 0) {
+            return;
+        }
+        //System.out.println(valor);
+        tailRecursion(valor - 1);
+    }
+
+    // recursividad de cabeza
+    public static void headRecursion(int valor) {
+        if (valor == 0) {
+            return;
+        }
+        headRecursion(valor - 1);
+        System.out.println(valor);
+    }
+
+
+
 
 
     // de la forma normal
