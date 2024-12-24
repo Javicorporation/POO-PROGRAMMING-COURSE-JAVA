@@ -23,7 +23,7 @@ public class Inicio {
 //
 //    }
 
-    public static void main(String[] args) {
+    public static void dd() {
 //        Funcionales f = new Funcionales();
 //        f.pruebas();
 
