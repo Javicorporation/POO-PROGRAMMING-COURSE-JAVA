@@ -2,10 +2,7 @@ package com.usar.pruebaRest.controller;
 
 import com.usar.pruebaRest.models.Bootcamper;
 import com.usar.pruebaRest.services.BootcamperService;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +23,7 @@ public class JerseyController {
         this.bootcamperService.add(new Bootcamper("paz", Math.random()));
     }
 
+    // obtenemos los usuarios
     @GET
     @Path("/bootcampers")
     @Produces("application/json")
@@ -33,12 +31,19 @@ public class JerseyController {
         return bootcamperService.getAll();
     }
 
+
+    // creamos un usuario
     @POST
-    @Path("/bootcamper")
+    @Path("/bootcampers")
+    // formato en que se envia
+    @Produces("application/json")
+    // formato en que se recibe
+    @Consumes("application/json")
+
     public Response meterBootcamper(Bootcamper bootcamper){
         bootcamperService.add(bootcamper);
         return Response.created(
-                URI.create("/BOOTCAMPERS/"+ bootcamper.getNombre())
+                URI.create("/bootcampers/"+ bootcamper.getNombre())
         ).build();
     }
 
