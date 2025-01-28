@@ -3,12 +3,14 @@ package com.usar.pruebaRest.models;
 public class Bootcamper {
 
     private String nombre;
+    private double valor;
 
     public Bootcamper() {
     }
 
-    public Bootcamper(String nombre) {
+    public Bootcamper(String nombre, double valor) {
         this.nombre = nombre;
+        this.valor = valor;
     }
 
     public String getNombre() {
