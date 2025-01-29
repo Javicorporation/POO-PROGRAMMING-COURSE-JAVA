@@ -31,6 +31,14 @@ public class JerseyController {
         return bootcamperService.getAll();
     }
 
+    @GET
+    @Path("/bootcampers/{nombre}")
+    @Produces("application/json")
+    public Bootcamper listarUno(@PathParam("nombre") String nombre){
+        return bootcamperService.get(nombre);
+
+    }
+
 
     // creamos un usuario
     @POST

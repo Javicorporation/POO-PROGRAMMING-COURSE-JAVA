@@ -18,4 +18,13 @@ public class BootcamperService {
     public void add(Bootcamper bootcamper){
         bootcampers.add(bootcamper);
     }
+
+    public Bootcamper get(String nombre){
+        for(Bootcamper bootcamper : bootcampers){
+            if(bootcamper.getNombre().equalsIgnoreCase(nombre)){
+                return bootcamper;
+            }
+        }
+        return null;
+    }
 }
