@@ -47,12 +47,9 @@ public class JerseyController {
     @Produces("application/json")
     // formato en que se recibe
     @Consumes("application/json")
-
     public Response meterBootcamper(Bootcamper bootcamper){
         bootcamperService.add(bootcamper);
-        return Response.created(
-                URI.create("/bootcampers/"+ bootcamper.getNombre())
-        ).build();
+        return Response.created(URI.create("/bootcampers/"+ bootcamper.getNombre())).build();
     }
 
     //    @GET
