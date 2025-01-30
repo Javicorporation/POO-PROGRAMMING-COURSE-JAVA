@@ -1,6 +1,7 @@
 package singleton;
 
 import factory.PrecioFactory;
+import factory.PrecioGBP;
 
 public class Index {
     public static void main(String[] args) {
@@ -34,6 +35,12 @@ public class Index {
 
         PrecioFactory precio2 = new PrecioFactory("usa");
         System.out.println(precio2.precio.getPrecio());
+
+        PrecioFactory precio3 = new PrecioFactory("uk");
+        System.out.println(precio3.precio.getPrecio());
+
+        PrecioGBP precioGBP = new PrecioGBP();
+        System.out.println(precioGBP.getPrecio());
 
 
     }
