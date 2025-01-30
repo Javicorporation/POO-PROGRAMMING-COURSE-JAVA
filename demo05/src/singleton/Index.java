@@ -1,5 +1,7 @@
 package singleton;
 
+import factory.PrecioFactory;
+
 public class Index {
     public static void main(String[] args) {
 
@@ -20,12 +22,19 @@ public class Index {
 
 
 
-        Aplicacion app = Aplicacion.getInstance();
-        Aplicacion app2 = Aplicacion.getInstance();
-        app.Run();
-        app2.Run();
+        //Aplicacion app = Aplicacion.getInstance();
+       // Aplicacion app2 = Aplicacion.getInstance();
+        //app.Run();
+        //app2.Run();
 
-        System.out.println(app +" ------- "+app2);
+        //System.out.println(app +" ------- "+app2);
+
+        PrecioFactory precio = new PrecioFactory("españa");
+        System.out.println(precio.precio.getPrecio());
+
+        PrecioFactory precio2 = new PrecioFactory("usa");
+        System.out.println(precio2.precio.getPrecio());
+
 
     }
 }
