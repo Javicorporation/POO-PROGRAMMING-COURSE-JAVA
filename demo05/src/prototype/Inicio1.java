@@ -9,8 +9,14 @@ public class Inicio1 {
 
         System.out.println(auto.marca+"  "+auto.modelo+"  "+auto.puerta);
 
-        Auto clonado = auto.clonarAuto();
-        clonado.puerta = 4;
-        System.out.println(clonado.marca+"  "+clonado.modelo+"  "+clonado.puerta);
+
+        try {
+            Auto clonado = auto.clonar();
+            clonado.puerta = 4;
+            System.out.println(clonado.marca+"  "+clonado.modelo+"  "+clonado.puerta);
+        }catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
     }
 }
