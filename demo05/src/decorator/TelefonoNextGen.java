@@ -10,5 +10,7 @@ public class TelefonoNextGen extends TelefonoDecorator{
     @Override
     public void crear(){
         super.crear();
+        System.out.println("  ---> tengo 5G");
+        System.out.println("  ---> tengo VolTE");
     }
 }
