@@ -2,7 +2,11 @@ package mediator;
 
 abstract public class Colega {
 
-    Mediator mediator;
+    public Mediator mediator;
+
+    public Colega() {
+        System.out.println("soy el constructor de la clase padre");
+    }
 
     public void setMediator(Mediator mediator) {
         this.mediator = mediator;
