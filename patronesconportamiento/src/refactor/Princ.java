@@ -5,10 +5,29 @@ import java.util.Arrays;
 
 public class Princ {
     public static void main(String[] args) {
-        int []numeros = {222,45,65,43,16,11};
+//        int []numeros = {222,45,65,43,16,11};
+//        inprimeMayorYMenor3(numeros);
 
-        inprimeMayorYMenor3(numeros);
+        //ConstructorLargo constructorLargo = new ConstructorLargo();
+        ConstructorLargoBuilder cosa = new ConstructorLargoBuilder("fghjkl")
+                .conModelo("bmw")
+                .conMotor("fgh")
+                .conPuertas(5);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // codigo normal
     private static void inprimeMayorYMenor(int[] numeros) {
@@ -59,5 +78,19 @@ public class Princ {
         int menor = Arrays.stream(numeros).reduce(numeros[0], (a,b) -> a < b ? a :b);
 
         System.out.println("mayor: " + mayor+"\nmenor: " + menor);
+    }
+
+
+
+    public static int ifanidado(){
+        int valor1 = 10;
+        int valor2 = 10;
+
+        if (valor1 > valor2 ) {
+            return valor1;
+        }//else {
+            //return valor2;
+        //}
+        return valor2;
     }
 }
