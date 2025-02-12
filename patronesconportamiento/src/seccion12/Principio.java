@@ -1,5 +1,7 @@
 package seccion12;
 
+import java.util.Hashtable;
+
 public class Principio {
     public static void main(String[] args) {
 
@@ -15,7 +17,14 @@ class  UserManager{
 
     private int contador = 0;
     private void CrearUser(){
-        int []numeros = new int[10];
+        int []aNumeros = new int[10];
+        boolean bEsDeDia = false;
+        char cLetra = 'a';
+        double dValor = 0.0;
+        Hashtable<String, Integer> hUsuarios = new Hashtable<>();
+
+        int iValores = 5;
+        long iValoresLong = 5;
 
     }
 
