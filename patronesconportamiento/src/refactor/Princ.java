@@ -1,24 +1,53 @@
 package refactor;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.Vector;
 
 public class Princ {
     public static void main(String[] args) {
 
+        Vector<Integer> vector = new Vector(4096);
 
     }
 
 
-    public boolean esWindowsJavaEnJava(){
-        if (System.getProperty("java.runtime.mane").contains("Oracle")
-                && System.getProperty("os.version").compareTo("11.6")==0) {
-
-        }
-    }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public boolean esWindowsJavaEnJava(){
+//        if (System.getProperty("java.runtime.mane").contains("Oracle")
+//                && System.getProperty("os.version").compareTo("11.6")==0) {
+//
+//        }
+//    }
 
 //        int []numeros = {222,45,65,43,16,11};
 //        inprimeMayorYMenor3(numeros);
