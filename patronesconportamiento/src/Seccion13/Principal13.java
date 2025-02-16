@@ -3,11 +3,24 @@ package Seccion13;
 import java.util.Arrays;
 
 public class Principal13 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UserException {
 
         Usuarios usuarios = new Usuarios();
 
-        usuarios.anadirUsuario("juan","paez", 21, true);
+        Usuario usuario = new Usuario();
+
+        usuario.nombre="Juanin";
+        usuario.apellido = "Paes";
+        usuario.edad = 23;
+
+        usuarios.anadirUsuario(usuario);
+
+        try {
+            usuarios.anadirUsuario(usuario);
+            usuarios.anadirUsuario(usuario);
+        }catch (UserException e){
+            System.out.println("Error al añador Usuario "+e.getMessage());
+        }
 
 
 

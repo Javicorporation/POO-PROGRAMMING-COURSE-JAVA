@@ -7,7 +7,5 @@ public class Usuario {
     public String apellido;
     public int edad;
 
-    public boolean puedeConducir;
-
 
 }

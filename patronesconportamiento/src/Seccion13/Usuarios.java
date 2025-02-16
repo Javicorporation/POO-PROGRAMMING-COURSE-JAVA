@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Usuarios {
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
-    public void anadirUsuario(Usuario usuario) {
+    public void anadirUsuario(Usuario usuario) throws UserException {
 
-
+        if (usuarios.contains(usuario)) {
+            throw new UserException(usuario.nombre);
+        }
         usuarios.add(usuario);
 
 
     }
 
-    public void anadirUsuario(String juan, String paez, int i, boolean b) {
-    }
 }
