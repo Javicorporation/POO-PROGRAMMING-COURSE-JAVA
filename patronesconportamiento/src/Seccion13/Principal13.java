@@ -8,11 +8,14 @@ public class Principal13 {
         //boolean mayor = 4 > 2 ? true:false;
         //a();
 
-        int []iNumeros = {1,2,7,97,4,72,43};
-        int resultado = sumarNumeros(iNumeros);
-        System.out.println(resultado);
+//        int []iNumeros = {1,2,7,97,4,72,43};
+//        int resultado = sumarNumeros(iNumeros);
+//        System.out.println(resultado);
+        int resultadox = sumaInfinita(2,5,3,4,7,4,4);
+        System.out.println(" -- resultado = " + resultadox);
     }
 
+    //funcion monoada
     public static int sumarNumeros(int[] numeros) {
 //        int resultado = 0;
 //
@@ -23,6 +26,40 @@ public class Principal13 {
 
         int resultado = Arrays.stream(numeros).reduce(0, (a,b) -> a+b);
         return resultado;
+    }
+
+    // funcion biadica
+    public static int sumar2Valores(int valorA, int valorB) {
+        return valorA + valorB;
+    }
+
+
+    // funcion triadica
+    public static int sumar3Valores(int valorA, int valorB, int valorC) {
+        return valorA + valorB + valorC;
+    }
+
+
+    // funcion poliadica
+    public static int sumarNValores(int valorA, int valorB, int valorC, int valorD) {
+        return valorA + valorB + valorC;
+    }
+
+
+
+    public static int sumaInfinita(int ...numeros){
+
+        int resultado = 0;
+        for (int numero : numeros){
+            resultado += numero;
+        }
+        return resultado;
+    }
+
+
+    //funcion
+    public static boolean esLaborable(int dia){
+        return true;
     }
 
 //    public static void a(){
