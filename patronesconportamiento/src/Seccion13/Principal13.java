@@ -5,14 +5,25 @@ import java.util.Arrays;
 public class Principal13 {
     public static void main(String[] args) {
 
-        //boolean mayor = 4 > 2 ? true:false;
-        //a();
+        Usuarios usuarios = new Usuarios();
 
-//        int []iNumeros = {1,2,7,97,4,72,43};
-//        int resultado = sumarNumeros(iNumeros);
-//        System.out.println(resultado);
-        int resultadox = sumaInfinita(2,5,3,4,7,4,4);
-        System.out.println(" -- resultado = " + resultadox);
+        usuarios.anadirUsuario("juan","paez", 21, true);
+
+
+
+
+
+
+
+
+//        //boolean mayor = 4 > 2 ? true:false;
+//        //a();
+//
+////        int []iNumeros = {1,2,7,97,4,72,43};
+////        int resultado = sumarNumeros(iNumeros);
+////        System.out.println(resultado);
+//        int resultadox = sumaInfinita(2,5,3,4,7,4,4);
+//        System.out.println(" -- resultado = " + resultadox);
     }
 
     //funcion monoada
